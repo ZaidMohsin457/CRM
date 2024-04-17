@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from Project import models
+from Project import graphs
 
 # Create your views here.
 def index(request):
@@ -8,6 +10,9 @@ def login(request):
 def signup(request):
     return render(request,'sign-up-page.html')
 def dashboard(request):
+    models.create_table()
+    models.insert_data()
+    graphs.bar_char()
     return render(request,'dashboard.html')
 def employee(request):
     return render(request,'employees.html')
@@ -35,4 +40,3 @@ def project_details(request):
     return render(request,'project-details.html')
 def leads_pipeline(request):
     return render(request,'leads-pipeline.html')
-
