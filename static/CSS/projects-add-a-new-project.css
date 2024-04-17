@@ -1,0 +1,193 @@
+.add-a-new3 {
+  width: 1050px;
+  position: relative;
+  font-size: var(--font-size-37xl);
+  line-height: 110%;
+  font-weight: 800;
+  color: var(--color-gray-200);
+  display: inline-block;
+  height: 72px;
+  flex-shrink: 0;
+  z-index: 0;
+}
+.please-fill-out1 {
+  font-size: var(--font-size-5xl);
+  font-weight: 100;
+  z-index: 1;
+}
+.enter-name-of,
+.please-fill-out1,
+.project-name10 {
+  position: relative;
+  line-height: 110%;
+}
+.project-name10 {
+  font-weight: 600;
+  z-index: 2;
+}
+.enter-name-of {
+  font-weight: 100;
+}
+.add-a-new-project {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-smi) var(--padding-8xl);
+  z-index: 3;
+  font-size: var(--font-size-xl);
+}
+.client-name10 {
+  position: relative;
+  line-height: 110%;
+  font-weight: 600;
+  z-index: 4;
+}
+.add-a-new-project1 {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-smi) var(--padding-8xl);
+  z-index: 5;
+  font-size: var(--font-size-xl);
+}
+.due-date10 {
+  position: relative;
+  line-height: 110%;
+  font-weight: 600;
+  z-index: 6;
+}
+.icon-ionicons-outline-ca {
+  width: 24px;
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.add-a-new-project2 {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-8xl);
+  gap: 458px;
+  z-index: 7;
+  font-size: var(--font-size-xl);
+}
+.assigned-to10 {
+  position: relative;
+  line-height: 110%;
+  font-weight: 600;
+  z-index: 8;
+}
+.add-a-new-project3 {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-8xl);
+  gap: 428px;
+  z-index: 9;
+  font-size: var(--font-size-xl);
+}
+.enter-tasks-to,
+.set-tasks {
+  position: relative;
+  line-height: 110%;
+}
+.set-tasks {
+  font-weight: 600;
+  z-index: 10;
+}
+.enter-tasks-to {
+  flex: 1;
+  font-weight: 100;
+}
+.add-a-new-project4 {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-8xl);
+  z-index: 11;
+  font-size: var(--font-size-xl);
+}
+.create-a-new {
+  position: relative;
+  line-height: 110%;
+  font-weight: 800;
+}
+.create-a-new-project-wrapper {
+  margin: 0 !important;
+  position: absolute;
+  top: 767px;
+  left: 376px;
+  border-radius: var(--br-xl);
+  background-color: var(--color-mediumslateblue);
+  border: 1px solid var(--color-black);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--padding-mini) var(--padding-11xl);
+  z-index: 12;
+  font-size: var(--font-size-5xl);
+  color: var(--color-base-white);
+}
+.add-a-new-project-parent {
+  position: absolute;
+  top: 71px;
+  left: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-mid);
+}
+.icon-ionicons-outline-cl1 {
+  position: absolute;
+  top: 76px;
+  left: 1140px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.projects-add-a-new-project {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-base-white);
+  height: 977px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--body-m);
+}

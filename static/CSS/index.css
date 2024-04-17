@@ -1,0 +1,227 @@
+.crm-website,
+.john-m-s,
+.project-name11 {
+  position: relative;
+  line-height: 110%;
+  font-family: var(--body-m);
+  text-align: left;
+}
+.john-m-s {
+  width: 658px;
+  font-size: var(--font-size-37xl);
+  font-weight: 800;
+  color: var(--color-gray-200);
+  display: inline-block;
+  height: 72px;
+  flex-shrink: 0;
+}
+.crm-website,
+.project-name11 {
+  font-size: var(--font-size-13xl);
+  font-weight: 600;
+  color: var(--color-black);
+}
+.crm-website {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+}
+.add-a-new-project5 {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-smi) var(--padding-8xl);
+}
+.icon-ionicons-outline-ca2 {
+  width: 24px;
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.add-a-new-project7 {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-8xl);
+  gap: 485px;
+}
+.officer-icon {
+  width: 24px;
+  position: relative;
+  height: 24px;
+  object-fit: cover;
+}
+.william-s {
+  position: relative;
+  font-size: var(--body-m-size);
+  line-height: 110%;
+  font-family: var(--body-m);
+  color: var(--color-black);
+  text-align: left;
+}
+.add-a-new-project8,
+.columns {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.columns {
+  border-radius: var(--br-3xs);
+  background-color: var(--color-paleturquoise);
+  border-bottom: 1px solid var(--color-gray-400);
+  height: 48px;
+  justify-content: center;
+  padding: var(--padding-5xs);
+  gap: var(--gap-5xs);
+}
+.add-a-new-project8 {
+  width: 658px;
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  overflow: hidden;
+  justify-content: flex-start;
+  padding: var(--padding-xs) var(--padding-8xl);
+  gap: 474px;
+}
+.wireframes-mockups-prototypi {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-xl);
+  line-height: 110%;
+  font-weight: 500;
+  font-family: var(--body-m);
+  color: var(--color-black);
+  text-align: left;
+}
+.add-a-new-project9,
+.john-m-s-crm-website-parent {
+  width: 658px;
+  display: flex;
+  justify-content: flex-start;
+}
+.add-a-new-project9 {
+  background-color: var(--coolgray-10);
+  border-bottom: 1px solid var(--coolgray-30);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-xs) var(--padding-8xl);
+}
+.john-m-s-crm-website-parent {
+  margin: 0;
+  position: absolute;
+  top: 71px;
+  left: 80px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-mid);
+}
+.overall-progress,
+.tasks-status {
+  position: absolute;
+  top: 160px;
+  left: 834px;
+  line-height: 110%;
+  font-weight: 600;
+}
+.overall-progress {
+  top: 504px;
+  left: 837px;
+}
+.icon-ionicons-outline-cl3 {
+  position: absolute;
+  top: 76px;
+  left: 1140px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.task-status,
+.task-status1,
+.task-status2,
+.task-status3 {
+  margin: 0;
+  position: absolute;
+  top: 202px;
+  left: 810px;
+  width: 254px;
+  height: 48px;
+}
+.task-status1,
+.task-status2,
+.task-status3 {
+  top: 263px;
+}
+.task-status2,
+.task-status3 {
+  top: 324px;
+}
+.task-status3 {
+  top: 385px;
+  width: 260px;
+}
+.subtract-icon1 {
+  position: relative;
+  width: 146px;
+  height: 146px;
+}
+.subtract-icon2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.chart {
+  position: absolute;
+  top: 563px;
+  left: 880px;
+  width: 146px;
+  height: 146px;
+}
+.union-icon {
+  position: relative;
+  width: 35px;
+  height: 34.5px;
+}
+.div12 {
+  position: absolute;
+  top: 607px;
+  left: 871px;
+  font-size: var(--font-size-sm);
+  line-height: 16px;
+  font-weight: 500;
+  font-family: var(--font-krub);
+  text-align: center;
+}
+.projects-view-details {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-base-white);
+  height: 977px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-13xl);
+  color: var(--color-black);
+  font-family: var(--body-m);
+}

@@ -1,0 +1,42 @@
+.employee-added-to {
+  position: absolute;
+  top: 523px;
+  left: 293px;
+  line-height: 110%;
+  font-weight: 800;
+  display: inline-block;
+  width: 678px;
+  height: 72px;
+}
+.icon-ionicons-outline-cl6 {
+  position: absolute;
+  top: 76px;
+  left: 1140px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.icon-ionicons-filled-che1 {
+  position: absolute;
+  height: 11.46%;
+  width: 8.86%;
+  top: 38.89%;
+  right: 45.57%;
+  bottom: 49.64%;
+  left: 45.57%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.employees-employee-added {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-base-white);
+  height: 977px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-37xl);
+  color: var(--color-gray-200);
+  font-family: var(--body-m);
+}

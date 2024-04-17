@@ -1,0 +1,517 @@
+.employee-profile {
+  position: absolute;
+  top: 23px;
+  left: 118px;
+  line-height: 110%;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  width: 536px;
+  height: 72px;
+}
+.employee-profile-parent,
+.icon-ionicons-outline-cl7 {
+  position: absolute;
+  top: 35px;
+  left: 1259px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+}
+.employee-profile-parent {
+  top: 0;
+  left: -15px;
+  border-radius: var(--br-3xs);
+  background-color: #1e2875;
+  border: 1px solid var(--color-base-white);
+  box-sizing: border-box;
+  width: 1467px;
+  height: 196px;
+  text-align: left;
+  font-size: var(--font-size-37xl);
+  color: var(--color-base-white);
+  font-family: var(--body-m);
+}
+.view-photo {
+  position: relative;
+  font-weight: 500;
+}
+.view-photo-wrapper {
+  position: absolute;
+  top: 68px;
+  left: 263px;
+  border-radius: var(--br-81xl);
+  background-color: var(--color-ghostwhite);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px var(--padding-base);
+  font-size: var(--font-size-3xs);
+  color: var(--dark-all-content);
+}
+.name,
+.sid {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  font-weight: 500;
+}
+.sid {
+  top: 42px;
+  color: var(--color-gray-1000);
+}
+.email1 {
+  top: 76px;
+}
+.div24,
+.email1,
+.phone-number,
+.siddxdgrowthxcom {
+  position: absolute;
+  left: 16px;
+  font-weight: 500;
+}
+.siddxdgrowthxcom {
+  top: 100px;
+  color: var(--color-gray-1000);
+}
+.div24,
+.phone-number {
+  top: 134px;
+}
+.div24 {
+  top: 158px;
+  color: var(--color-gray-1000);
+}
+.name-parent {
+  position: absolute;
+  top: 154px;
+  left: 30px;
+  border-radius: var(--br-8xs);
+  box-shadow: var(--thin-shadow-2-2-10);
+  border: 1px solid var(--input-box-stroke-thin);
+  box-sizing: border-box;
+  width: 333px;
+  height: 190px;
+  overflow: hidden;
+  color: var(--color-gray-900);
+}
+.span {
+  color: var(--color-black);
+}
+.sid1 {
+  color: var(--primary-blue);
+}
+.lorem-ipsum-dolor {
+  position: absolute;
+  top: 50px;
+  left: 16px;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.01em;
+  color: var(--inactive-state-color);
+  display: flex;
+  align-items: center;
+  width: 301px;
+}
+.about-sid-parent,
+.legal {
+  font-size: var(--body-m-size);
+}
+.about-sid-parent {
+  position: absolute;
+  top: 360px;
+  left: 30px;
+  border-radius: var(--br-8xs);
+  box-shadow: var(--thin-shadow-2-2-10);
+  border: 1px solid var(--input-box-stroke-thin);
+  box-sizing: border-box;
+  width: 333px;
+  height: 124px;
+  overflow: hidden;
+}
+.legal {
+  top: 18px;
+  left: 16px;
+}
+.kyc-status,
+.legal,
+.verified {
+  position: absolute;
+  font-weight: 500;
+}
+.kyc-status {
+  top: 58px;
+  left: 16px;
+}
+.verified {
+  top: calc(50% - 4px);
+  left: calc(50% - 13px);
+}
+.verified-wrapper {
+  position: absolute;
+  top: 56px;
+  left: 257px;
+  border-radius: 72.66px;
+  background-color: #99fdd2;
+  width: 60px;
+  height: 18px;
+  overflow: hidden;
+  font-size: var(--font-size-5xs-3);
+  color: var(--dark-all-content);
+}
+.kyc-details,
+.view {
+  position: absolute;
+  font-weight: 500;
+}
+.kyc-details {
+  top: 92px;
+  left: 16px;
+}
+.view {
+  top: calc(50% - 4px);
+  left: calc(50% - 8px);
+}
+.legal-parent,
+.view-wrapper {
+  position: absolute;
+  overflow: hidden;
+}
+.view-wrapper {
+  top: 90px;
+  left: 267px;
+  border-radius: 72.66px;
+  background-color: var(--color-ghostwhite);
+  width: 50px;
+  height: 18px;
+  font-size: var(--font-size-5xs-3);
+  color: var(--dark-all-content);
+}
+.legal-parent {
+  top: 500px;
+  left: 30px;
+  border-radius: var(--br-8xs);
+  box-shadow: var(--thin-shadow-2-2-10);
+  border: 1px solid var(--input-box-stroke-thin);
+  box-sizing: border-box;
+  width: 333px;
+  height: 124px;
+}
+.officer-icon12 {
+  position: absolute;
+  top: 30px;
+  left: 31px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.emp-profile {
+  position: absolute;
+  top: 123px;
+  left: calc(50% - 463px);
+  border-radius: var(--br-3xs);
+  background-color: var(--color-base-white);
+  box-shadow: var(--default-shadow-4-6-15);
+  border: 2px solid var(--color-whitesmoke-100);
+  box-sizing: border-box;
+  width: 393px;
+  height: 667px;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-1000);
+  font-family: var(--font-outfit);
+}
+.professional-details {
+  position: absolute;
+  top: 15px;
+  left: 13px;
+  font-weight: 500;
+}
+.bold-duotone-astranomy-sta {
+  position: absolute;
+  top: calc(50% - 27px);
+  left: 214px;
+  width: 54px;
+  height: 54px;
+  overflow: hidden;
+}
+.this-are-the {
+  position: absolute;
+  top: 37px;
+  left: 13px;
+  letter-spacing: 0.01em;
+  color: var(--inactive-state-color);
+  display: flex;
+  align-items: center;
+  width: 171px;
+}
+.professional-details-parent {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  border-radius: var(--br-3xs);
+  box-shadow: var(--thin-shadow-2-2-10);
+  border: 1px solid var(--input-box-stroke-thin);
+  box-sizing: border-box;
+  width: 281px;
+  height: 80px;
+  overflow: hidden;
+}
+.expertise-in,
+.total-experience {
+  position: absolute;
+  top: 122px;
+  left: 16px;
+  font-weight: 500;
+}
+.total-experience {
+  top: 242px;
+}
+.bold-duotone-nature-travel {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  border-radius: 2.67px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.career {
+  position: absolute;
+  top: 6px;
+  left: 31px;
+  letter-spacing: 0.01em;
+}
+.bold-duotone-nature-travel-parent {
+  position: absolute;
+  top: 151px;
+  left: 16px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-base-white);
+  border: 1px solid var(--dividers-and-borders-grey-light);
+  box-sizing: border-box;
+  width: 86px;
+  height: 30px;
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+  color: var(--inactive-state-color);
+}
+.bold-duotone-money-wallet {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.bold-duotone-money-wallet-parent,
+.bold-duotone-text-formatting-group,
+.bold-duotone-text-formatting-parent {
+  position: absolute;
+  top: 151px;
+  left: 112px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-base-white);
+  border: 1px solid var(--dividers-and-borders-grey-light);
+  box-sizing: border-box;
+  width: 84px;
+  height: 30px;
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+  color: var(--inactive-state-color);
+}
+.bold-duotone-text-formatting-group,
+.bold-duotone-text-formatting-parent {
+  top: 194px;
+  left: 102px;
+  width: 94px;
+}
+.bold-duotone-text-formatting-group {
+  left: 16px;
+  width: 76px;
+}
+.frame-icon {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border-radius: 0 var(--br-4xs) var(--br-4xs) 0;
+  width: 53.9px;
+  height: 51px;
+  overflow: hidden;
+}
+.years {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  font-weight: 500;
+}
+.of-total-experience {
+  position: absolute;
+  top: 28px;
+  left: 13px;
+  letter-spacing: 0.01em;
+  color: var(--inactive-state-color);
+  display: flex;
+  align-items: center;
+  width: 171px;
+}
+.frame-parent7 {
+  position: absolute;
+  top: 271px;
+  left: 16px;
+  border-radius: var(--br-3xs);
+  box-shadow: var(--thin-shadow-2-2-10);
+  border: 1px solid var(--input-box-stroke-thin);
+  box-sizing: border-box;
+  width: 281px;
+  height: 53px;
+  overflow: hidden;
+}
+.customer-reviews,
+.ratings,
+.see-all-reviews {
+  position: absolute;
+  top: 342px;
+  left: 16px;
+  font-weight: 500;
+}
+.customer-reviews,
+.see-all-reviews {
+  top: 442px;
+}
+.see-all-reviews {
+  top: 625px;
+  color: rgba(193, 11, 14, 0.8);
+}
+.frame-parent8 {
+  position: absolute;
+  top: 371px;
+  left: 16px;
+  border-radius: var(--br-3xs);
+  box-shadow: var(--thin-shadow-2-2-10);
+  border: 1px solid var(--input-box-stroke-thin);
+  box-sizing: border-box;
+  width: 281px;
+  height: 53px;
+  overflow: hidden;
+}
+.ankit-srivastava {
+  position: absolute;
+  top: 2.8px;
+  left: 15.2px;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+}
+.ankit-srivastava-wrapper {
+  top: 11.4px;
+  left: 0;
+  width: 281px;
+  overflow: hidden;
+}
+.ankit-srivastava-wrapper,
+.frame-child8,
+.star-icon {
+  position: absolute;
+  height: 22.8px;
+}
+.star-icon {
+  top: 0;
+  left: 15.2px;
+  border-radius: 1.42px;
+  width: 22.8px;
+}
+.frame-child8 {
+  left: 47.5px;
+}
+.frame-child10,
+.frame-child8,
+.frame-child9 {
+  top: 0;
+  border-radius: 1.42px;
+  width: 22.8px;
+}
+.frame-child9 {
+  position: absolute;
+  left: 79.7px;
+  height: 22.8px;
+}
+.frame-child10 {
+  left: 112px;
+}
+.frame-child10,
+.frame-child11,
+.star-parent {
+  position: absolute;
+  height: 22.8px;
+}
+.frame-child11 {
+  top: 0;
+  left: 144.3px;
+  border-radius: 1.42px;
+  width: 22.8px;
+}
+.star-parent {
+  top: 38.9px;
+  left: 0;
+  width: 281px;
+  overflow: hidden;
+}
+.excelent-conversation-with {
+  position: absolute;
+  top: 6.6px;
+  left: 15.2px;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  width: 250.6px;
+}
+.excelent-conversation-with-him-wrapper {
+  position: absolute;
+  top: 66.5px;
+  left: 0;
+  width: 281px;
+  height: 60.8px;
+  overflow: hidden;
+  color: var(--inactive-state-color);
+}
+.review-1 {
+  position: absolute;
+  top: 471px;
+  left: 16px;
+  border-radius: 10.04px;
+  box-shadow: 0 3.8px 5.7px rgba(65, 59, 137, 0.1);
+  border: 0.9px solid var(--dividers-and-borders-grey-light);
+  box-sizing: border-box;
+  width: 281px;
+  height: 138.6px;
+  font-size: var(--font-size-sm-3);
+  color: var(--primary-blue);
+}
+.emp-profile1,
+.review-1,
+.view-employee-profile {
+  background-color: var(--color-base-white);
+}
+.emp-profile1 {
+  position: absolute;
+  top: 123px;
+  left: calc(50% - 46px);
+  border-radius: var(--br-3xs);
+  box-shadow: var(--default-shadow-4-6-15);
+  border: 2px solid var(--color-whitesmoke-100);
+  box-sizing: border-box;
+  width: 344px;
+  height: 667px;
+  text-align: left;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-1000);
+  font-family: var(--font-outfit);
+}
+.view-employee-profile {
+  width: 100%;
+  position: relative;
+  height: 1024px;
+  overflow: hidden;
+}

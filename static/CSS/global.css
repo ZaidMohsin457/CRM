@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --body-m: Roboto;
+  --typography-desktop-p: "DM Sans";
+  --font-krub: Krub;
+  --font-outfit: Outfit;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-5xl: 24px;
+  --body-m-size: 16px;
+  --font-size-13xl: 32px;
+  --font-size-37xl: 56px;
+  --typography-desktop-p-size: 13px;
+  --typography-desktop-h5-size: 15px;
+  --typography-desktop-h4-size: 22px;
+  --typography-desktop-h3-size: 28px;
+  --typography-desktop-h1-size: 45px;
+  --font-size-xs: 12px;
+  --font-size-xl: 20px;
+  --font-size-sm: 14px;
+  --font-size-29xl: 48px;
+  --font-size-3xs: 10px;
+  --font-size-sm-3: 13.3px;
+  --font-size-5xs-3: 7.3px;
+  --font-size-lg: 18px;
+
+  /* Colors */
+  --color-base-white: #fff;
+  --color-black: #000;
+  --color-mediumslateblue: #0f62fe;
+  --color-gray-10: #f4f4f4;
+  --coolgray-10: #f2f4f8;
+  --color-whitesmoke-100: #ebebee;
+  --coolgray-30: #c1c7cd;
+  --neutrals-neutrals-2: #c3c2c7;
+  --coolgray-60: #697077;
+  --neutrals-neutrals-4: #605e6b;
+  --color-gray-00: #fdfdfd;
+  --color-gray-40: #828282;
+  --color-gray-200: #0f172a;
+  --neutrals-neutrals-6: #030014;
+  --color-gray-700: rgba(0, 0, 0, 0.1);
+  --color-gray-800: rgba(13, 13, 13, 0.7);
+  --color-gray-900: rgba(31, 31, 31, 0.7);
+  --dark-all-content: rgba(31, 31, 31, 0.8);
+  --color-gray-1000: rgba(34, 34, 34, 0.9);
+  --input-box-stroke-thin: rgba(0, 0, 0, 0.15);
+  --color-gray-300: rgba(0, 0, 0, 0.5);
+  --color-gray-400: rgba(0, 0, 0, 0.24);
+  --color-gray-500: rgba(0, 0, 0, 0.2);
+  --color-gray-600: rgba(0, 0, 0, 0.05);
+  --color-gray-100: rgba(3, 0, 20, 0.4);
+  --color-accent-blue: #2c62b4;
+  --primary-blue: #413b89;
+  --washedblue-washedblue-900: #2c3a6b;
+  --neutrals-neutrals-1: #e6e6e8;
+  --color-gray-20: #e3e3e3;
+  --color-gainsboro-200: #dde1e6;
+  --color-gainsboro-100: #d9d9d9;
+  --color-gray-30: #d8d8d8;
+  --neutrals-neutrals-5: #302e3e;
+  --color-base-black: #313131;
+  --inactive-state-color: rgba(73, 69, 79, 0.8);
+  --washedpurple-washedpurple-700: #817eb5;
+  --color-accent-turquoise: #268fb0;
+  --washedpurple-washedpurple-800: #64628c;
+  --brand-brand-washedpurple: #b5b2ff;
+  --color-base-main: #3300ff;
+  --washedblue-washedblue-500: #6889ff;
+  --color-royalblue-200: #2463eb;
+  --color-royalblue-100: #0469ff;
+  --washedpurple-washedpurple-400: #c4c1ff;
+  --primarypurple-primarypurple-700: #5000b5;
+  --color-red: #ff0000;
+  --color-paleturquoise: #a8fcfc;
+  --color-accent-lightorange: #ffece1;
+  --color-accent-green: #188544;
+  --color-accent-pink: #ff00b8;
+  --color-accent-orange: #ff5c00;
+  --color-accent-turquoiselight: #d8f4f8;
+  --color-accent-greenlight: #cdf4dd;
+  --color-accent-pinklight: #fbe6fc;
+  --color-accent-bluelight: #e1f6ff;
+  --color-palegoldenrod: #f7fbc0;
+  --color-lightgoldenrodyellow: #d6fcc8;
+  --dividers-and-borders-grey-light: #cecece;
+  --color-ghostwhite: #efeffa;
+  --color-darkgray: #b3b3b3;
+
+  /* Spacing */
+  --spacing-lg: 16px;
+  --spacing-2xl: 24px;
+  --spacing-md: 12px;
+  --spacing-2xs: 4px;
+  --spacing-sm: 8px;
+
+  /* Gaps */
+  --gap-xs: 12px;
+  --gap-6xs: 7px;
+  --gap-38xl: 57px;
+  --gap-mini: 15px;
+  --gap-5xs: 8px;
+  --gap-mid: 17px;
+  --gap-xl: 20px;
+  --gap-base: 16px;
+  --gap-9xs: 4px;
+  --gap-13xl: 32px;
+
+  /* Paddings */
+  --padding-mini: 15px;
+  --padding-11xl: 30px;
+  --padding-xl: 20px;
+  --padding-15xl: 34px;
+  --padding-9xs: 4px;
+  --padding-5xs: 8px;
+  --padding-6xl: 25px;
+  --padding-smi: 13px;
+  --padding-xs: 12px;
+  --padding-2xl: 21px;
+  --padding-3xs: 10px;
+  --padding-11xs: 2px;
+  --padding-81xl: 100px;
+  --padding-base: 16px;
+  --padding-8xl: 27px;
+  --padding-3xs-5: 9.5px;
+  --padding-5xl: 24px;
+  --padding-13xl: 32px;
+
+  /* Border radiuses */
+  --br-xl: 20px;
+  --br-3xs: 10px;
+  --br-5xs: 8px;
+  --br-mini: 15px;
+  --br-81xl: 100px;
+  --br-11xl: 30px;
+  --br-xs: 12px;
+  --br-9980xl: 9999px;
+  --br-980xl: 999px;
+  --br-9xs: 4px;
+  --br-11xs-4: 1.4px;
+  --br-4xs: 9px;
+  --br-8xs: 5px;
+  --br-53xl-7: 72.7px;
+  --br-7xs: 6px;
+
+  /* Effects */
+  --shadow: 44px 56px 20px rgba(0, 0, 0, 0), 28px 36px 18px rgba(0, 0, 0, 0),
+    16px 20px 15px rgba(0, 0, 0, 0.01), 7px 9px 11px rgba(0, 0, 0, 0.01),
+    2px 2px 6px rgba(0, 0, 0, 0.01), 0px 0px 0px rgba(0, 0, 0, 0.01);
+  --default-shadow-4-6-15: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  --thin-shadow-2-2-10: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
