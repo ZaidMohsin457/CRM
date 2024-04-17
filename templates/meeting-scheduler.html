@@ -4,15 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="static/CSS/global.css" />
-    <link rel="stylesheet" href="static/CSS/meeting-scheduler.css" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./meeting-scheduler.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
     />
     <link
       rel="stylesheet"
@@ -20,370 +16,493 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
     />
   </head>
   <body>
     <div class="meeting-scheduler">
-      <button class="icon-ionicons-outline-ad-group">
-        <img
-          class="icon-ionicons-outline-ad1"
-          alt=""
-          src="static/public/icon--ionicons--outline--addoutline1.svg"
-        />
+      <div class="main-interface">
+        <div class="sidebar">
+          <div class="navigation-panel">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./public/logo.svg"
+            />
+          </div>
+          <img
+            class="icon-tabler-icons-user-cir"
+            loading="lazy"
+            alt=""
+            src="./public/icon--tablericons--usercircle.svg"
+          />
 
-        <div class="schedule-a-new">Add a new contact</div>
-      </button>
-      <button class="icon-ionicons-outline-ad-container">
-        <img
-          class="icon-ionicons-outline-ad1"
-          alt=""
-          src="static/public/icon--ionicons--outline--addoutline1.svg"
-        />
-
-        <div class="schedule-a-new">Schedule a new meeting</div>
-      </button>
-      <input class="field6" type="text" />
-
-      <div class="meeting-scheduler1">Meeting Scheduler</div>
-      <main class="contacts-chart">
-        <div class="logo1">
-          <div class="contacts-title"></div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
-          <div class="contacts-columns">
-            <img class="vector-icon" alt="" src="static/public/vector.svg" />
-          </div>
+          <nav class="navigation-menu">
+            <div class="projects-icon">
+              <div class="navigation-buttons">
+                <div class="icon">🏗️</div>
+              </div>
+            </div>
+            <div class="employees-icon">
+              <div class="frame">
+                <div class="icon1">👥</div>
+              </div>
+            </div>
+            <div class="contacts">
+              <div class="frame1">
+                <div class="icon2">📅</div>
+              </div>
+            </div>
+            <div class="leads-pipeline">
+              <div class="frame2">
+                <div class="icon3">📊</div>
+              </div>
+            </div>
+            <div class="home">
+              <div class="frame3">
+                <div class="icon4">🏠</div>
+              </div>
+            </div>
+          </nav>
         </div>
-        <div class="company-name">
-          <div class="contacts-title1">
-            <img class="building-icon" alt="" src="static/public/building@2x.png" />
+      </div>
+      <main class="content-area">
+        <div class="content-header">
+          <h1 class="meeting-scheduler1">Meeting Scheduler</h1>
+        </div>
+        <form class="contact-management">
+          <div class="add-contact-button-parent">
+            <div class="add-contact-button">
+              <button class="add-contact-label">
+                <img
+                  class="icon-ionicons-outline-ad"
+                  alt=""
+                  src="./public/icon--ionicons--outline--addoutline.svg"
+                />
 
-            <div class="company">Company</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">Google</div>
-          </div>
-        </div>
-        <div class="company-name">
-          <div class="contacts-title1">
-            <img
-              class="building-icon"
-              alt=""
-              src="static/public/publicrelation@2x.png"
-            />
+                <div class="add-a-new">Add a new contact</div>
+              </button>
+              <div class="field">
+                <img
+                  class="icon-jam-icons-outline-l"
+                  alt=""
+                  src="./public/icon--jamicons--outline--logos--search.svg"
+                />
 
-            <div class="company">Client</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="google">John Doe</div>
-          </div>
-        </div>
-        <div class="company-name">
-          <div class="contacts-title1">
-            <img class="building-icon" alt="" src="static/public/email-1@2x.png" />
+                <input
+                  class="search-input"
+                  placeholder="Search for any contact"
+                  type="text"
+                />
 
-            <div class="company">Email</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">johndoe@gmail.com</div>
-          </div>
-        </div>
-        <div class="company-name">
-          <div class="contacts-title1">
-            <img class="building-icon" alt="" src="static/public/telephone@2x.png" />
+                <img
+                  class="icon-jam-icons-outline-l1"
+                  alt=""
+                  src="./public/icon--jamicons--outline--logos--chevrondown.svg"
+                />
+              </div>
+            </div>
+            <div class="contacts-chart">
+              <div class="logo">
+                <div class="contacts-title"></div>
+                <div class="contacts-columns">
+                  <img
+                    class="contact-information-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns1">
+                  <img
+                    class="contact-information-icon1"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns2">
+                  <img
+                    class="contact-information-icon2"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns3">
+                  <img
+                    class="contact-information-icon3"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns4">
+                  <img
+                    class="contact-information-icon4"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns5">
+                  <img
+                    class="contact-information-icon5"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns6">
+                  <img
+                    class="contact-information-icon6"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns7">
+                  <img
+                    class="contact-information-icon7"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns8">
+                  <img
+                    class="contact-information-icon8"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+                <div class="contacts-columns9">
+                  <img
+                    class="contact-information-icon9"
+                    alt=""
+                    src="./public/vector.svg"
+                  />
+                </div>
+              </div>
+              <div class="company-name">
+                <div class="contacts-title1">
+                  <img
+                    class="building-icon"
+                    alt=""
+                    src="./public/building@2x.png"
+                  />
 
-            <div class="company">Phone no.</div>
+                  <div class="company">Company</div>
+                </div>
+                <div class="contacts-columns10">
+                  <div class="google">Google</div>
+                </div>
+                <div class="contacts-columns11">
+                  <div class="google1">Google</div>
+                </div>
+                <div class="contacts-columns12">
+                  <div class="google2">Google</div>
+                </div>
+                <div class="contacts-columns13">
+                  <div class="google3">Google</div>
+                </div>
+                <div class="contacts-columns14">
+                  <div class="google4">Google</div>
+                </div>
+                <div class="contacts-columns15">
+                  <div class="google5">Google</div>
+                </div>
+                <div class="contacts-columns16">
+                  <div class="google6">Google</div>
+                </div>
+                <div class="contacts-columns17">
+                  <div class="google7">Google</div>
+                </div>
+                <div class="contacts-columns18">
+                  <div class="google8">Google</div>
+                </div>
+                <div class="contacts-columns19">
+                  <div class="google9">Google</div>
+                </div>
+              </div>
+              <div class="contact-table-header">
+                <div class="contacts-title2">
+                  <img
+                    class="public-relation-icon"
+                    alt=""
+                    src="./public/publicrelation@2x.png"
+                  />
+
+                  <div class="client">Client</div>
+                </div>
+                <div class="contacts-columns20">
+                  <div class="john-doe">John Doe</div>
+                </div>
+                <div class="contacts-columns21">
+                  <div class="john-doe1">John Doe</div>
+                </div>
+                <div class="contacts-columns22">
+                  <div class="john-doe2">John Doe</div>
+                </div>
+                <div class="contacts-columns23">
+                  <div class="john-doe3">John Doe</div>
+                </div>
+                <div class="contacts-columns24">
+                  <div class="john-doe4">John Doe</div>
+                </div>
+                <div class="contacts-columns25">
+                  <div class="john-doe5">John Doe</div>
+                </div>
+                <div class="contacts-columns26">
+                  <div class="john-doe6">John Doe</div>
+                </div>
+                <div class="contacts-columns27">
+                  <div class="john-doe7">John Doe</div>
+                </div>
+                <div class="contacts-columns28">
+                  <div class="john-doe8">John Doe</div>
+                </div>
+                <div class="contacts-columns29">
+                  <div class="john-doe9">John Doe</div>
+                </div>
+              </div>
+              <div class="music">
+                <div class="contacts-title3">
+                  <img
+                    class="email-1-icon"
+                    alt=""
+                    src="./public/email-1@2x.png"
+                  />
+
+                  <div class="email">Email</div>
+                </div>
+                <div class="contacts-columns30">
+                  <div class="johndoegmailcom">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns31">
+                  <div class="johndoegmailcom1">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns32">
+                  <div class="johndoegmailcom2">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns33">
+                  <div class="johndoegmailcom3">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns34">
+                  <div class="johndoegmailcom4">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns35">
+                  <div class="johndoegmailcom5">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns36">
+                  <div class="johndoegmailcom6">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns37">
+                  <div class="johndoegmailcom7">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns38">
+                  <div class="johndoegmailcom8">johndoe@gmail.com</div>
+                </div>
+                <div class="contacts-columns39">
+                  <div class="johndoegmailcom9">johndoe@gmail.com</div>
+                </div>
+              </div>
+              <div class="b">
+                <button class="contacts-title4">
+                  <img
+                    class="telephone-icon"
+                    alt=""
+                    src="./public/telephone@2x.png"
+                  />
+
+                  <div class="phone-no">Phone no.</div>
+                </button>
+                <div class="contacts-columns40">
+                  <div class="div">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns41">
+                  <div class="div1">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns42">
+                  <div class="div2">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns43">
+                  <div class="div3">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns44">
+                  <div class="div4">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns45">
+                  <div class="div5">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns46">
+                  <div class="div6">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns47">
+                  <div class="div7">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns48">
+                  <div class="div8">+1 222 333 444</div>
+                </div>
+                <div class="contacts-columns49">
+                  <div class="div9">+1 222 333 444</div>
+                </div>
+              </div>
+              <div class="contact-table-header1">
+                <div class="contacts-title5"></div>
+                <div class="contacts-columns50">
+                  <img
+                    class="icon-ionicons-sharp-elli"
+                    loading="lazy"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns51">
+                  <img
+                    class="icon-ionicons-sharp-elli1"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns52">
+                  <img
+                    class="icon-ionicons-sharp-elli2"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns53">
+                  <img
+                    class="icon-ionicons-sharp-elli3"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns54">
+                  <img
+                    class="icon-ionicons-sharp-elli4"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns55">
+                  <img
+                    class="icon-ionicons-sharp-elli5"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns56">
+                  <img
+                    class="icon-ionicons-sharp-elli6"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns57">
+                  <img
+                    class="icon-ionicons-sharp-elli7"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns58">
+                  <img
+                    class="icon-ionicons-sharp-elli8"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+                <div class="contacts-columns59">
+                  <img
+                    class="icon-ionicons-sharp-elli9"
+                    alt=""
+                    src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
+          <div class="meeting-management">
+            <div class="schedule-meeting-button-wrapper">
+              <button class="schedule-meeting-button">
+                <img
+                  class="icon-ionicons-outline-ad1"
+                  alt=""
+                  src="./public/icon--ionicons--outline--addoutline.svg"
+                />
+
+                <div class="schedule-a-new">Schedule a new meeting</div>
+              </button>
+            </div>
+            <div class="main">
+              <div class="meeting-list-header">
+                <h1 class="upcoming-meetings">Upcoming Meetings</h1>
+              </div>
+              <div class="meeting-schedule-details">
+                <div class="next-meeting-in">Next Meeting in:</div>
+              </div>
+              <div class="meeting-placeholder">
+                <div class="meeting-placeholder-child"></div>
+                <div class="div-scbea">4:04:50:08</div>
+              </div>
+              <div class="meeting-schedule-details1">
+                <div class="with-marshall">With: Marshall</div>
+              </div>
+              <div class="meeting-schedule-details2">
+                <div class="joining-link-httpszoomlink-container">
+                  <span class="joining-link-httpszoomlink-container1">
+                    <span class="joining-link">Joining Link: </span>
+                    <span class="httpszoomlinkjoin">https//zoomlink.join</span>
+                  </span>
+                </div>
+              </div>
+              <div class="meeting-schedule-details3">
+                <div class="other-meetings">Other Meetings:</div>
+              </div>
+              <div class="meeting-schedule-details4">
+                <div class="button-scbea">
+                  <button class="meeting-title">
+                    <div class="meeting-title-crm">
+                      Meeting Title: CRM Design
+                    </div>
+                  </button>
+                  <div class="meeting-title1">
+                    <div class="on-friday-5th">ON: Friday, 5th April,2024</div>
+                  </div>
+                  <button class="meeting-title2">
+                    <div class="with-john-doe">With: John Doe</div>
+                  </button>
+                  <button class="meeting-title3">
+                    <div class="at-800-pm">AT: 8:00 pm</div>
+                  </button>
+                </div>
+              </div>
+              <div class="meeting-schedule-details5">
+                <div class="meeting-title-parent">
+                  <button class="meeting-title4">
+                    <div class="meeting-title-crm1">
+                      Meeting Title: CRM Design
+                    </div>
+                  </button>
+                  <div class="meeting-title5">
+                    <div class="on-friday-5th1">ON: Friday, 5th April,2024</div>
+                  </div>
+                  <button class="meeting-title6">
+                    <div class="with-john-doe1">With: John Doe</div>
+                  </button>
+                  <button class="meeting-title7">
+                    <div class="at-800-pm1">AT: 8:00 pm</div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-          <div class="contacts-columns">
-            <div class="johndoegmailcom">+1 222 333 444</div>
-          </div>
-        </div>
-        <div class="logo1">
-          <div class="contacts-title5"></div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-          <div class="contacts-columns50">
-            <img
-              class="icon-ionicons-outline-ad1"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-        </div>
+        </form>
       </main>
-      <section class="upcoming-meetings-parent">
-        <div class="upcoming-meetings">Upcoming Meetings</div>
-        <div class="next-meeting-in">Next Meeting in:</div>
-        <div class="frame-child6"></div>
-        <div class="with-marshall">With: Marshall</div>
-        <div class="joining-link-httpszoomlink-container">
-          <span>Joining Link: </span>
-          <span class="httpszoomlinkjoin">https//zoomlink.join</span>
-        </div>
-        <div class="other-meetings">Other Meetings:</div>
-        <div class="meeting-title-parent">
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">Meeting Title: CRM Design</div>
-          </div>
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">ON: Friday, 5th April,2024</div>
-          </div>
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">With: John Doe</div>
-          </div>
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">AT: 8:00 pm</div>
-          </div>
-        </div>
-        <div class="meeting-title-group">
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">Meeting Title: CRM Design</div>
-          </div>
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">ON: Friday, 5th April,2024</div>
-          </div>
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">With: John Doe</div>
-          </div>
-          <div class="meeting-title1">
-            <div class="meeting-title-crm">AT: 8:00 pm</div>
-          </div>
-        </div>
-        <div class="div23">4:04:50:08</div>
-      </section>
-      <nav class="sidebar1">
-        <div class="projects-icon1">
-          <div class="frame5">
-            <div class="icon5">🏗️</div>
-          </div>
-        </div>
-        <div class="employees-icon1">
-          <div class="frame5">
-            <div class="icon5">👥</div>
-          </div>
-        </div>
-        <div class="contacts1">
-          <div class="frame5">
-            <div class="icon5">📅</div>
-          </div>
-        </div>
-        <div class="leads-pipeline1">
-          <div class="frame5">
-            <div class="icon5">📊</div>
-          </div>
-        </div>
-        <div class="home1">
-          <div class="frame5">
-            <div class="icon5">🏠</div>
-          </div>
-        </div>
-        <img
-          class="icon-tabler-icons-user-cir1"
-          alt=""
-          src="static/public/icon--tablericons--usercircle.svg"
-        />
-
-        <img class="logo-icon1" alt="" src="static/public/logo.svg" />
-      </nav>
     </div>
   </body>
 </html>

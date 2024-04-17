@@ -4,15 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="static/CSS/global.css" />
-    <link rel="stylesheet" href="static/CSS/dashboard.css" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./dashboard.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
     />
     <link
       rel="stylesheet"
@@ -20,250 +16,413 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
     />
   </head>
   <body>
     <div class="dashboard">
-      <b class="dashboard1">Dashboard</b>
-      <div class="dashboard-child"></div>
-      <div class="dashboard-item"></div>
-      <div class="dashboard-inner"></div>
-      <div class="dashboard-child1"></div>
-      <canvas class="rectangle-canvas"> </canvas>
-      <b class="b">20</b>
-      <b class="b1">40</b>
-      <b class="b2">60</b>
-      <b class="b3">15</b>
-      <div class="total-projects-done">Total Projects done</div>
-      <div class="total-deals-made">Total Deals made</div>
-      <div class="deals-closing">Deals Closing %:</div>
-      <div class="total-employees-working">Total Employees working:</div>
-      <div class="total-employees-hired">Total Employees hired:</div>
-      <div class="in-this-month">in this month</div>
-      <div class="in-this-month1">in this month</div>
-      <div class="currently">currently</div>
-      <div class="this-month">this month</div>
-      <div class="target-achieved">Target achieved:</div>
-      <canvas class="chart1">
-        <img class="subtract-icon3" alt="" src="static/public/subtract3.svg" />
-
-        <img class="subtract-icon4" alt="" src="static/public/subtract4.svg" />
-      </canvas>
-      {% comment %} <img class="union-icon1" alt="" src="statictatic/public/union1.svg" /> {% endcomment %}
-
-      <div class="div25">70%</div>
-      <canvas class="container3">
-        <div class="container4">
-          <div class="title">Projects’ Progress</div>
-          <img class="graph-icon" alt="" src="static/public/graph.svg" />
-        </div>
-      </canvas>
-      <div class="title1">Deals Closing per month:</div>
-      <canvas class="container5">
-        <div class="list">
-          <div class="metric">
-            <div class="title2">Newly Added</div>
-            <div class="data">30%</div>
-          </div>
-          <div class="metric">
-            <div class="title2">In Progress</div>
-            <div class="data">25%</div>
-          </div>
-          <div class="metric">
-            <div class="title2">Completed</div>
-            <div class="data">35%</div>
-          </div>
-          <div class="metric">
-            <div class="title2">Overdue</div>
-            <div class="data3">5%</div>
-          </div>
-          <div class="metric">
-            <div class="title2">Handed Over</div>
-            <div class="data3">5%</div>
-          </div>
-        </div>
-      </canvas>
-      <aside class="union-parent">
-        <img class="union-icon2" alt="" src="static/public/union2.svg" />
-
-        <div class="div26">30%</div>
-        <div class="group-child"></div>
-        <div class="group-item"></div>
-      </aside>
-      <div class="chart2">
-        <div class="group">
-          <img class="vector-icon10" alt="" src="static/public/vector1.svg" />
-
-          <div class="group1">
-            <div class="group2">
-              <img class="vector-icon11" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">0</div>
-            </div>
-            <div class="group3">
-              <img class="vector-icon12" alt="" src="static/public/vector3.svg" />
-
-              <div class="div27">1</div>
-            </div>
-            <div class="group4">
-              <img class="vector-icon11" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">2</div>
-            </div>
-            <div class="group5">
-              <img class="vector-icon11" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">3</div>
-            </div>
-            <div class="group6">
-              <img class="vector-icon11" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">4</div>
-            </div>
-            <div class="group7">
-              <img class="vector-icon16" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">5</div>
-            </div>
-            <div class="group8">
-              <img class="vector-icon11" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">6</div>
-            </div>
-            <div class="group9">
-              <img class="vector-icon18" alt="" src="static/public/vector4.svg" />
-
-              <div class="div27">7</div>
-            </div>
-            <div class="group10">
-              <img class="vector-icon11" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">8</div>
-            </div>
-            <div class="group11">
-              <img class="vector-icon11" alt="" src="static/public/vector2.svg" />
-
-              <div class="div27">9</div>
-            </div>
-            <div class="group12">
-              <img class="vector-icon21" alt="" src="static/public/vector5.svg" />
-
-              <div class="div27">10</div>
-            </div>
-            <div class="group13">
-              <img class="vector-icon22" alt="" src="static/public/vector6.svg" />
-
-              <div class="div27">11</div>
-            </div>
-          </div>
-        </div>
-        <div class="group14">
-          <img class="vector-icon23" alt="" src="static/public/vector7.svg" />
-
-          <div class="group1">
-            <div class="group16">
-              <img class="vector-icon24" alt="" src="static/public/vector8.svg" />
-
-              <div class="div39">0</div>
-            </div>
-            <div class="group17">
-              <img class="vector-icon25" alt="" src="static/public/vector9.svg" />
-
-              <div class="div40">25</div>
-            </div>
-            <div class="group18">
-              <img class="vector-icon25" alt="" src="static/public/vector9.svg" />
-
-              <div class="div40">50</div>
-            </div>
-            <div class="group19">
-              <img class="vector-icon25" alt="" src="static/public/vector9.svg" />
-
-              <div class="div40">75</div>
-            </div>
-            <div class="group20">
-              <img class="vector-icon28" alt="" src="static/public/vector10.svg" />
-
-              <div class="div43">100</div>
-            </div>
-          </div>
-        </div>
-        <img class="group-icon" alt="" src="static/public/group.svg" />
-
-        <img class="group-icon1" alt="" src="static/public/group1.svg" />
-        
-        <div class="title7">No. of deals made:</div>
-      </div>
-      <div class="title8">Month of year</div>
-    </div>
-      <nav class="sidebar4">
-        <div class="projects-icon4">
-          <button class="frame21" id="frame">
-            <div class="icon22">🏗️</div>
-          </button>
-        </div>
-        <div class="employees-icon4">
-          <div class="frame22" id="frameContainer">
-            <div class="icon23">👥</div>
-          </div>
-        </div>
-        <div class="contacts4">
-          <div class="frame22" id="frameContainer1">
-            <div class="icon23">📅</div>
-          </div>
-        </div>
-        <div class="leads-pipeline6">
-          <div class="frame22" id="frameContainer2">
-            <div class="icon23">📊</div>
-          </div>
-        </div>
-        <div class="home4">
-          <a class="frame25">
-            <div class="icon23">🏠</div>
-          </a>
+      <div class="sidebar1">
+        <div class="content-panel">
+          <img
+            class="logo-icon1"
+            loading="lazy"
+            alt=""
+            src="./public/logo1.svg"
+          />
         </div>
         <img
-          class="icon-tabler-icons-user-cir4"
+          class="icon-tabler-icons-user-cir1"
+          loading="lazy"
           alt=""
-          src="static/public/icon--tablericons--usercircle.svg"
+          src="./public/icon--tablericons--usercircle.svg"
         />
 
-        <img class="logo-icon4" alt="" src="static/public/logo1.svg" />
-      </nav>
+        <nav class="main-links">
+          <div class="projects-icon1">
+            <div class="navigation-links">
+              <button class="icon9">🏗️</button>
+            </div>
+          </div>
+          <div class="employees-icon1">
+            <div class="frame6">
+              <button class="icon10">👥</button>
+            </div>
+          </div>
+          <div class="contacts1">
+            <div class="frame7">
+              <button class="icon11">📅</button>
+            </div>
+          </div>
+          <div class="leads-pipeline1">
+            <div class="frame8">
+              <button class="icon12">📊</button>
+            </div>
+          </div>
+          <div class="home1">
+            <div class="frame9">
+              <button class="icon13">🏠</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <main class="work-area">
+        <section class="info-cards">
+          <h1 class="dashboard1">Dashboard</h1>
+          <div class="stats-overview">
+            <div class="key-metrics">
+              <div class="project-completion">
+                <div class="project-completion-child"></div>
+                <div class="total-projects-done">Total Projects done</div>
+                <div class="target-status">
+                  <div class="deal-progress">
+                    <b class="deal-closure-rate">20</b>
+                    <div class="goal-attainment">
+                      <div class="target-achieved">Target achieved:</div>
+                    </div>
+                  </div>
+                  <div class="monthly-performance">
+                    <div class="time-indicator">
+                      <div class="in-this-month">in this month</div>
+                    </div>
+                    <div class="chart-container">
+                      <div class="chart">
+                        <img
+                          class="subtract-icon1"
+                          alt=""
+                          src="./public/subtract.svg"
+                        />
 
-    <script>
-      var frame = document.getElementById("frame");
-      if (frame) {
-        frame.addEventListener("click", function (e) {
-          window.location.href = "/projects";
-        });
-      }
-      
-      var frameContainer = document.getElementById("frameContainer1");
-      if (frameContainer) {
-        frameContainer.addEventListener("click", function (e) {
-          window.location.href = "/meeting-scheduler";
-        });
-      }
-      
-      var frameContainer = document.getElementById("frameContainer");
-      if (frameContainer) {
-        frameContainer.addEventListener("click", function (e) {
-          window.location.href = "/employee";
-        });
-      }
+                        <canvas class="subtract"> </canvas>
+                      </div>
+                      <div class="additional-metrics">
+                        <img
+                          class="union-icon"
+                          alt=""
+                          src="./public/union.svg"
+                        />
 
-      var frameContainer = document.getElementById("frameContainer2");
-      if (frameContainer) {
-        frameContainer.addEventListener("click", function (e) {
-          window.location.href = "/leads-pipeline";
-        });
-      }
-      </script>
+                        <div class="empty">70%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="staffing-overview">
+                <div class="staffing-overview-child"></div>
+                <div class="employee-count">
+                  <div class="total-employees-working">
+                    Total Employees working:
+                  </div>
+                  <div class="hiring-trends">
+                    <b class="recruitment-summary">60</b>
+                  </div>
+                  <div class="employment-status">
+                    <div class="currently">currently</div>
+                  </div>
+                </div>
+                <div class="employee-count1">
+                  <div class="total-employees-hired">
+                    Total Employees hired:
+                  </div>
+                  <div class="employee-count-inner">
+                    <div class="empty-parent">
+                      <b class="empty1">15</b>
+                      <div class="this-month">this month</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-completion1">
+                <div class="project-completion-item"></div>
+                <div class="total-deals-made-parent">
+                  <div class="total-deals-made">Total Deals made</div>
+                  <b class="separator">40</b>
+                  <div class="in-this-month1">in this month</div>
+                </div>
+                <div class="frame-parent5">
+                  <div class="deals-closing-parent">
+                    <div class="deals-closing">Deals Closing %:</div>
+                    <div class="frame-wrapper6">
+                      <div class="union-parent">
+                        <img
+                          class="union-icon1"
+                          alt=""
+                          src="./public/union-1.svg"
+                        />
+
+                        <div class="empty2">30%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rectangle-parent">
+                    <div class="rectangle-div"></div>
+                    <div class="frame-child4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-details">
+              <div class="project-summary-container">
+                <div class="project-summary-container-child"></div>
+                <div class="container6">
+                  <h2 class="title">Projects’ Progress</h2>
+                  <div class="wrapper-graph">
+                    <img
+                      class="graph-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./public/graph.svg"
+                    />
+                  </div>
+                </div>
+                <div class="container7">
+                  <div class="list">
+                    <div class="metric">
+                      <div class="title1">Newly Added</div>
+                      <div class="data">30%</div>
+                    </div>
+                    <div class="metric1">
+                      <div class="title2">In Progress</div>
+                      <div class="data1">25%</div>
+                    </div>
+                    <div class="metric2">
+                      <div class="title3">Completed</div>
+                      <div class="data2">35%</div>
+                    </div>
+                    <div class="metric3">
+                      <div class="title4">Overdue</div>
+                      <div class="data3">5%</div>
+                    </div>
+                    <div class="metric4">
+                      <div class="title5">Handed Over</div>
+                      <div class="data4">5%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sales-insights">
+                <div class="sales-chart-container">
+                  <div class="sales-chart-details">
+                    <div class="chart-background"></div>
+                    <h2 class="title6">Deals Closing per month:</h2>
+                    <div class="chart-legend">
+                      <div class="title7">Month of year</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart1">
+                  <div class="customer-feedback">
+                    <div class="feedback-header">
+                      <div class="title8">No. of deals made:</div>
+                    </div>
+                    <div class="feedback-metrics">
+                      <div class="customer-quotes">100</div>
+                      <div class="metric-comparison">
+                        <div class="comparison-labels">75</div>
+                      </div>
+                      <div class="metric-comparison1">
+                        <div class="div11">50</div>
+                      </div>
+                      <div class="metric-comparison2">
+                        <div class="div12">25</div>
+                      </div>
+                      <div class="quote-highlight">
+                        <div class="quote-source">
+                          <div class="div13">0</div>
+                          <div class="quote-details">
+                            <div class="quote-attribution">0</div>
+                          </div>
+                          <div class="social-proof">
+                            <img
+                              class="brand-icon"
+                              loading="lazy"
+                              alt=""
+                              src="./public/vector1.svg"
+                            />
+
+                            <img
+                              class="brand-logos-icon"
+                              alt=""
+                              src="./public/vector-1.svg"
+                            />
+
+                            <img
+                              class="brand-logos-icon1"
+                              alt=""
+                              src="./public/vector-2.svg"
+                            />
+
+                            <img
+                              class="brand-logos-icon2"
+                              alt=""
+                              src="./public/vector-2.svg"
+                            />
+
+                            <img
+                              class="brand-logos-icon3"
+                              alt=""
+                              src="./public/vector-2.svg"
+                            />
+
+                            <img
+                              class="brand-logos-icon4"
+                              alt=""
+                              src="./public/vector-5.svg"
+                            />
+
+                            <div class="additional-logos">
+                              <img
+                                class="vector-icon"
+                                alt=""
+                                src="./public/vector-6.svg"
+                              />
+
+                              <img
+                                class="vector-icon1"
+                                alt=""
+                                src="./public/vector-7.svg"
+                              />
+
+                              <img
+                                class="group-icon"
+                                alt=""
+                                src="./public/group.svg"
+                              />
+                            </div>
+                            <img
+                              class="group-icon1"
+                              alt=""
+                              src="./public/group-1.svg"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="performance-indicators">
+                    <div class="metric-icons">
+                      <img
+                        class="performance-symbols-icon"
+                        alt=""
+                        src="./public/vector-8.svg"
+                      />
+                    </div>
+                    <div class="indicator-labels">1</div>
+                  </div>
+                  <div class="performance-indicators1">
+                    <div class="vector-wrapper">
+                      <img
+                        class="vector-icon2"
+                        alt=""
+                        src="./public/vector1.svg"
+                      />
+                    </div>
+                    <div class="div14">2</div>
+                  </div>
+                  <div class="performance-indicators2">
+                    <div class="vector-container">
+                      <img
+                        class="vector-icon3"
+                        alt=""
+                        src="./public/vector1.svg"
+                      />
+                    </div>
+                    <div class="div15">3</div>
+                  </div>
+                  <div class="performance-indicators3">
+                    <div class="vector-frame">
+                      <img
+                        class="vector-icon4"
+                        alt=""
+                        src="./public/vector1.svg"
+                      />
+                    </div>
+                    <div class="div16">4</div>
+                  </div>
+                  <div class="performance-indicators4">
+                    <div class="vector-wrapper1">
+                      <img
+                        class="vector-icon5"
+                        alt=""
+                        src="./public/vector1.svg"
+                      />
+                    </div>
+                    <div class="div17">5</div>
+                  </div>
+                  <div class="performance-indicators5">
+                    <div class="vector-wrapper2">
+                      <img
+                        class="vector-icon6"
+                        alt=""
+                        src="./public/vector1.svg"
+                      />
+                    </div>
+                    <div class="div18">6</div>
+                  </div>
+                  <div class="performance-indicators6">
+                    <div class="vector-wrapper3">
+                      <img
+                        class="vector-icon7"
+                        alt=""
+                        src="./public/vector-14.svg"
+                      />
+                    </div>
+                    <div class="div19">7</div>
+                  </div>
+                  <div class="performance-indicators7">
+                    <div class="vector-wrapper4">
+                      <img
+                        class="vector-icon8"
+                        alt=""
+                        src="./public/vector1.svg"
+                      />
+                    </div>
+                    <div class="div20">8</div>
+                  </div>
+                  <div class="performance-indicators8">
+                    <div class="vector-wrapper5">
+                      <img
+                        class="vector-icon9"
+                        alt=""
+                        src="./public/vector1.svg"
+                      />
+                    </div>
+                    <div class="div21">9</div>
+                  </div>
+                  <div class="performance-indicators9">
+                    <div class="vector-wrapper6">
+                      <img
+                        class="vector-icon10"
+                        alt=""
+                        src="./public/vector-17.svg"
+                      />
+                    </div>
+                    <div class="div22">10</div>
+                  </div>
+                  <div class="performance-indicators10">
+                    <div class="vector-wrapper7">
+                      <img
+                        class="vector-icon11"
+                        alt=""
+                        src="./public/vector-18.svg"
+                      />
+                    </div>
+                    <div class="div23">11</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

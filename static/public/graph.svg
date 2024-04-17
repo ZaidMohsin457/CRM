@@ -4,9 +4,9 @@
 <path d="M0 97.5H687" stroke="black" stroke-opacity="0.1" stroke-dasharray="3 3"/>
 <path d="M0 145.75H687" stroke="black" stroke-opacity="0.1" stroke-dasharray="3 3"/>
 <path d="M0 194H687" stroke="black" stroke-opacity="0.1"/>
-<rect x="43" y="80.6123" width="93.7839" height="113.387" fill="black" fill-opacity="0.5"/>
-<rect x="197.072" y="116.8" width="93.7839" height="77.2" fill="black" fill-opacity="0.5"/>
-<rect x="351.094" y="53" width="93.5585" height="141" fill="black" fill-opacity="0.5"/>
+<rect x="43" y="80.6124" width="93.7839" height="113.387" fill="black" fill-opacity="0.5"/>
+<rect x="197.071" y="116.8" width="93.7839" height="77.2" fill="black" fill-opacity="0.5"/>
+<rect x="351.093" y="53" width="93.5585" height="141" fill="black" fill-opacity="0.5"/>
 <rect x="505.268" y="164" width="93.5585" height="30" fill="black" fill-opacity="0.5"/>
 <rect x="659.441" y="164" width="93.5585" height="30" fill="black" fill-opacity="0.5"/>
 </svg>

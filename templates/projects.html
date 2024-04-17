@@ -4,15 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="static/CSS/global.css" />
-    <link rel="stylesheet" href="static/CSS/projects.css" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./projects.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
     />
     <link
       rel="stylesheet"
@@ -20,353 +16,437 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
     />
   </head>
   <body>
-    <div class="projects">
-      <button class="icon-ionicons-outline-ad-parent" id="frameButton">
-        <img
-          class="icon-ionicons-outline-ad"
-          alt=""
-          src="static/public/icon--ionicons--outline--addoutline.svg"
-        />
-
-        <div class="add-a-new2">Add a new project</div>
-      </button>
-      <select class="field5"></select>
-      <textarea class="project-management">Project Management</textarea>
-      <header class="instance-parent">
-        <div class="project-name-wrapper">
-          <div class="project-name">Project Name</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Client Name</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Assigned to</div>
-        </div>
-        <div class="instance-child"></div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Due Date</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">Remaining Time</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </header>
-      <ol class="instance-group">
+    <form class="projects">
+      <section class="instance-parent">
         <div class="project-name-wrapper">
           <div class="project-name">CRM Website</div>
         </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
+        <div class="client-name-wrapper">
+          <div class="client-name">John M.</div>
         </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
+        <div class="assigned-to-wrapper">
+          <div class="assigned-to">Marshall W.</div>
         </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
+        <div class="filter-button-parent">
+          <div class="filter-button">
+            <div class="filter-shape"></div>
+            <div class="filter-shape1"></div>
+          </div>
+          <div class="more-filter-options">30%</div>
         </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
+        <div class="due-date-wrapper">
+          <div class="due-date">20-04-2024</div>
         </div>
         <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
+          <div class="remaining-time">18 days</div>
         </div>
         <div class="more-actions-projects">
           <img
-            class="icon-ionicons-outline-ad"
+            class="icon-ionicons-sharp-elli10"
+            loading="lazy"
             alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+            src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
           />
         </div>
-      </ol>
+      </section>
+      <section class="content-wrapper">
+        <div class="main-content">
+          <h1 class="project-management">Project Management</h1>
+          <div class="sidebar2">
+            <div class="logo-area">
+              <img
+                class="logo-icon2"
+                loading="lazy"
+                alt=""
+                src="./public/logo.svg"
+              />
+            </div>
+            <img
+              class="icon-tabler-icons-user-cir2"
+              loading="lazy"
+              alt=""
+              src="./public/icon--tablericons--usercircle.svg"
+            />
+
+            <div class="navigation-links1">
+              <div class="projects-icon2">
+                <div class="frame10">
+                  <div class="icon14">🏗️</div>
+                </div>
+              </div>
+              <div class="employees-icon2">
+                <div class="frame11">
+                  <div class="icon15">👥</div>
+                </div>
+              </div>
+              <div class="contacts2">
+                <div class="frame12">
+                  <div class="icon16">📅</div>
+                </div>
+              </div>
+              <div class="leads-pipeline2">
+                <div class="frame13">
+                  <div class="icon17">📊</div>
+                </div>
+              </div>
+              <div class="home2">
+                <div class="frame14">
+                  <div class="icon18">🏠</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-actions">
+          <div class="project-adder">
+            <button class="add-project-button" id="addProjectButton">
+              <img
+                class="icon-ionicons-outline-ad2"
+                alt=""
+                src="./public/icon--ionicons--outline--addoutline1.svg"
+              />
+
+              <div class="add-a-new1">Add a new project</div>
+            </button>
+            <div class="field1">
+              <img
+                class="icon-jam-icons-outline-l2"
+                alt=""
+                src="./public/icon--jamicons--outline--logos--search.svg"
+              />
+
+              <input
+                class="search-field"
+                placeholder="Search for any project bt name, employee, client"
+                type="text"
+              />
+
+              <img
+                class="icon-jam-icons-outline-l3"
+                alt=""
+                src="./public/icon--jamicons--outline--logos--chevrondown.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="project-table">
+          <div class="instance-group">
+            <div class="project-name-container">
+              <div class="project-name1">Project Name</div>
+            </div>
+            <div class="client-name-container">
+              <div class="client-name1">Client Name</div>
+            </div>
+            <div class="assigned-to-container">
+              <div class="assigned-to1">Assigned to</div>
+            </div>
+            <div class="rectangle-group">
+              <div class="instance-child"></div>
+              <div class="div24">30%</div>
+              <div class="instance-item"></div>
+            </div>
+            <div class="due-date-container">
+              <div class="due-date1">Due Date</div>
+            </div>
+            <div class="remaining-time-container">
+              <div class="remaining-time1">Remaining Time</div>
+            </div>
+            <div class="more-actions-projects1">
+              <img
+                class="icon-ionicons-sharp-elli11"
+                loading="lazy"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress">Progress</div>
+          </div>
+        </div>
+      </section>
       <div class="instance-container">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
+        <div class="project-name-frame">
+          <div class="project-name2">CRM Website</div>
         </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
+        <div class="client-name-frame">
+          <div class="client-name2">John M.</div>
         </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
+        <div class="assigned-to-frame">
+          <div class="assigned-to2">Marshall W.</div>
         </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
+        <div class="progress-bar-wrapper-parent">
+          <div class="progress-bar-wrapper">
+            <div class="progress-shapes"></div>
+            <div class="progress-shapes1"></div>
+          </div>
+          <div class="progress-percentage">30%</div>
         </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
+        <div class="due-date-frame">
+          <div class="due-date2">20-04-2024</div>
         </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
+        <div class="remaining-time-frame">
+          <div class="remaining-time2">18 days</div>
         </div>
-        <div class="more-actions-projects">
+        <div class="more-actions-projects2">
           <img
-            class="icon-ionicons-outline-ad"
+            class="icon-ionicons-sharp-elli12"
+            loading="lazy"
             alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+            src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
           />
         </div>
       </div>
-      <div class="instance-parent1">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
-        </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <div class="instance-parent2">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
-        </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <div class="instance-parent3">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
-        </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <div class="instance-parent4">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
-        </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <div class="instance-parent5">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
-        </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <div class="instance-parent6">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
-        </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <div class="instance-parent7">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">John M.</div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">Marshall W.</div>
-        </div>
-        <div class="rectangle-parent">
-          <div class="instance-item"></div>
-          <div class="div2">30%</div>
-          <div class="instance-inner"></div>
-        </div>
-        <div class="project-name-wrapper">
-          <div class="project-name">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="project-name">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-outline-ad"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <div class="progress">Progress</div>
-      <nav class="sidebar">
-        <div class="projects-icon">
-          <div class="frame">
-            <div class="icon">🏗️</div>
+      <section class="expanded-table">
+        <div class="instance-parent1">
+          <button class="project-name-wrapper1">
+            <div class="project-name3">CRM Website</div>
+          </button>
+          <button class="client-name-wrapper1">
+            <div class="client-name3">John M.</div>
+          </button>
+          <button class="assigned-to-wrapper1">
+            <div class="assigned-to3">Marshall W.</div>
+          </button>
+          <div class="due-dates-parent">
+            <div class="due-dates">
+              <div class="due-date-shape"></div>
+              <div class="due-date-shape1"></div>
+            </div>
+            <div class="spacer">30%</div>
+          </div>
+          <div class="due-date-wrapper1">
+            <div class="due-date3">20-04-2024</div>
+          </div>
+          <button class="remaining-time-wrapper1">
+            <div class="remaining-time3">18 days</div>
+          </button>
+          <div class="more-actions-projects3">
+            <img
+              class="icon-ionicons-sharp-elli13"
+              loading="lazy"
+              alt=""
+              src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+            />
           </div>
         </div>
-        <div class="employees-icon">
-          <div class="frame">
-            <div class="icon">👥</div>
+        <div class="expanded-rows">
+          <div class="instance-parent2">
+            <button class="project-name-wrapper2">
+              <div class="project-name4">CRM Website</div>
+            </button>
+            <button class="client-name-wrapper2">
+              <div class="client-name4">John M.</div>
+            </button>
+            <button class="assigned-to-wrapper2">
+              <div class="assigned-to4">Marshall W.</div>
+            </button>
+            <div class="due-dates-group">
+              <div class="due-dates1">
+                <div class="due-date-shape2"></div>
+                <div class="due-date-shape3"></div>
+              </div>
+              <div class="spacer1">30%</div>
+            </div>
+            <div class="due-date-wrapper2">
+              <div class="due-date4">20-04-2024</div>
+            </div>
+            <button class="remaining-time-wrapper2">
+              <div class="remaining-time4">18 days</div>
+            </button>
+            <div class="more-actions-projects4">
+              <img
+                class="icon-ionicons-sharp-elli14"
+                loading="lazy"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
           </div>
         </div>
-        <div class="contacts">
-          <div class="frame">
-            <div class="icon">📅</div>
+        <div class="expanded-rows1">
+          <div class="instance-parent3">
+            <button class="project-name-wrapper3">
+              <div class="project-name5">CRM Website</div>
+            </button>
+            <button class="client-name-wrapper3">
+              <div class="client-name5">John M.</div>
+            </button>
+            <button class="assigned-to-wrapper3">
+              <div class="assigned-to5">Marshall W.</div>
+            </button>
+            <div class="frame-parent6">
+              <div class="rectangle-container">
+                <div class="frame-child5"></div>
+                <div class="frame-child6"></div>
+              </div>
+              <div class="div25">30%</div>
+            </div>
+            <div class="due-date-wrapper3">
+              <div class="due-date5">20-04-2024</div>
+            </div>
+            <button class="remaining-time-wrapper3">
+              <div class="remaining-time5">18 days</div>
+            </button>
+            <div class="more-actions-projects5">
+              <img
+                class="icon-ionicons-sharp-elli15"
+                loading="lazy"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
           </div>
         </div>
-        <div class="leads-pipeline">
-          <div class="frame">
-            <div class="icon">📊</div>
+        <div class="instance-parent4">
+          <button class="project-name-wrapper4">
+            <div class="project-name6">CRM Website</div>
+          </button>
+          <button class="client-name-wrapper4">
+            <div class="client-name6">John M.</div>
+          </button>
+          <button class="assigned-to-wrapper4">
+            <div class="assigned-to6">Marshall W.</div>
+          </button>
+          <div class="frame-parent7">
+            <div class="rectangle-parent1">
+              <div class="frame-child7"></div>
+              <div class="frame-child8"></div>
+            </div>
+            <div class="div26">30%</div>
+          </div>
+          <div class="due-date-wrapper4">
+            <div class="due-date6">20-04-2024</div>
+          </div>
+          <button class="remaining-time-wrapper4">
+            <div class="remaining-time6">18 days</div>
+          </button>
+          <div class="more-actions-projects6">
+            <img
+              class="icon-ionicons-sharp-elli16"
+              loading="lazy"
+              alt=""
+              src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+            />
           </div>
         </div>
-        <div class="home">
-          <div class="frame">
-            <div class="icon">🏠</div>
+        <div class="instance-parent5">
+          <button class="project-name-wrapper5">
+            <div class="project-name7">CRM Website</div>
+          </button>
+          <button class="client-name-wrapper5">
+            <div class="client-name7">John M.</div>
+          </button>
+          <button class="assigned-to-wrapper5">
+            <div class="assigned-to7">Marshall W.</div>
+          </button>
+          <div class="frame-parent8">
+            <div class="rectangle-parent2">
+              <div class="frame-child9"></div>
+              <div class="frame-child10"></div>
+            </div>
+            <div class="div27">30%</div>
+          </div>
+          <div class="due-date-wrapper5">
+            <div class="due-date7">20-04-2024</div>
+          </div>
+          <button class="remaining-time-wrapper5">
+            <div class="remaining-time7">18 days</div>
+          </button>
+          <div class="more-actions-projects7">
+            <img
+              class="icon-ionicons-sharp-elli17"
+              loading="lazy"
+              alt=""
+              src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+            />
           </div>
         </div>
-        <img
-          class="icon-tabler-icons-user-cir"
-          alt=""
-          src="static/public/icon--tablericons--usercircle.svg"
-        />
-
-        <img class="logo-icon" alt="" src="static/public/logo.svg" />
-      </nav>
-    </div>
+        <div class="expanded-rows2">
+          <div class="instance-parent6">
+            <button class="project-name-wrapper6">
+              <div class="project-name8">CRM Website</div>
+            </button>
+            <button class="client-name-wrapper6">
+              <div class="client-name8">John M.</div>
+            </button>
+            <button class="assigned-to-wrapper6">
+              <div class="assigned-to8">Marshall W.</div>
+            </button>
+            <div class="frame-parent9">
+              <div class="rectangle-parent3">
+                <div class="frame-child11"></div>
+                <div class="frame-child12"></div>
+              </div>
+              <div class="div28">30%</div>
+            </div>
+            <div class="due-date-wrapper6">
+              <div class="due-date8">20-04-2024</div>
+            </div>
+            <button class="remaining-time-wrapper6">
+              <div class="remaining-time8">18 days</div>
+            </button>
+            <div class="more-actions-projects8">
+              <img
+                class="icon-ionicons-sharp-elli18"
+                loading="lazy"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="instance-parent7">
+          <button class="project-name-wrapper7">
+            <div class="project-name9">CRM Website</div>
+          </button>
+          <button class="client-name-wrapper7">
+            <div class="client-name9">John M.</div>
+          </button>
+          <button class="assigned-to-wrapper7">
+            <div class="assigned-to9">Marshall W.</div>
+          </button>
+          <div class="frame-parent10">
+            <div class="rectangle-parent4">
+              <div class="frame-child13"></div>
+              <div class="frame-child14"></div>
+            </div>
+            <div class="div29">30%</div>
+          </div>
+          <div class="due-date-wrapper7">
+            <div class="due-date9">20-04-2024</div>
+          </div>
+          <button class="remaining-time-wrapper7">
+            <div class="remaining-time9">18 days</div>
+          </button>
+          <div class="more-actions-projects9">
+            <img
+              class="icon-ionicons-sharp-elli19"
+              loading="lazy"
+              alt=""
+              src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+            />
+          </div>
+        </div>
+      </section>
+    </form>
 
     <script>
-      var frameButton = document.getElementById("frameButton");
-      if (frameButton) {
-        frameButton.addEventListener("click", function (e) {
+      var addProjectButton = document.getElementById("addProjectButton");
+      if (addProjectButton) {
+        addProjectButton.addEventListener("click", function (e) {
           window.location.href = "./projects-add-a-new-project.html";
         });
       }

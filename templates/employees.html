@@ -4,15 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="static/CSS/global.css" />
-    <link rel="stylesheet" href="static/CSS/employees.css" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./employees.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
     />
     <link
       rel="stylesheet"
@@ -20,642 +16,540 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
     />
   </head>
   <body>
     <div class="employees">
-      <button class="frame-button">
-        <img
-          class="icon-ionicons-outline-ar"
-          alt=""
-          src="static/public/icon--ionicons--outline--addoutline.svg"
-        />
+      <div class="sidebar-wrapper">
+        <div class="sidebar3">
+          <div class="sidebar-content">
+            <img
+              class="logo-icon3"
+              loading="lazy"
+              alt=""
+              src="./public/logo.svg"
+            />
+          </div>
+          <img
+            class="icon-tabler-icons-user-cir3"
+            loading="lazy"
+            alt=""
+            src="./public/icon--tablericons--usercircle.svg"
+          />
 
-        <div class="add-a-new7">Add a new employee</div>
-      </button>
-      <textarea class="field12"> </textarea>
-      <div class="employees-chart">Employees Chart</div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/man-1@2x.png" />
+          <nav class="navigation-menu1">
+            <div class="projects-icon3">
+              <div class="frame15">
+                <div class="icon19">🏗️</div>
+              </div>
+            </div>
+            <div class="employees-icon3">
+              <div class="frame16">
+                <div class="icon20">👥</div>
+              </div>
+            </div>
+            <div class="contacts3">
+              <div class="frame17">
+                <div class="icon21">📅</div>
+              </div>
+            </div>
+            <div class="leads-pipeline3">
+              <div class="frame18">
+                <div class="icon22">📊</div>
+              </div>
+            </div>
+            <div class="home3">
+              <div class="frame19">
+                <div class="icon23">🏠</div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <main class="data-visualization-parent">
+        <div class="data-visualization">
+          <h1 class="employees-chart">Employees Chart</h1>
+        </div>
+        <div class="data-manipulation">
+          <div class="action-panel">
+            <button class="add-employee-button">
+              <img
+                class="icon-ionicons-outline-ad3"
+                alt=""
+                src="./public/icon--ionicons--outline--addoutline1.svg"
+              />
 
-                <div class="employee-name">Employee Name</div>
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--outline--arrowupoutline.svg"
-                />
-              </div>
-            </th>
-            <th class="th" colspan="{2}">
-              <div class="titles">
-                <img
-                  class="man-1-icon"
-                  alt=""
-                  src="static/public/briefcase-1@2x.png"
-                />
+              <div class="add-a-new3">Add a new employee</div>
+            </button>
+            <div class="field2">
+              <img
+                class="icon-jam-icons-outline-l4"
+                alt=""
+                src="./public/icon--jamicons--outline--logos--search.svg"
+              />
 
-                <div class="employee-name">Designation</div>
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--outline--arrowupoutline1.svg"
-                />
-              </div>
-            </th>
-            <th class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/startup@2x.png" />
+              <input
+                class="search-input1"
+                placeholder="Search for any employee"
+                type="text"
+              />
 
-                <div class="employee-name">Projects Assigned</div>
-              </div>
-            </th>
-            <th class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/email-11@2x.png" />
-
-                <div class="employee-name">Contact info</div>
-              </div>
-            </th>
-            <th class="th" colspan="{4}">
-              <div class="titles4">
-                <div class="employee-name">Availability Status</div>
-              </div>
-            </th>
-            <th class="th" colspan="{4}">
-              <div class="titles4"></div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-wrapper">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-container">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">---</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse1.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-frame">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-wrapper">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">---</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse1.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-container">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-frame">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-wrapper">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-container">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-frame">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="th" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-wrapper">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns3">
-                <div class="crm-web-saas-container">
-                  <ul class="crm-web-saas-ui">
-                    <li class="crm-web">CRM Web</li>
-                    <li>SaaS UI</li>
-                  </ul>
-                </div>
-              </div>
-            </td>
-            <td class="th" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse.svg"
-                />
-              </div>
-            </td>
-            <td class="th" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="td60" colspan="{2}">
-              <div class="titles">
-                <img class="man-1-icon" alt="" src="static/public/officer1@2x.png" />
-
-                <div class="crm-web-saas-container">William S.</div>
-              </div>
-            </td>
-            <td class="td60" colspan="{2}">
-              <div class="columns2">
-                <div class="sr-ux-designer-wrapper">
-                  <div class="employee-name">Sr. UX Designer</div>
-                </div>
-              </div>
-            </td>
-            <td class="td60" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">---</div>
-              </div>
-            </td>
-            <td class="td60" colspan="{2}">
-              <div class="columns4">
-                <div class="crm-web-saas-container">williams@gmail.com</div>
-              </div>
-            </td>
-            <td class="td60" colspan="{4}">
-              <div class="columns4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--filled--ellipse1.svg"
-                />
-              </div>
-            </td>
-            <td class="td60" colspan="{4}">
-              <div class="titles4">
-                <img
-                  class="icon-ionicons-outline-ar"
-                  alt=""
-                  src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                />
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <nav class="sidebar3">
-        <div class="projects-icon3">
-          <div class="frame15">
-            <div class="icon15">🏗️</div>
+              <img
+                class="icon-jam-icons-outline-l5"
+                alt=""
+                src="./public/icon--jamicons--outline--logos--chevrondown.svg"
+              />
+            </div>
           </div>
         </div>
-        <div class="employees-icon3">
-          <div class="frame15">
-            <div class="icon15">👥</div>
-          </div>
-        </div>
-        <div class="contacts3">
-          <div class="frame15">
-            <div class="icon15">📅</div>
-          </div>
-        </div>
-        <div class="leads-pipeline5">
-          <div class="frame15">
-            <div class="icon15">📊</div>
-          </div>
-        </div>
-        <div class="home3">
-          <div class="frame15">
-            <div class="icon15">🏠</div>
-          </div>
-        </div>
-        <img
-          class="icon-tabler-icons-user-cir3"
-          alt=""
-          src="static/public/icon--tablericons--usercircle.svg"
-        />
+        <div class="table">
+          <div class="employee-name">
+            <div class="titles">
+              <img class="man-1-icon" alt="" src="./public/man-1@2x.png" />
 
-        <img class="logo-icon3" alt="" src="static/public/logo.svg" />
-      </nav>
+              <div class="employee-name1">Employee Name</div>
+              <img
+                class="icon-ionicons-outline-ar"
+                alt=""
+                src="./public/icon--ionicons--outline--arrowupoutline.svg"
+              />
+            </div>
+            <div class="columns1">
+              <img class="officer-icon1" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s1">William S.</div>
+            </div>
+            <div class="columns2">
+              <img class="officer-icon2" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s2">William S.</div>
+            </div>
+            <div class="columns3">
+              <img class="officer-icon3" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s3">William S.</div>
+            </div>
+            <div class="columns4">
+              <img class="officer-icon4" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s4">William S.</div>
+            </div>
+            <div class="columns5">
+              <img class="officer-icon5" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s5">William S.</div>
+            </div>
+            <div class="columns6">
+              <img class="officer-icon6" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s6">William S.</div>
+            </div>
+            <div class="columns7">
+              <img class="officer-icon7" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s7">William S.</div>
+            </div>
+            <div class="columns8">
+              <img class="officer-icon8" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s8">William S.</div>
+            </div>
+            <div class="columns9">
+              <img class="officer-icon9" alt="" src="./public/officer@2x.png" />
+
+              <div class="william-s9">William S.</div>
+            </div>
+            <div class="columns10">
+              <img
+                class="officer-icon10"
+                alt=""
+                src="./public/officer@2x.png"
+              />
+
+              <div class="william-s10">William S.</div>
+            </div>
+            <div class="columns11">
+              <img
+                class="officer-icon11"
+                alt=""
+                src="./public/officer@2x.png"
+              />
+
+              <div class="william-s11">William S.</div>
+            </div>
+          </div>
+          <div class="designation">
+            <div class="titles1">
+              <img
+                class="briefcase-1-icon"
+                alt=""
+                src="./public/briefcase-1@2x.png"
+              />
+
+              <div class="designation1">Designation</div>
+              <img
+                class="icon-ionicons-outline-ar1"
+                alt=""
+                src="./public/icon--ionicons--outline--arrowupoutline-1.svg"
+              />
+            </div>
+            <div class="columns12">
+              <div class="sr-ux-designer-wrapper">
+                <div class="sr-ux-designer">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns13">
+              <div class="sr-ux-designer-container">
+                <div class="sr-ux-designer1">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns14">
+              <div class="sr-ux-designer-frame">
+                <div class="sr-ux-designer2">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns15">
+              <div class="sr-ux-designer-wrapper1">
+                <div class="sr-ux-designer3">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns16">
+              <div class="sr-ux-designer-wrapper2">
+                <div class="sr-ux-designer4">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns17">
+              <div class="sr-ux-designer-wrapper3">
+                <div class="sr-ux-designer5">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns18">
+              <div class="sr-ux-designer-wrapper4">
+                <div class="sr-ux-designer6">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns19">
+              <div class="sr-ux-designer-wrapper5">
+                <div class="sr-ux-designer7">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns20">
+              <div class="sr-ux-designer-wrapper6">
+                <div class="sr-ux-designer8">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns21">
+              <div class="sr-ux-designer-wrapper7">
+                <div class="sr-ux-designer9">Sr. UX Designer</div>
+              </div>
+            </div>
+            <div class="columns22">
+              <div class="sr-ux-designer-wrapper8">
+                <div class="sr-ux-designer10">Sr. UX Designer</div>
+              </div>
+            </div>
+          </div>
+          <div class="projects-assigned">
+            <div class="titles2">
+              <img
+                class="start-up-icon"
+                loading="lazy"
+                alt=""
+                src="./public/startup@2x.png"
+              />
+
+              <div class="projects-assigned1">Projects Assigned</div>
+            </div>
+            <div class="columns23">
+              <div class="crm-web-saas-container">
+                <ul class="crm-web-saas-ui">
+                  <li class="crm-web">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns24">
+              <div class="crm-web-saas">---</div>
+            </div>
+            <div class="columns25">
+              <div class="crm-web-saas-container1">
+                <ul class="crm-web-saas-ui1">
+                  <li class="crm-web1">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns26">
+              <div class="crm-web-saas1">---</div>
+            </div>
+            <div class="columns27">
+              <div class="crm-web-saas-container2">
+                <ul class="crm-web-saas-ui2">
+                  <li class="crm-web2">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns28">
+              <div class="crm-web-saas-container3">
+                <ul class="crm-web-saas-ui3">
+                  <li class="crm-web3">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns29">
+              <div class="crm-web-saas-container4">
+                <ul class="crm-web-saas-ui4">
+                  <li class="crm-web4">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns30">
+              <div class="crm-web-saas-container5">
+                <ul class="crm-web-saas-ui5">
+                  <li class="crm-web5">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns31">
+              <div class="crm-web-saas-container6">
+                <ul class="crm-web-saas-ui6">
+                  <li class="crm-web6">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns32">
+              <div class="crm-web-saas-container7">
+                <ul class="crm-web-saas-ui7">
+                  <li class="crm-web7">CRM Web</li>
+                  <li>SaaS UI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="columns33">
+              <div class="crm-web-saas2">---</div>
+            </div>
+          </div>
+          <div class="contact">
+            <div class="titles3">
+              <img class="email-1-icon1" alt="" src="./public/email-1@2x.png" />
+
+              <div class="contact-info">Contact info</div>
+            </div>
+            <div class="columns34">
+              <div class="williamsgmailcom">williams@gmail.com</div>
+            </div>
+            <div class="columns35">
+              <div class="williamsgmailcom1">williams@gmail.com</div>
+            </div>
+            <div class="columns36">
+              <div class="williamsgmailcom2">williams@gmail.com</div>
+            </div>
+            <div class="columns37">
+              <div class="williamsgmailcom3">williams@gmail.com</div>
+            </div>
+            <div class="columns38">
+              <div class="williamsgmailcom4">williams@gmail.com</div>
+            </div>
+            <div class="columns39">
+              <div class="williamsgmailcom5">williams@gmail.com</div>
+            </div>
+            <div class="columns40">
+              <div class="williamsgmailcom6">williams@gmail.com</div>
+            </div>
+            <div class="columns41">
+              <div class="williamsgmailcom7">williams@gmail.com</div>
+            </div>
+            <div class="columns42">
+              <div class="williamsgmailcom8">williams@gmail.com</div>
+            </div>
+            <div class="columns43">
+              <div class="williamsgmailcom9">williams@gmail.com</div>
+            </div>
+            <div class="columns44">
+              <div class="williamsgmailcom10">williams@gmail.com</div>
+            </div>
+          </div>
+          <div class="sr">
+            <button class="titles4">
+              <div class="availability-status">Availability Status</div>
+            </button>
+            <div class="columns45">
+              <img
+                class="icon-ionicons-filled-ell"
+                loading="lazy"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns46">
+              <img
+                class="icon-ionicons-filled-ell1"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse-1.svg"
+              />
+            </div>
+            <div class="columns47">
+              <img
+                class="icon-ionicons-filled-ell2"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns48">
+              <img
+                class="icon-ionicons-filled-ell3"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse-1.svg"
+              />
+            </div>
+            <div class="columns49">
+              <img
+                class="icon-ionicons-filled-ell4"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns50">
+              <img
+                class="icon-ionicons-filled-ell5"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns51">
+              <img
+                class="icon-ionicons-filled-ell6"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns52">
+              <img
+                class="icon-ionicons-filled-ell7"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns53">
+              <img
+                class="icon-ionicons-filled-ell8"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns54">
+              <img
+                class="icon-ionicons-filled-ell9"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse.svg"
+              />
+            </div>
+            <div class="columns55">
+              <img
+                class="icon-ionicons-filled-ell10"
+                alt=""
+                src="./public/icon--ionicons--filled--ellipse-1.svg"
+              />
+            </div>
+          </div>
+          <div class="more-action">
+            <div class="titles5">
+              <div class="availability-status1">Availability Status</div>
+            </div>
+            <div class="columns56">
+              <img
+                class="icon-ionicons-sharp-elli20"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns57">
+              <img
+                class="icon-ionicons-sharp-elli21"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns58">
+              <img
+                class="icon-ionicons-sharp-elli22"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns59">
+              <img
+                class="icon-ionicons-sharp-elli23"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns60">
+              <img
+                class="icon-ionicons-sharp-elli24"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns61">
+              <img
+                class="icon-ionicons-sharp-elli25"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns62">
+              <img
+                class="icon-ionicons-sharp-elli26"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns63">
+              <img
+                class="icon-ionicons-sharp-elli27"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns64">
+              <img
+                class="icon-ionicons-sharp-elli28"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns65">
+              <img
+                class="icon-ionicons-sharp-elli29"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+            <div class="columns66">
+              <img
+                class="icon-ionicons-sharp-elli30"
+                alt=""
+                src="./public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>
