@@ -12,7 +12,7 @@ def signup(request):
 def dashboard(request):
     models.create_table()
     models.insert_data()
-    graphs.bar_char()
+    # graphs.bar_char()
     return render(request,'dashboard.html')
 def employee(request):
     return render(request,'employees.html')
