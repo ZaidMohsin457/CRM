@@ -49,27 +49,27 @@
           <nav class="navigation-menu">
             <div class="projects-icon">
               <div class="navigation-buttons">
-                <div class="icon">🏗️</div>
+                <button class="icon" onclick="window.location.href='/projects'">🏗️</button>
               </div>
             </div>
             <div class="employees-icon">
               <div class="frame">
-                <div class="icon1">👥</div>
+                <button class="icon1" onclick="window.location.href='/employee'">👥</button>
               </div>
             </div>
             <div class="contacts">
               <div class="frame1">
-                <div class="icon2">📅</div>
+                <button class="icon2" onclick="window.location.href='/meeting-scheduler'">📅</button>
               </div>
             </div>
             <div class="leads-pipeline">
               <div class="frame2">
-                <div class="icon3">📊</div>
+                <button class="icon3" onclick="window.location.href='/leads-pipeline'">📊</button>
               </div>
             </div>
             <div class="home">
               <div class="frame3">
-                <div class="icon4">🏠</div>
+                <button class="icon4" onclick="window.location.href='/home'">🏠</button>
               </div>
             </div>
           </nav>
@@ -82,7 +82,7 @@
         <form class="contact-management">
           <div class="add-contact-button-parent">
             <div class="add-contact-button">
-              <button class="add-contact-label">
+              <button class="add-contact-label" onclick="event.preventDefault();window.location.href='/add-new-contact';">
                 <img
                   class="icon-ionicons-outline-ad"
                   alt=""
@@ -428,7 +428,7 @@
           </div>
           <div class="meeting-management">
             <div class="schedule-meeting-button-wrapper">
-              <button class="schedule-meeting-button">
+              <button class="schedule-meeting-button" onclick="event.preventDefault();window.location.href='/add-new-meeting';">
                 <img
                   class="icon-ionicons-outline-ad1"
                   alt=""

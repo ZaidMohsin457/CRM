@@ -218,15 +218,16 @@
   flex-shrink: 0;
 }
 .icon14 {
-  align-self: stretch;
-  flex: 1;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
   position: relative;
   font-size: var(--typography-desktop-h5-size);
   line-height: 24px;
   font-family: var(--font-roboto);
   color: var(--color-black);
   text-align: center;
-  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -254,6 +255,10 @@
   padding: var(--padding-base) var(--padding-10xl-5);
 }
 .icon15 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
   position: relative;
   font-size: var(--typography-desktop-h5-size);
   line-height: 24px;
@@ -287,6 +292,10 @@
   padding: var(--padding-base) var(--padding-10xl-5);
 }
 .icon16 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
   position: relative;
   font-size: var(--typography-desktop-h5-size);
   line-height: 24px;
@@ -320,6 +329,10 @@
   padding: var(--padding-base) var(--padding-10xl-5);
 }
 .icon17 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
   position: relative;
   font-size: var(--typography-desktop-h5-size);
   line-height: 24px;
@@ -356,13 +369,16 @@
   flex: 1;
 }
 .icon18 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
   position: relative;
   font-size: var(--typography-desktop-h5-size);
   line-height: 24px;
   font-family: var(--font-roboto);
   color: var(--color-black);
   text-align: center;
-  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -1919,6 +1935,34 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .assigned-to8 {
   position: relative;
   font-size: var(--font-size-base);
