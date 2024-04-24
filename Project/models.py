@@ -82,17 +82,14 @@ def create_table():
                     foreign key(emp_id) references employees(e_id)
                 );
         """)
-def insert_data():
+def insert_data_user(name,email,password):
     with connection.cursor() as cursor:
-        cursor.execute("""
-            INSERT INTO 
-            
-        """)
+        cursor.execute(" INSERT INTO users (u_name,u_email,password) VALUES (%s,%s,%s);" ,[name,email,password])  
 
-def retreive_data():
+def retreive_data_user():
     with connection.cursor() as cursor:
         cursor.execute("""
-            SELECT * FROM my_integer_data;
+            SELECT u_email,password FROM users;
         """)
         data = cursor.fetchall()
     return data

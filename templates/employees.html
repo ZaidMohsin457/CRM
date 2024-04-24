@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="static/CSS/global.css" />
     <link rel="stylesheet" href="static/CSS/employees.css" />
+    <link rel="stylesheet" href="static/CSS/dashboard.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
@@ -123,70 +124,16 @@
                 src="static/public/icon--ionicons--outline--arrowupoutline.svg"
               />
             </div>
+            {# Loop through employees #}
+            {% for i in data %}
+            {# Employee details #}
             <div class="columns1">
               <img class="officer-icon1" alt="" src="static/public/officer@2x.png" />
 
-              <div class="william-s1">William S.</div>
+              <div class="william-s1">William S. {{i}}</div>
             </div>
-            <div class="columns2">
-              <img class="officer-icon2" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s2">William S.</div>
-            </div>
-            <div class="columns3">
-              <img class="officer-icon3" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s3">William S.</div>
-            </div>
-            <div class="columns4">
-              <img class="officer-icon4" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s4">William S.</div>
-            </div>
-            <div class="columns5">
-              <img class="officer-icon5" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s5">William S.</div>
-            </div>
-            <div class="columns6">
-              <img class="officer-icon6" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s6">William S.</div>
-            </div>
-            <div class="columns7">
-              <img class="officer-icon7" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s7">William S.</div>
-            </div>
-            <div class="columns8">
-              <img class="officer-icon8" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s8">William S.</div>
-            </div>
-            <div class="columns9">
-              <img class="officer-icon9" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s9">William S.</div>
-            </div>
-            <div class="columns10">
-              <img
-                class="officer-icon10"
-                alt=""
-                src="static/public/officer@2x.png"
-              />
-
-              <div class="william-s10">William S.</div>
-            </div>
-            <div class="columns11">
-              <img
-                class="officer-icon11"
-                alt=""
-                src="static/public/officer@2x.png"
-              />
-
-              <div class="william-s11">William S.</div>
-            </div>
-          </div>
+            {% endfor %}
+            
           <div class="designation">
             <div class="titles1">
               <img
@@ -194,7 +141,6 @@
                 alt=""
                 src="static/public/briefcase-1@2x.png"
               />
-
               <div class="designation1">Designation</div>
               <img
                 class="icon-ionicons-outline-ar1"
@@ -202,62 +148,16 @@
                 src="static/public/icon--ionicons--outline--arrowupoutline-1.svg"
               />
             </div>
-            <div class="columns12">
+            {# Loop through employees #}
+            {% for i in data %}
+            {# Employee designation #}
+            <div class="columns3">
               <div class="sr-ux-designer-wrapper">
-                <div class="sr-ux-designer">Sr. UX Designer</div>
+                <div class="sr-ux-designer">Sr. UX Designer{{i}}</div>
               </div>
             </div>
-            <div class="columns13">
-              <div class="sr-ux-designer-container">
-                <div class="sr-ux-designer1">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns14">
-              <div class="sr-ux-designer-frame">
-                <div class="sr-ux-designer2">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns15">
-              <div class="sr-ux-designer-wrapper1">
-                <div class="sr-ux-designer3">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns16">
-              <div class="sr-ux-designer-wrapper2">
-                <div class="sr-ux-designer4">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns17">
-              <div class="sr-ux-designer-wrapper3">
-                <div class="sr-ux-designer5">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns18">
-              <div class="sr-ux-designer-wrapper4">
-                <div class="sr-ux-designer6">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns19">
-              <div class="sr-ux-designer-wrapper5">
-                <div class="sr-ux-designer7">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns20">
-              <div class="sr-ux-designer-wrapper6">
-                <div class="sr-ux-designer8">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns21">
-              <div class="sr-ux-designer-wrapper7">
-                <div class="sr-ux-designer9">Sr. UX Designer</div>
-              </div>
-            </div>
-            <div class="columns22">
-              <div class="sr-ux-designer-wrapper8">
-                <div class="sr-ux-designer10">Sr. UX Designer</div>
-              </div>
-            </div>
-          </div>
+            {% endfor %}
+            
           <div class="projects-assigned">
             <div class="titles2">
               <img
@@ -269,125 +169,28 @@
 
               <div class="projects-assigned1">Projects Assigned</div>
             </div>
-            <div class="columns23">
+            {# Loop through employees #}
+            {% for i in data %}
+            {# Projects assigned to employee #}
+            <div class="columns5">
               <div class="crm-web-saas-container">
                 <ul class="crm-web-saas-ui">
-                  <li class="crm-web">CRM Web</li>
+                  <li class="crm-web">CRM Web{{i}}</li>
                   <li>SaaS UI</li>
                 </ul>
               </div>
             </div>
-            <div class="columns24">
-              <div class="crm-web-saas">---</div>
-            </div>
-            <div class="columns25">
-              <div class="crm-web-saas-container1">
-                <ul class="crm-web-saas-ui1">
-                  <li class="crm-web1">CRM Web</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            <div class="columns26">
-              <div class="crm-web-saas1">---</div>
-            </div>
-            <div class="columns27">
-              <div class="crm-web-saas-container2">
-                <ul class="crm-web-saas-ui2">
-                  <li class="crm-web2">CRM Web</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            <div class="columns28">
-              <div class="crm-web-saas-container3">
-                <ul class="crm-web-saas-ui3">
-                  <li class="crm-web3">CRM Web</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            <div class="columns29">
-              <div class="crm-web-saas-container4">
-                <ul class="crm-web-saas-ui4">
-                  <li class="crm-web4">CRM Web</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            <div class="columns30">
-              <div class="crm-web-saas-container5">
-                <ul class="crm-web-saas-ui5">
-                  <li class="crm-web5">CRM Web</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            <div class="columns31">
-              <div class="crm-web-saas-container6">
-                <ul class="crm-web-saas-ui6">
-                  <li class="crm-web6">CRM Web</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            <div class="columns32">
-              <div class="crm-web-saas-container7">
-                <ul class="crm-web-saas-ui7">
-                  <li class="crm-web7">CRM Web</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            <div class="columns33">
-              <div class="crm-web-saas2">---</div>
-            </div>
-          </div>
-          <div class="contact">
-            <div class="titles3">
-              <img class="email-1-icon1" alt="" src="static/public/email-1@2x.png" />
-
-              <div class="contact-info">Contact info</div>
-            </div>
-            <div class="columns34">
-              <div class="williamsgmailcom">williams@gmail.com</div>
-            </div>
-            <div class="columns35">
-              <div class="williamsgmailcom1">williams@gmail.com</div>
-            </div>
-            <div class="columns36">
-              <div class="williamsgmailcom2">williams@gmail.com</div>
-            </div>
-            <div class="columns37">
-              <div class="williamsgmailcom3">williams@gmail.com</div>
-            </div>
-            <div class="columns38">
-              <div class="williamsgmailcom4">williams@gmail.com</div>
-            </div>
-            <div class="columns39">
-              <div class="williamsgmailcom5">williams@gmail.com</div>
-            </div>
-            <div class="columns40">
-              <div class="williamsgmailcom6">williams@gmail.com</div>
-            </div>
-            <div class="columns41">
-              <div class="williamsgmailcom7">williams@gmail.com</div>
-            </div>
-            <div class="columns42">
-              <div class="williamsgmailcom8">williams@gmail.com</div>
-            </div>
-            <div class="columns43">
-              <div class="williamsgmailcom9">williams@gmail.com</div>
-            </div>
-            <div class="columns44">
-              <div class="williamsgmailcom10">williams@gmail.com</div>
-            </div>
+            {% endfor %}
+            
           </div>
           <div class="sr">
             <button class="titles4">
               <div class="availability-status">Availability Status</div>
             </button>
-            <div class="columns45">
+            {# Loop through employees #}
+            {% for i in data %}
+            {# Employee availability status #}
+            <div class="columns9">
               <img
                 class="icon-ionicons-filled-ell"
                 loading="lazy"
@@ -395,158 +198,24 @@
                 src="static/public/icon--ionicons--filled--ellipse.svg"
               />
             </div>
-            <div class="columns46">
-              <img
-                class="icon-ionicons-filled-ell1"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse-1.svg"
-              />
-            </div>
-            <div class="columns47">
-              <img
-                class="icon-ionicons-filled-ell2"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            <div class="columns48">
-              <img
-                class="icon-ionicons-filled-ell3"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse-1.svg"
-              />
-            </div>
-            <div class="columns49">
-              <img
-                class="icon-ionicons-filled-ell4"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            <div class="columns50">
-              <img
-                class="icon-ionicons-filled-ell5"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            <div class="columns51">
-              <img
-                class="icon-ionicons-filled-ell6"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            <div class="columns52">
-              <img
-                class="icon-ionicons-filled-ell7"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            <div class="columns53">
-              <img
-                class="icon-ionicons-filled-ell8"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            <div class="columns54">
-              <img
-                class="icon-ionicons-filled-ell9"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            <div class="columns55">
-              <img
-                class="icon-ionicons-filled-ell10"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse-1.svg"
-              />
-            </div>
+            {% endfor %}
+           
           </div>
           <div class="sr">
             <div class="titles5">
               <div class="availability-status1">Availability Status</div>
             </div>
-            <div class="columns56">
+            {# Loop through employees #}
+            {% for i in data %}
+            {# Employee availability status #}
+            <div class="columns11">
               <img
                 class="icon-ionicons-sharp-elli20"
                 alt=""
                 src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
               />
             </div>
-            <div class="columns57">
-              <img
-                class="icon-ionicons-sharp-elli21"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns58">
-              <img
-                class="icon-ionicons-sharp-elli22"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns59">
-              <img
-                class="icon-ionicons-sharp-elli23"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns60">
-              <img
-                class="icon-ionicons-sharp-elli24"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns61">
-              <img
-                class="icon-ionicons-sharp-elli25"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns62">
-              <img
-                class="icon-ionicons-sharp-elli26"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns63">
-              <img
-                class="icon-ionicons-sharp-elli27"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns64">
-              <img
-                class="icon-ionicons-sharp-elli28"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns65">
-              <img
-                class="icon-ionicons-sharp-elli29"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            <div class="columns66">
-              <img
-                class="icon-ionicons-sharp-elli30"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
+            {% endfor %}
           </div>
         </div>
       </main>

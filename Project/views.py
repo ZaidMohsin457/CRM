@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from Project import models
 from Project import graphs
 
@@ -6,16 +6,40 @@ from Project import graphs
 def index(request):
     return render(request,'desktop-1.html')
 def login(request):
-    return render(request,'login-page.html')
+    if request.method == "POST":
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        data=models.retreive_data_user()
+        # print(email,password)
+        if email == data[0][0] and password == data[0][1]:
+            return HttpResponseRedirect("home")
+        else:
+            return render(request,'login-page.html')
+    else:
+        return render(request,'login-page.html')
 def signup(request):
-    return render(request,'sign-up-page.html')
+    if request.method == "POST":
+        fullname = request.POST.get('name')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        data=models.retreive_data_user()
+        length = len(data)
+        for i in range(length):
+            if email == data[i][0]:
+                return render(request,'sign-up-page.html')
+        models.insert_data_user(fullname,email,password)
+        # print(fullname,email,password)
+        return HttpResponseRedirect('login')
+    else:
+        return render(request,'sign-up-page.html')
 def dashboard(request):
     models.create_table()
     # models.insert_data()
     # graphs.bar_char()
     return render(request,'dashboard.html')
 def employee(request):
-    return render(request,'employees.html')
+    data=[[1,2,3],[4,5,6]]
+    return render(request,'employees.html',{'data':data})
 def add_new_employee(request):
     return render(request,'add-a-new-employee.html')
 def employee_added(request):
