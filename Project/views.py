@@ -11,7 +11,7 @@ def signup(request):
     return render(request,'sign-up-page.html')
 def dashboard(request):
     models.create_table()
-    models.insert_data()
+    # models.insert_data()
     # graphs.bar_char()
     return render(request,'dashboard.html')
 def employee(request):
