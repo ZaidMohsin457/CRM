@@ -70,6 +70,7 @@ def create_table():
                     gender varchar(255),
                     salary int,
                     user_id int,
+                    country varchar(10),
                     foreign key(user_id) references users(u_id)
                 );
                 
@@ -93,3 +94,23 @@ def retreive_data_user():
         """)
         data = cursor.fetchall()
     return data
+
+def retrieve_emp_data():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select e.e_name,e.designation,e.e_phone_no from employees e ;
+        """)
+        data = cursor.fetchall()
+    return data
+
+def retreive_data_employee():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT e_name,designation,e_phone_no,e_email,gender,country from employees;
+        """)
+        data = cursor.fetchall()
+    return data
+
+def insert_data_employee(name,des,phone,mail,gen,coun):
+    with connection.cursor() as cursor:
+        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country) VALUES (%s,%s,%s,%s,%s,%s);" ,[name,des,phone,mail,gen,coun])

@@ -39,10 +39,36 @@ def dashboard(request):
     # graphs.bar_char()
     return render(request,'dashboard.html')
 def employee(request):
-    data=[[1,2,3],[4,5,6]]
-    return render(request,'employees.html',{'data':data})
+    data1=models.retrieve_emp_data()
+    return render(request,'employees.html',{'data':data1})
+
+
+
 def add_new_employee(request):
-    return render(request,'add-a-new-employee.html')
+    if request.method == "POST":
+        name = request.POST.get('name')
+        des = request.POST.get('desi')
+        phone = request.POST.get('con')
+        mail = request.POST.get('email')
+        gen = request.POST.get('gend')
+        # sal = request.POST.get('sala')
+        coun = request.POST.get('countr')
+        data2=models.retreive_data_employee()
+        # length = len(data2)
+        # for i in range(length):
+        models.insert_data_employee(name,des,phone,mail,gen,coun)
+            # if mail == data[i][3]:
+            #     return render(request,'add-a-new-employee.html')
+        # models.insert_data_emloyee(name,des,phone,mail,gen,sal,coun)
+        # print(fullname,email,password)
+        return HttpResponseRedirect('employee')
+    else:
+        return render(request,'add-a-new-employee.html')
+    
+   
+
+
+
 def employee_added(request):
     return render(request,'employee-added.html')
 def employee_details(request):

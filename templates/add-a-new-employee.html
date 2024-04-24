@@ -28,7 +28,8 @@
     />
   </head>
   <body>
-    <form class="employee-add-a-new-employee">
+    <form class="employee-add-a-new-employee" action="" method="POST" >
+      {% csrf_token %}
       <main class="main-container">
         <section class="content-area1">
           <div class="form-container">
@@ -49,6 +50,7 @@
                   class="ref-square"
                   placeholder="Placeholder"
                   type="text"
+                  name="name"
                 />
 
                 <img
@@ -65,7 +67,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="size-x" placeholder="Placeholder" type="text" />
+                <input class="size-x" placeholder="Placeholder" type="text" name="desi" />
 
                 <img
                   class="icon-jam-icons-outline-l9"
@@ -81,7 +83,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text2" placeholder="Placeholder" type="text" />
+                <input class="text2" placeholder="Placeholder" type="text" name="con"/>
 
                 <img
                   class="icon-jam-icons-outline-l11"
@@ -101,6 +103,7 @@
                   class="angledownsolid"
                   placeholder="Placeholder"
                   type="text"
+                  name="email"
                 />
 
                 <img
@@ -121,6 +124,7 @@
                   class="screen-shot"
                   placeholder="Placeholder"
                   type="text"
+                  name="sala"
                 />
 
                 <img
@@ -141,6 +145,7 @@
                   class="follow-us"
                   placeholder="Placeholder"
                   type="text"
+                  name="countr"
                 />
 
                 <img
@@ -157,7 +162,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="tool-box" placeholder="Placeholder" type="text" />
+                <input class="tool-box" placeholder="Placeholder" type="text" name="gend" />
 
                 <img
                   class="icon-jam-icons-outline-l19"
@@ -176,7 +181,7 @@
         />
       </main>
       <div class="header-area">
-        <button class="add-a-new-employee-wrapper" onclick="event.preventDefault();window.location.href='/employee-added';">
+        <button class="add-a-new-employee-wrapper" >
           <div class="add-a-new5">Add a new employee</div>
         </button>
       </div>
