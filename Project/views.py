@@ -63,3 +63,4 @@ def project_details(request):
     return render(request,'projects-view-details.html')
 def leads_pipeline(request):
     return render(request,'leads-pipeline.html')
+# hello i am ziaudiosf
