@@ -17,9 +17,9 @@ def dashboard(request):
 def employee(request):
     return render(request,'employees.html')
 def add_new_employee(request):
-    return render(request,'employee-add-a-new-employee.html')
+    return render(request,'add-a-new-employee.html')
 def employee_added(request):
-    return render(request,'employee-employee-added.html')
+    return render(request,'employee-added.html')
 def employee_details(request):
     return render(request,'view-employee-profile.html')
 def meeting_shcheduler(request):
@@ -31,9 +31,9 @@ def add_new_contact(request):
 def project(request):
     return render(request,'projects.html')
 def add_new_project(request):
-    return render(request,'projects-add-a-new-project.html')
+    return render(request,'add-a-new-project.html')
 def project_added(request):
-    return render(request,'projects-project-added.html')
+    return render(request,'project-added.html')
 def project_details(request):
     return render(request,'projects-view-details.html')
 def leads_pipeline(request):
