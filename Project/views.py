@@ -4,6 +4,7 @@ from Project import graphs
 
 # Create your views here.
 def index(request):
+    models.create_table()
     return render(request,'desktop-1.html')
 def login(request):
     if request.method == "POST":
@@ -33,7 +34,7 @@ def signup(request):
     else:
         return render(request,'sign-up-page.html')
 def dashboard(request):
-    models.create_table()
+    # models.create_table()
     # models.insert_data()
     # graphs.bar_char()
     return render(request,'dashboard.html')
