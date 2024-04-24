@@ -93,3 +93,11 @@ def retreive_data_user():
         """)
         data = cursor.fetchall()
     return data
+
+def retreive_data_employee():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            -- select e.e_name,e.designation ,p.p_name from employees as e,projects p, assigned a
+            -- where e.e_id=a.emp_id and p.p_id=a.project_id
+            -- group by e.e_name,e.designation,p.p_name;
+        """)
