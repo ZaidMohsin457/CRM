@@ -106,11 +106,11 @@ def retrieve_emp_data():
 def retreive_data_employee():
     with connection.cursor() as cursor:
         cursor.execute("""
-            SELECT e_name,designation,e_phone_no,e_email,gender,country from employees;
+            SELECT e_name,designation,e_phone_no,e_email,gender,country,salary from employees;
         """)
         data = cursor.fetchall()
     return data
 
-def insert_data_employee(name,des,phone,mail,gen,coun):
+def insert_data_employee(name,des,phone,mail,gen,coun,sal):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country) VALUES (%s,%s,%s,%s,%s,%s);" ,[name,des,phone,mail,gen,coun])
+        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary) VALUES (%s,%s,%s,%s,%s,%s,%d);" ,[name,des,phone,mail,gen,coun,sal])

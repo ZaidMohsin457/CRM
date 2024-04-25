@@ -51,15 +51,16 @@ def add_new_employee(request):
         phone = request.POST.get('con')
         mail = request.POST.get('email')
         gen = request.POST.get('gend')
-        # sal = request.POST.get('sala')
+        sal = int(request.POST.get('sala'))
+        print (type(sal))
         coun = request.POST.get('countr')
         data2=models.retreive_data_employee()
-        # length = len(data2)
-        # for i in range(length):
-        models.insert_data_employee(name,des,phone,mail,gen,coun)
-            # if mail == data[i][3]:
-            #     return render(request,'add-a-new-employee.html')
-        # models.insert_data_emloyee(name,des,phone,mail,gen,sal,coun)
+        length = len(data2)
+        for i in range(length):
+        
+            if mail == data2[i][3]:
+                return render(request,'add-a-new-employee.html')
+        models.insert_data_emloyee(name,des,phone,mail,gen,sal,coun)
         # print(fullname,email,password)
         return HttpResponseRedirect('employee')
     else:
