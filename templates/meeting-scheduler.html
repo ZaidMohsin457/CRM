@@ -115,6 +115,7 @@
             <div class="contacts-chart">
               <div class="logo">
                 <div class="contacts-title"></div>
+                {%for contact in data%}
                 <div class="contacts-columns">
                   <img
                     class="contact-information-icon"
@@ -123,69 +124,8 @@
                     src="static/public/vector.svg"
                   />
                 </div>
-                <div class="contacts-columns1">
-                  <img
-                    class="contact-information-icon1"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns2">
-                  <img
-                    class="contact-information-icon2"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns3">
-                  <img
-                    class="contact-information-icon3"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns4">
-                  <img
-                    class="contact-information-icon4"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns5">
-                  <img
-                    class="contact-information-icon5"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns6">
-                  <img
-                    class="contact-information-icon6"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns7">
-                  <img
-                    class="contact-information-icon7"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns8">
-                  <img
-                    class="contact-information-icon8"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                <div class="contacts-columns9">
-                  <img
-                    class="contact-information-icon9"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
+                {%endfor%}
+                
               </div>
               <div class="company-name">
                 <div class="contacts-title1">
@@ -197,36 +137,12 @@
 
                   <div class="company">Company</div>
                 </div>
+                {%for client in data%}
                 <div class="contacts-columns10">
-                  <div class="google">Google</div>
+                  <div class="google">{{client.3}}</div>
                 </div>
-                <div class="contacts-columns11">
-                  <div class="google1">Google</div>
-                </div>
-                <div class="contacts-columns12">
-                  <div class="google2">Google</div>
-                </div>
-                <div class="contacts-columns13">
-                  <div class="google3">Google</div>
-                </div>
-                <div class="contacts-columns14">
-                  <div class="google4">Google</div>
-                </div>
-                <div class="contacts-columns15">
-                  <div class="google5">Google</div>
-                </div>
-                <div class="contacts-columns16">
-                  <div class="google6">Google</div>
-                </div>
-                <div class="contacts-columns17">
-                  <div class="google7">Google</div>
-                </div>
-                <div class="contacts-columns18">
-                  <div class="google8">Google</div>
-                </div>
-                <div class="contacts-columns19">
-                  <div class="google9">Google</div>
-                </div>
+                {%endfor%}
+               
               </div>
               <div class="contact-table-header">
                 <div class="contacts-title2">
@@ -238,36 +154,12 @@
 
                   <div class="client">Client</div>
                 </div>
+                {%for client in data%}
                 <div class="contacts-columns20">
-                  <div class="john-doe">John Doe</div>
+                  <div class="john-doe">{{client.0}}</div>
                 </div>
-                <div class="contacts-columns21">
-                  <div class="john-doe1">John Doe</div>
-                </div>
-                <div class="contacts-columns22">
-                  <div class="john-doe2">John Doe</div>
-                </div>
-                <div class="contacts-columns23">
-                  <div class="john-doe3">John Doe</div>
-                </div>
-                <div class="contacts-columns24">
-                  <div class="john-doe4">John Doe</div>
-                </div>
-                <div class="contacts-columns25">
-                  <div class="john-doe5">John Doe</div>
-                </div>
-                <div class="contacts-columns26">
-                  <div class="john-doe6">John Doe</div>
-                </div>
-                <div class="contacts-columns27">
-                  <div class="john-doe7">John Doe</div>
-                </div>
-                <div class="contacts-columns28">
-                  <div class="john-doe8">John Doe</div>
-                </div>
-                <div class="contacts-columns29">
-                  <div class="john-doe9">John Doe</div>
-                </div>
+                {%endfor%}
+               
               </div>
               <div class="music">
                 <div class="contacts-title3">
@@ -279,39 +171,15 @@
 
                   <div class="email">Email</div>
                 </div>
+                {%for client in data%}
                 <div class="contacts-columns30">
-                  <div class="johndoegmailcom">johndoe@gmail.com</div>
+                  <div class="johndoegmailcom">{{client.1}}</div>
                 </div>
-                <div class="contacts-columns31">
-                  <div class="johndoegmailcom1">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns32">
-                  <div class="johndoegmailcom2">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns33">
-                  <div class="johndoegmailcom3">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns34">
-                  <div class="johndoegmailcom4">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns35">
-                  <div class="johndoegmailcom5">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns36">
-                  <div class="johndoegmailcom6">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns37">
-                  <div class="johndoegmailcom7">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns38">
-                  <div class="johndoegmailcom8">johndoe@gmail.com</div>
-                </div>
-                <div class="contacts-columns39">
-                  <div class="johndoegmailcom9">johndoe@gmail.com</div>
-                </div>
+                {%endfor%}
+                
               </div>
               <div class="b">
-                <button class="contacts-title4">
+                <div class="contacts-title4">
                   <img
                     class="telephone-icon"
                     alt=""
@@ -319,40 +187,17 @@
                   />
 
                   <div class="phone-no">Phone no.</div>
-                </button>
+                </div>
+                {%for client in data%}
                 <div class="contacts-columns40">
-                  <div class="div">+1 222 333 444</div>
+                  <div class="div">{{client.2}}</div>
                 </div>
-                <div class="contacts-columns41">
-                  <div class="div1">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns42">
-                  <div class="div2">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns43">
-                  <div class="div3">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns44">
-                  <div class="div4">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns45">
-                  <div class="div5">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns46">
-                  <div class="div6">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns47">
-                  <div class="div7">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns48">
-                  <div class="div8">+1 222 333 444</div>
-                </div>
-                <div class="contacts-columns49">
-                  <div class="div9">+1 222 333 444</div>
-                </div>
+                {%endfor%}
+                
               </div>
               <div class="contact-table-header1">
                 <div class="contacts-title5"></div>
+                {%for client in data%}
                 <div class="contacts-columns50">
                   <img
                     class="icon-ionicons-sharp-elli"
@@ -361,69 +206,8 @@
                     src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
                   />
                 </div>
-                <div class="contacts-columns51">
-                  <img
-                    class="icon-ionicons-sharp-elli1"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns52">
-                  <img
-                    class="icon-ionicons-sharp-elli2"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns53">
-                  <img
-                    class="icon-ionicons-sharp-elli3"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns54">
-                  <img
-                    class="icon-ionicons-sharp-elli4"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns55">
-                  <img
-                    class="icon-ionicons-sharp-elli5"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns56">
-                  <img
-                    class="icon-ionicons-sharp-elli6"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns57">
-                  <img
-                    class="icon-ionicons-sharp-elli7"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns58">
-                  <img
-                    class="icon-ionicons-sharp-elli8"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                <div class="contacts-columns59">
-                  <img
-                    class="icon-ionicons-sharp-elli9"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
+                  {%endfor%}
+               
               </div>
             </div>
           </div>

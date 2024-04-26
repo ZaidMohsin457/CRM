@@ -159,11 +159,17 @@ def insert_data_client(name,phone,email,company,status,stage,new,user_id,country
         
 def retreive_meeting_data(user_id):
     with connection.cursor() as cursor:
-        cursor.execute("""Select m_time from meetings where user_id=%s;""",[user_id])  
+        cursor.execute("""Select m_time,meeting_date from meetings where user_id=%s;""",[user_id])  
         data = cursor.fetchall() 
     return data    
 
- 
+def retreive_contacts_details(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select c_name,c_email,c_phone_no,company_name from clients where user_id=%s;
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
 def insert_data_meeting(title,date,time,withm,link,user_id):
     with connection.cursor() as cursor:
         cursor.execute(" INSERT INTO meetings (title,meeting_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
