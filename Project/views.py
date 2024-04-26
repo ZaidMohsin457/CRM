@@ -90,7 +90,7 @@ def add_new_meeting(request):
                 return render(request,'add-a-new-meeting.html')
         models.insert_data_meeting(title,date,time,wit,link,user_id)
         # print(fullname,email,company,contact,country)
-        return HttpResponseRedirect('contact-added')
+        return HttpResponseRedirect('meeting-added')
     else:
         return render(request,'add-a-new-meeting.html')
     
@@ -122,6 +122,8 @@ def add_new_project(request):
     return render(request,'add-a-new-project.html')
 def project_added(request):
     return render(request,'project-added.html')
+def meeting_added(request):
+    return render(request,'meeting-added.html')
 def project_details(request):
     return render(request,'projects-view-details.html')
 def leads_pipeline(request):

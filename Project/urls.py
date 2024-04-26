@@ -13,6 +13,7 @@ urlpatterns = [
     path("employee-details", views.employee_details, name="EmployeeDetails"),
     path("meeting-scheduler", views.meeting_shcheduler, name="MeetingShcheduler"),
     path("add-new-meeting", views.add_new_meeting, name="AddNewMeeting"),
+    path("meeting-added", views.meeting_added, name="MeeitngAdded"),
     # path("meeting-added", views.meeting_added, name="MeetingAdded"),
     path("add-new-contact", views.add_new_contact, name="AddNewContact"),
     path("contact-added", views.contact_added, name="ContactAdded"),
