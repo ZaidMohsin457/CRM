@@ -34,7 +34,7 @@ def create_table():
                     p_name varchar(255),
                     due_date date,
                     status varchar(100),
-                    date_of_start date,
+                    starting_date date,
                     user_id int,
                     client_id int,
                     foreign key(user_id) references users(u_id),
