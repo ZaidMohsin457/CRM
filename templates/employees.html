@@ -74,6 +74,8 @@
               </div>
             </div>
           </nav>
+
+
         </div>
       </div>
       <main class="data-visualization-parent">
@@ -112,111 +114,35 @@
             </div>
           </div>
         </div>
-        <div class="table">
-          <div class="employee-name">
-            <div class="titles">
-              <img class="man-1-icon" alt="" src="static/public/man-1@2x.png" />
-
-              <div class="employee-name1">Employee Name</div>
-              <img
-                class="icon-ionicons-outline-ar"
-                alt=""
-                src="static/public/icon--ionicons--outline--arrowupoutline.svg"
-              />
-            </div>
-            {# Loop through employees #}
-            {% for i in data %}
-            {# Employee details #}
-            <div class="columns1">
-              <img class="officer-icon1" alt="" src="static/public/officer@2x.png" />
-
-              <div class="william-s1">William S. {{i}}</div>
-            </div>
-            {% endfor %}
-            
-          <div class="designation">
-            <div class="titles1">
-              <img
-                class="briefcase-1-icon"
-                alt=""
-                src="static/public/briefcase-1@2x.png"
-              />
-              <div class="designation1">Designation</div>
-              <img
-                class="icon-ionicons-outline-ar1"
-                alt=""
-                src="static/public/icon--ionicons--outline--arrowupoutline-1.svg"
-              />
-            </div>
-            {# Loop through employees #}
-            {% for i in data %}
-            {# Employee designation #}
-            <div class="columns3">
-              <div class="sr-ux-designer-wrapper">
-                <div class="sr-ux-designer">Sr. UX Designer{{i}}</div>
-              </div>
-            </div>
-            {% endfor %}
-            
-          <div class="projects-assigned">
-            <div class="titles2">
-              <img
-                class="start-up-icon"
-                loading="lazy"
-                alt=""
-                src="static/public/startup@2x.png"
-              />
-
-              <div class="projects-assigned1">Projects Assigned</div>
-            </div>
-            {# Loop through employees #}
-            {% for i in data %}
-            {# Projects assigned to employee #}
-            <div class="columns5">
-              <div class="crm-web-saas-container">
-                <ul class="crm-web-saas-ui">
-                  <li class="crm-web">CRM Web{{i}}</li>
-                  <li>SaaS UI</li>
-                </ul>
-              </div>
-            </div>
-            {% endfor %}
-            
-          </div>
-          <div class="sr">
-            <button class="titles4">
-              <div class="availability-status">Availability Status</div>
-            </button>
-            {# Loop through employees #}
-            {% for i in data %}
-            {# Employee availability status #}
-            <div class="columns9">
-              <img
-                class="icon-ionicons-filled-ell"
-                loading="lazy"
-                alt=""
-                src="static/public/icon--ionicons--filled--ellipse.svg"
-              />
-            </div>
-            {% endfor %}
-           
-          </div>
-          <div class="sr">
-            <div class="titles5">
-              <div class="availability-status1">Availability Status</div>
-            </div>
-            {# Loop through employees #}
-            {% for i in data %}
-            {# Employee availability status #}
-            <div class="columns11">
-              <img
-                class="icon-ionicons-sharp-elli20"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-            {% endfor %}
-          </div>
+        <table class="employee-table">
+          <thead>
+              <tr>
+                  <th>--Name--</th>
+                  <th>--Designation--</th>
+                  <th>--Projects Assigned--</th>
+                  <th>--Contact Info--</th>
+                  <th>--Availability Status--</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for employee in data %}
+              <tr>
+                  <td>{{ employee }}</td>
+                  <td>{{ employee }}</td>
+                  <td>{{ employee }}</td>
+                  <td>{{ employee }}</td>
+                  <td>
+                      {% if employee.availability_status %}
+                          Available
+                      {% else %}
+                          Not Available
+                      {% endif %}
+                  </td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      
         </div>
       </main>
     </div>
