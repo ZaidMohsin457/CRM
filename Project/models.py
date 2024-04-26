@@ -103,12 +103,12 @@ def retrieve_emp_data(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
              SELECT e.e_name, e.designation, e_phone_no, p.p_name 
-FROM employees e
-LEFT JOIN assigned a ON e.e_id = a.emp_id
-LEFT JOIN projects p ON p.p_id = a.project_id
-GROUP BY e.e_name, e.designation, e_phone_no, p.p_name;
-
-        """)
+            FROM employees e
+            LEFT JOIN assigned a ON e.e_id = a.emp_id
+            LEFT JOIN projects p ON p.p_id = a.project_id
+            where e.user_id=%s
+            GROUP BY e.e_name, e.designation, e_phone_no, p.p_name;
+        """,[user_id])
         data = cursor.fetchall()
     return data
 
