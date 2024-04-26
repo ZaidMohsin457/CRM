@@ -33,6 +33,8 @@ def create_table():
                     p_id serial primary key,
                     p_name varchar(255),
                     due_date date,
+                    status varchar(100),
+                    date_of_start date,
                     user_id int,
                     client_id int,
                     foreign key(user_id) references users(u_id),
@@ -95,11 +97,11 @@ def retreive_data_user():
         data = cursor.fetchall()
     return data
 
-def retrieve_emp_data():
+def retrieve_emp_data(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-            select e.e_name,e.designation,e.e_phone_no from employees e ;
-        """)
+            select e.e_name,e.designation,e.e_phone_no from employees e where e.user_id=%s;
+        """,[user_id])
         data = cursor.fetchall()
     return data
 
@@ -115,13 +117,21 @@ def insert_data_employee(name,designation,phone,email,gender,country,salary,user
     with connection.cursor() as cursor:
         cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary,user_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);" ,[name,designation,phone,email,gender,country,salary,user_id])
         
-def retreive_no_of_employee():
+def retreive_no_of_employee(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-            select count(e_id) from employees;
-        """)
+            select count(e_id) from employees where user_id=%s;
+        """,[user_id])
         data = cursor.fetchone()
     return data  
+
+def retreive_projects():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select p_name,c_name,due_date from projects;
+        """)
+        data = cursor.fetchall()
+    return data
 # def retreive_data_employee():
 #     with connection.cursor() as cursor:
 #         cursor.execute("""

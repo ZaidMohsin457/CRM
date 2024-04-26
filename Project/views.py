@@ -51,7 +51,6 @@ def add_new_employee(request):
         data=models.retreive_data_employee()
         length = len(data)
         for i in range(length):
-        
             if email == data[i][0]:
                 return render(request,'add-a-new-employee.html')
         models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id)
@@ -60,11 +59,11 @@ def add_new_employee(request):
         return render(request,'add-a-new-employee.html')
     
 def employee(request):
-    data=models.retrieve_emp_data()
+    data=models.retrieve_emp_data(user_id)
     return render(request,'employees.html',{'data':data})
 
 def dashboard(request):
-    no_of_employee = models.retreive_no_of_employee()
+    no_of_employee = models.retreive_no_of_employee(user_id)
     # no_of_employee=10
     # models.create_table()
     # models.insert_data()
