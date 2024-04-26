@@ -52,9 +52,9 @@ def create_table():
                 (
                     m_id serial primary key,
                     title varchar(255),
-                    m_time timestamp,
+                    m_time time,
                     zoom_link varchar(100) not null ,
-                    meetin_date Date,
+                    meetin_date date,
                     user_id int,
                     client_id int,
                     foreign key (user_id) references users(u_id),
