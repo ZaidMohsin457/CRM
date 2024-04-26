@@ -10,6 +10,7 @@ def index(request):
     models.create_table()
     return render(request,'desktop-1.html')
 def login(request):
+    message=None
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -19,10 +20,12 @@ def login(request):
             modify(data[0][2])
             return HttpResponseRedirect("home")
         else:
-            return render(request,'login-page.html')
+            message="Wrong Email Or Password .. Try Again Later"
+            return render(request,'login-page.html',{'message':message})
     else:
         return render(request,'login-page.html')
 def signup(request):
+    message=None
     if request.method == "POST":
         fullname = request.POST.get('name')
         email = request.POST.get('email')
@@ -31,7 +34,8 @@ def signup(request):
         length = len(data)
         for i in range(length):
             if email == data[i][0]:
-                return render(request,'sign-up-page.html')
+                message="Email already exists. Please use a different email."
+                return render(request,'sign-up-page.html', {'message': message})
         models.insert_data_user(fullname,email,password)
         # print(fullname,email,password)
         return HttpResponseRedirect('login')
@@ -92,8 +96,7 @@ def add_new_meeting(request):
         # print(fullname,email,company,contact,country)
         return HttpResponseRedirect('meeting-added')
     else:
-        return render(request,'add-a-new-meeting.html')
-    
+        return render(request,'add-a-new-meeting.html')  
 def add_new_contact(request):
     if request.method == "POST":
         fullname = request.POST.get('client-name')
