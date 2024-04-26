@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="static/CSS/global.css" />
     <link rel="stylesheet" href="static/CSS/add-a-new-meeting.css" />
+    <link rel="stylesheet" href="static/CSS/notification.css" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
@@ -28,6 +30,9 @@
     />
   </head>
   <body>
+    {% if message %}
+    <div class="notification">{{ message }}</div>
+    {% endif %}
     <form class="add-a-new-meeting" action="" method="POST">
       {% csrf_token %}
       <section class="frame-parent17">
