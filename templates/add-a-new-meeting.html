@@ -28,7 +28,8 @@
     />
   </head>
   <body>
-    <form class="add-a-new-meeting">
+    <form class="add-a-new-meeting" action="" method="POST">
+      {% csrf_token %}
       <section class="frame-parent17">
         <div class="frame-wrapper9">
           <div class="add-a-new-meeting-parent">
@@ -65,7 +66,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text7" placeholder="Placeholder" type="text" />
+                <input class="text7" placeholder="Placeholder" type="text" name="date" />
 
                 <img
                   class="icon-jam-icons-outline-l33"
@@ -81,7 +82,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text8" placeholder="Placeholder" type="text" />
+                <input class="text8" placeholder="Placeholder" type="text" name="time" />
 
                 <img
                   class="icon-jam-icons-outline-l35"
@@ -97,7 +98,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text9" placeholder="Placeholder" type="text" />
+                <input class="text9" placeholder="Placeholder" type="text" name="with" />
 
                 <img
                   class="icon-jam-icons-outline-l37"
@@ -113,7 +114,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text10" placeholder="Placeholder" type="text" />
+                <input class="text10" placeholder="Placeholder" type="text" name="link"  />
 
                 <img
                   class="icon-jam-icons-outline-l39"
@@ -133,7 +134,7 @@
       </section>
       <div class="add-a-new-meeting-inner">
     <link rel="stylesheet" href="static/CSS/projects.css" />
-        <button class="add-a-new-meeting-wrapper" onclick="event.preventDefault(); window.location.href='/meeting-scheduler';">
+        <button class="add-a-new-meeting-wrapper" >
           <div class="add-a-new9">Add a new meeting</div>
         </button>
       </div>
