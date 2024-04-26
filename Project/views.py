@@ -119,7 +119,22 @@ def contact_added(request):
 def project(request):
     return render(request,'projects.html')
 def add_new_project(request):
-    return render(request,'add-a-new-project.html')
+     if request.method == "POST":
+        project = request.POST.get('project')
+        # assi= request.POST.get('assi')
+        due = request.POST.get('dud')
+        start = request.POST.get('std')
+        status = request.POST.get('sts')
+        # data=models.retreive_meeting_data()
+        # length = len(data)
+        # for i in range(length):
+        #     if time == data[i][0]:
+        #         return render(request,'add-a-new-meeting.html')
+        models.insert_data_projects(project,start,due,status,user_id)
+   
+        return HttpResponseRedirect('project-added')
+     else:
+        return render(request,'add-a-new-project.html')
 def project_added(request):
     return render(request,'project-added.html')
 def meeting_added(request):
