@@ -77,7 +77,6 @@ def employee_details(request):
 def meeting_shcheduler(request):
     return render(request,'meeting-scheduler.html')
 def add_new_meeting(request):
-    
     if request.method == "POST":
         title = request.POST.get('title')
         date = request.POST.get('date')
