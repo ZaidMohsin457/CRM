@@ -1,6 +1,8 @@
 from django.shortcuts import render,HttpResponseRedirect
 from Project import models
 from Project import graphs
+from django.utils import timezone
+
 # Create your views here.
 user_id=1
 def modify(id):
@@ -47,6 +49,7 @@ def add_new_employee(request):
     message=None
     if request.method == "POST":
         name = request.POST.get('name')
+        date=timezone.now().date()
         designation = request.POST.get('designation')
         phone = request.POST.get('contact')
         email = request.POST.get('email')
@@ -59,7 +62,7 @@ def add_new_employee(request):
             if email == data[i][0]:
                 message="Employee Already Present .. Try adding another email"
                 return render(request,'add-a-new-employee.html',{'message':message})
-        models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id)
+        models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id,date)
         return HttpResponseRedirect('employee-added')
     else:
         return render(request,'add-a-new-employee.html')
@@ -101,11 +104,12 @@ def add_new_meeting(request):
     
 def dashboard(request):
     no_of_employee = models.retreive_no_of_employee(user_id)
+    no_of_employee_hired_this_month = models.emphired_thismonth(user_id)
     # no_of_employee=10
     # models.create_table()
     # models.insert_data()
     # graphs.bar_char()
-    return render(request,'dashboard.html',{'total_employees':no_of_employee[0]})
+    return render(request,'dashboard.html',{'total_employees':no_of_employee[0],'this_month':no_of_employee_hired_this_month[0]})
 
 def employee_details(request):
     return render(request,'view-employee-profile.html')
@@ -157,3 +161,6 @@ def project_details(request):
     return render(request,'projects-view-details.html')
 def leads_pipeline(request):
     return render(request,'leads-pipeline.html')
+
+
+    

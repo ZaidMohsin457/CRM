@@ -120,9 +120,9 @@ def retreive_data_employee():
         data = cursor.fetchall()
     return data
 
-def insert_data_employee(name,designation,phone,email,gender,country,salary,user_id):
+def insert_data_employee(name,designation,phone,email,gender,country,salary,user_id,date):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary,user_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);" ,[name,designation,phone,email,gender,country,salary,user_id])
+        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary,user_id,date_of_hiring) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);" ,[name,designation,phone,email,gender,country,salary,user_id,date])
         
 def retreive_no_of_employee(user_id):
     with connection.cursor() as cursor:
@@ -181,3 +181,10 @@ def insert_data_projects(proj,std,dud,sts,user_id):
                        ,[proj,std,dud,sts,user_id])
         # cursor.execute(" INSERT INTO assigned () VALUES (%s,%s,%s,%s,%s,%s);"
         #                ,[proj,cli_id,std,dud,sts,user_id])
+        
+def emphired_thismonth(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""select count(e_id)from employees 
+                        where  user_id =%s and current_date - date_of_hiring between 0 and 30;""",[user_id])
+        data=cursor.fetchone()
+        return data
