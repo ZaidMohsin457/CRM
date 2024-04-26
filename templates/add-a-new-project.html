@@ -106,8 +106,9 @@
             class="icon-ionicons-outline-cl"
             loading="lazy"
             alt=""
-            src="./public/icon--ionicons--outline--closecircleoutline.svg"
+            src="static/public/icon--ionicons--outline--closecircleoutline.svg"
             id="iconIoniconsOutlineCl"
+            onclick="event.preventDefault();window.location.href='/projects';"
           />
         </div>
       </main>
@@ -117,14 +118,5 @@
         </button>
       </div>
     </form>
-
-    <script>
-      var iconIoniconsOutlineCl = document.getElementById("iconIoniconsOutlineCl");
-      if (iconIoniconsOutlineCl) {
-        iconIoniconsOutlineCl.addEventListener("click", function (e) {
-          window.location.href = "./projects.html";
-        });
-      }
-      </script>
   </body>
 </html>

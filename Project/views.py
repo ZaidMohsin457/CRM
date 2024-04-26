@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponseRedirect
 from Project import models
 from Project import graphs
 # Create your views here.
-user_id=0
+user_id=1
 def modify(id):
     global user_id
     user_id=id
@@ -66,37 +66,34 @@ def employee(request):
     data=models.retrieve_emp_data(user_id)
     return render(request,'employees.html',{'data':data})
 
-def dashboard(request):
-    no_of_employee = models.retreive_no_of_employee(user_id)
-    # no_of_employee=10
-    # models.create_table()
-    # models.insert_data()
-    # graphs.bar_char()
-    return render(request,'dashboard.html',{'total_employees':no_of_employee[0]})
-
 def employee_added(request):
     return render(request,'employee-added.html')
-def employee_details(request):
-    return render(request,'view-employee-profile.html')
-def meeting_shcheduler(request):
-    return render(request,'meeting-scheduler.html')
+def project_added(request):
+    return render(request,'project-added.html')
+def meeting_added(request):
+    return render(request,'meeting-added.html')
+def contact_added(request):
+    return render(request,'contact-added.html')
+
 def add_new_meeting(request):
     if request.method == "POST":
         title = request.POST.get('title')
         date = request.POST.get('date')
         time = request.POST.get('time')
+        time = time + ":00"
         wit = request.POST.get('with')
         link = request.POST.get('link')
-        data=models.retreive_meeting_data()
+        data=models.retreive_meeting_data(user_id)
         length = len(data)
         for i in range(length):
-            if time == data[i][0]:
+            print(data[i][1],type(str(data[i][1])),date,type(date))
+            if time == str(data[i][0]) and date == str(data[i][1]):
                 return render(request,'add-a-new-meeting.html')
         models.insert_data_meeting(title,date,time,wit,link,user_id)
-        # print(fullname,email,company,contact,country)
         return HttpResponseRedirect('meeting-added')
     else:
-        return render(request,'add-a-new-meeting.html')  
+        return render(request,'add-a-new-meeting.html')
+    
 def add_new_contact(request):
     if request.method == "POST":
         fullname = request.POST.get('client-name')
@@ -113,12 +110,9 @@ def add_new_contact(request):
             if email == data[i][0]:
                 return render(request,'add-a-new-contact.html')
         models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
-        # print(fullname,email,company,contact,country)
         return HttpResponseRedirect('contact-added')
     else:
         return render(request,'add-a-new-contact.html')
-def contact_added(request):
-    return render(request,'contact-added.html')
 def project(request):
     return render(request,'projects.html')
 def add_new_project(request):
@@ -138,10 +132,6 @@ def add_new_project(request):
         return HttpResponseRedirect('project-added')
      else:
         return render(request,'add-a-new-project.html')
-def project_added(request):
-    return render(request,'project-added.html')
-def meeting_added(request):
-    return render(request,'meeting-added.html')
 def project_details(request):
     return render(request,'projects-view-details.html')
 def leads_pipeline(request):

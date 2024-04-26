@@ -103,12 +103,12 @@ def retrieve_emp_data(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
              SELECT e.e_name, e.designation, e_phone_no, p.p_name 
-FROM employees e
-LEFT JOIN assigned a ON e.e_id = a.emp_id
-LEFT JOIN projects p ON p.p_id = a.project_id
-GROUP BY e.e_name, e.designation, e_phone_no, p.p_name;
-
-        """)
+            FROM employees e
+            LEFT JOIN assigned a ON e.e_id = a.emp_id
+            LEFT JOIN projects p ON p.p_id = a.project_id
+            where e.user_id=%s
+            GROUP BY e.e_name, e.designation, e_phone_no, p.p_name;
+        """,[user_id])
         data = cursor.fetchall()
     return data
 
@@ -157,17 +157,23 @@ def insert_data_client(name,phone,email,company,status,stage,new,user_id,country
         
         
         
-def retreive_meeting_data():
+def retreive_meeting_data(user_id):
     with connection.cursor() as cursor:
-        cursor.execute("""Select m_time from meetings;""")  
+        cursor.execute("""Select m_time,meeting_date from meetings where user_id=%s;""",[user_id])  
         data = cursor.fetchall() 
     return data    
 
- 
-def insert_data_meeting(title,date,time,wit,link,user_id):
+def retreive_contacts_details(user_id):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO meetings (title,meetin_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
-                       ,[title,date,time,wit,link,user_id])
+        cursor.execute("""
+            select c_name,c_email,c_phone_no,company_name from clients where user_id=%s;
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
+def insert_data_meeting(title,date,time,withm,link,user_id):
+    with connection.cursor() as cursor:
+        cursor.execute(" INSERT INTO meetings (title,meeting_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
+                       ,[title,date,time,withm,link,user_id])
         
 def insert_data_projects(proj,std,dud,sts,user_id):
     with connection.cursor() as cursor:
