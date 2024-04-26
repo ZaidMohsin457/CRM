@@ -83,8 +83,9 @@ def add_new_meeting(request):
         time = request.POST.get('time')
         wit = request.POST.get('with')
         link = request.POST.get('link')
-        data=models.retreive_meeting_data()
+        data=models.retreive_meeting_data(user_id)
         length = len(data)
+        print(time,data)
         for i in range(length):
             if time == data[i][0]:
                 return render(request,'add-a-new-meeting.html')
