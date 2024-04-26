@@ -169,3 +169,9 @@ def insert_data_meeting(title,date,time,withm,link,user_id):
         cursor.execute(" INSERT INTO meetings (title,meeting_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
                        ,[title,date,time,withm,link,user_id])
         
+def insert_data_projects(proj,std,dud,sts,user_id):
+    with connection.cursor() as cursor:
+        cursor.execute(" INSERT INTO projects (p_name,starting_date,due_date,status,user_id) VALUES (%s,%s,%s,%s,%s);"
+                       ,[proj,std,dud,sts,user_id])
+        # cursor.execute(" INSERT INTO assigned () VALUES (%s,%s,%s,%s,%s,%s);"
+        #                ,[proj,cli_id,std,dud,sts,user_id])

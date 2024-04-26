@@ -28,7 +28,8 @@
     />
   </head>
   <body>
-    <form class="projects-add-a-new-project">
+    <form class="projects-add-a-new-project" action="" method="POST">
+      {% csrf_token %}
       <main class="project-details1">
         <section class="project-input">
           <h1 class="add-a-new2">Add a New Project</h1>
@@ -39,20 +40,58 @@
               class="enter-name-of"
               placeholder="Enter name of project"
               type="text"
+              name="project"
             />
           </div>
-          <h2 class="client-name10">Client Name:</h2>
+          <h2 class="client-name10">Client Id:</h2>
           <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
-              placeholder="Enter name of client"
+              placeholder="Enter id of client"
               type="text"
+              name="name"
+
             />
           </div>
-          <h2 class="due-date10">Due Date:</h2>
-          <select class="add-a-new-project2"></select>
-          <h2 class="assigned-to10">Assigned to:</h2>
-          <select class="add-a-new-project3"></select>
+          <h2 class="client-name10">Starting Date:</h2>
+          <div class="add-a-new-project1">
+            <input
+              class="enter-name-of1"
+              placeholder="Y-M-D"
+              type="text"
+              name="std"
+
+            />
+          </div>
+          <h2 class="client-name10">Due Date:</h2>
+          <div class="add-a-new-project1">
+            <input
+              class="enter-name-of1"
+              placeholder="Y-M-D"
+              type="text"
+              name="dud"
+
+            />
+          </div>
+          <h2 class="client-name10">Status:</h2>
+          <div class="add-a-new-project1">
+            <input
+              class="enter-name-of1"
+              placeholder="Pending"
+              type="text"
+              name="sts"
+
+            />
+          </div><h2 class="client-name10">Assigned To:</h2>
+          <div class="add-a-new-project1">
+            <input
+              class="enter-name-of1"
+              placeholder="client_id"
+              type="text"
+              name="assi"
+
+            />
+          </div>
           <h2 class="set-tasks">Set Tasks:</h2>
           <div class="add-a-new-project4">
             <input
@@ -74,7 +113,7 @@
         </div>
       </main>
       <div class="projects-add-a-new-project-inner">
-        <button class="create-a-new-project-wrapper" onclick="event.preventDefault();window.location.href='/project-added';">
+        <button class="create-a-new-project-wrapper" >
           <div class="create-a-new">Create a new project</div>
         </button>
       </div>
