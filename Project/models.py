@@ -90,7 +90,7 @@ def insert_data_user(name,email,password):
 def retreive_data_user():
     with connection.cursor() as cursor:
         cursor.execute("""
-            SELECT u_email,password FROM users;
+            SELECT u_email,password,u_id FROM users;
         """)
         data = cursor.fetchall()
     return data
@@ -111,11 +111,17 @@ def retreive_data_employee():
         data = cursor.fetchall()
     return data
 
-def insert_data_employee(name,designation,phone,email,gender,country,salary):
+def insert_data_employee(name,designation,phone,email,gender,country,salary,user_id):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary) VALUES (%s,%s,%s,%s,%s,%s,%s);" ,[name,designation,phone,email,gender,country,salary])
+        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary,user_id) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);" ,[name,designation,phone,email,gender,country,salary,user_id])
         
-        
+def retreive_no_of_employee():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select count(e_id) from employees;
+        """)
+        data = cursor.fetchone()
+    return data  
 # def retreive_data_employee():
 #     with connection.cursor() as cursor:
 #         cursor.execute("""

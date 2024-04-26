@@ -1,8 +1,11 @@
 from django.shortcuts import render,HttpResponseRedirect
 from Project import models
 from Project import graphs
-
 # Create your views here.
+user_id=0
+def modify(id):
+    global user_id
+    user_id=id
 def index(request):
     models.create_table()
     return render(request,'desktop-1.html')
@@ -13,6 +16,7 @@ def login(request):
         data=models.retreive_data_user()
         # print(email,password)
         if email == data[0][0] and password == data[0][1]:
+            modify(data[0][2])
             return HttpResponseRedirect("home")
         else:
             return render(request,'login-page.html')
@@ -50,7 +54,7 @@ def add_new_employee(request):
         
             if email == data[i][0]:
                 return render(request,'add-a-new-employee.html')
-        models.insert_data_employee(name,designation,phone,email,gender,coun,salary)
+        models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id)
         return HttpResponseRedirect('employee')
     else:
         return render(request,'add-a-new-employee.html')
@@ -60,10 +64,12 @@ def employee(request):
     return render(request,'employees.html',{'data':data})
 
 def dashboard(request):
+    no_of_employee = models.retreive_no_of_employee()
+    # no_of_employee=10
     # models.create_table()
     # models.insert_data()
     # graphs.bar_char()
-    return render(request,'dashboard.html')
+    return render(request,'dashboard.html',{'total_employees':no_of_employee[0]})
 
 def employee_added(request):
     return render(request,'employee-added.html')
