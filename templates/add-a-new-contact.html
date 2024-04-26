@@ -28,7 +28,8 @@
     />
   </head>
   <body>
-    <form class="add-a-new-contact">
+    <form class="add-a-new-contact" action="" method="POST">
+      {% csrf_token %}
       <section class="frame-section">
         <div class="frame-wrapper8">
           <div class="add-a-new-contact-parent">
@@ -49,6 +50,7 @@
                   class="form-field-values"
                   placeholder="Placeholder"
                   type="text"
+                  name="client-name"
                 />
 
                 <img
@@ -65,7 +67,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text3" placeholder="Placeholder" type="text" />
+                <input class="text3" placeholder="Placeholder" type="text" name="comp-name" />
 
                 <img
                   class="icon-jam-icons-outline-l23"
@@ -81,7 +83,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text4" placeholder="Placeholder" type="text" />
+                <input class="text4" placeholder="Placeholder" type="text" name="contact" />
 
                 <img
                   class="icon-jam-icons-outline-l25"
@@ -97,7 +99,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text5" placeholder="Placeholder" type="text" />
+                <input class="text5" placeholder="Placeholder" type="text" name="email" />
 
                 <img
                   class="icon-jam-icons-outline-l27"
@@ -113,7 +115,7 @@
                   src="static/public/icon--jamicons--outline--logos--search.svg"
                 />
 
-                <input class="text6" placeholder="Placeholder" type="text" />
+                <input class="text6" placeholder="Placeholder" type="text" name="country" />
 
                 <img
                   class="icon-jam-icons-outline-l29"
@@ -132,7 +134,7 @@
         />
       </section>
       <div class="add-a-new-contact-inner">
-        <button class="add-a-new-contact-wrapper" onclick="event.preventDefault();href=window.location.href='/meeting-scheduler';">
+        <button class="add-a-new-contact-wrapper">
           <div class="add-a-new7">Add a new contact</div>
         </button>
       </div>

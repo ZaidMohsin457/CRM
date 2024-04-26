@@ -52,7 +52,24 @@ def meeting_shcheduler(request):
 def add_new_meeting(request):
     return render(request,'add-a-new-meeting.html')
 def add_new_contact(request):
-    return render(request,'add-a-new-contact.html')
+    if request.method == "POST":
+        fullname = request.POST.get('client-name')
+        email = request.POST.get('email')
+        company = request.POST.get('comp-name')
+        contact = request.POST.get('contact')
+        country = request.POST.get('country')
+        # data=models.retreive_data_user()
+        # length = len(data)
+        # for i in range(length):
+        #     if email == data[i][0]:
+        #         return render(request,'sign-up-page.html')
+        # models.insert_data_client(fullname,email,password)
+        print(fullname,email,company,contact,country)
+        return HttpResponseRedirect('contact-added')
+    else:
+        return render(request,'add-a-new-contact.html')
+def contact_added(request):
+    return render(request,'contact-added.html')
 def project(request):
     return render(request,'projects.html')
 def add_new_project(request):
@@ -63,5 +80,3 @@ def project_details(request):
     return render(request,'projects-view-details.html')
 def leads_pipeline(request):
     return render(request,'leads-pipeline.html')
-# hello i am ziaudiosf
-# wjdwik
