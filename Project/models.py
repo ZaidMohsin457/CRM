@@ -24,6 +24,7 @@ def create_table():
                     status varchar(255),
                     stage varchar(255),
                     new_or_old varchar(255),
+                    country varchar(50),
                     user_id int,
                     foreign key(user_id) references users(u_id)
                 );
@@ -53,6 +54,7 @@ def create_table():
                     title varchar(255),
                     m_time timestamp,
                     zoom_link varchar(100) not null ,
+                    meetin_date Date,
                     user_id int,
                     client_id int,
                     foreign key (user_id) references users(u_id),
@@ -98,7 +100,12 @@ def retreive_data_user():
 def retrieve_emp_data():
     with connection.cursor() as cursor:
         cursor.execute("""
-            select e.e_name,e.designation,e.e_phone_no from employees e ;
+             SELECT e.e_name, e.designation, e_phone_no, p.p_name 
+FROM employees e
+LEFT JOIN assigned a ON e.e_id = a.emp_id
+LEFT JOIN projects p ON p.p_id = a.project_id
+GROUP BY e.e_name, e.designation, e_phone_no, p.p_name;
+
         """)
         data = cursor.fetchall()
     return data
@@ -122,10 +129,33 @@ def retreive_no_of_employee():
         """)
         data = cursor.fetchone()
     return data  
-# def retreive_data_employee():
-#     with connection.cursor() as cursor:
-#         cursor.execute("""
-#             -- select e.e_name,e.designation ,p.p_name from employees as e,projects p, assigned a
-#             -- where e.e_id=a.emp_id and p.p_id=a.project_id
-#             -- group by e.e_name,e.designation,p.p_name;
-#         """)
+
+
+def retreive_data_client():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT c_email from clients;
+        """)
+        data = cursor.fetchall()
+    return data
+
+
+def insert_data_client(name,phone,email,company,status,stage,new,user_id,country):
+    with connection.cursor() as cursor:
+        cursor.execute(" INSERT INTO clients (c_name,c_phone_no,c_email,company_name,status,stage,new_or_old,user_id,country) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+                       ,[name,phone,email,company,status,stage,new,user_id,country])
+        
+        
+        
+def retreive_meeting_data():
+    with connection.cursor() as cursor:
+        cursor.execute("""Select m_time from meetings;""")  
+        data = cursor.fetchall() 
+    return data    
+
+ 
+def insert_data_meeting(title,date,time,wit,link,user_id):
+    with connection.cursor() as cursor:
+        cursor.execute(" INSERT INTO meetings (title,meetin_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
+                       ,[title,date,time,wit,link,user_id])
+        

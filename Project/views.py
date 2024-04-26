@@ -55,7 +55,7 @@ def add_new_employee(request):
             if email == data[i][0]:
                 return render(request,'add-a-new-employee.html')
         models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id)
-        return HttpResponseRedirect('employee')
+        return HttpResponseRedirect('employee-added')
     else:
         return render(request,'add-a-new-employee.html')
     
@@ -78,7 +78,24 @@ def employee_details(request):
 def meeting_shcheduler(request):
     return render(request,'meeting-scheduler.html')
 def add_new_meeting(request):
-    return render(request,'add-a-new-meeting.html')
+    
+    if request.method == "POST":
+        title = request.POST.get('title')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        wit = request.POST.get('with')
+        link = request.POST.get('link')
+        data=models.retreive_meeting_data()
+        length = len(data)
+        for i in range(length):
+            if time == data[i][0]:
+                return render(request,'add-a-new-meeting.html')
+        models.insert_data_meeting(title,date,time,wit,link,user_id)
+        # print(fullname,email,company,contact,country)
+        return HttpResponseRedirect('contact-added')
+    else:
+        return render(request,'add-a-new-meeting.html')
+    
 def add_new_contact(request):
     if request.method == "POST":
         fullname = request.POST.get('client-name')
@@ -86,13 +103,16 @@ def add_new_contact(request):
         company = request.POST.get('comp-name')
         contact = request.POST.get('contact')
         country = request.POST.get('country')
-        # data=models.retreive_data_user()
-        # length = len(data)
-        # for i in range(length):
-        #     if email == data[i][0]:
-        #         return render(request,'sign-up-page.html')
-        # models.insert_data_client(fullname,email,password)
-        print(fullname,email,company,contact,country)
+        stage = request.POST.get('stg')
+        status = request.POST.get('sts')
+        newold = request.POST.get('new')
+        data=models.retreive_data_client()
+        length = len(data)
+        for i in range(length):
+            if email == data[i][0]:
+                return render(request,'add-a-new-contact.html')
+        models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
+        # print(fullname,email,company,contact,country)
         return HttpResponseRedirect('contact-added')
     else:
         return render(request,'add-a-new-contact.html')

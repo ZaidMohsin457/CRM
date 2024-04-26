@@ -129,13 +129,13 @@
               <tr>
                   <td>{{ employee.0 }}</td>
                   <td>{{ employee.1 }}</td>
-                  <td></td>
+                  <td>{{ employee.3 }} </td>
                   <td>{{ employee.2 }}</td>
                   <td>
-                      {% if employee.availability_status %}
-                          Available
+                      {% if employee.3 %}
+                         Not Available
                       {% else %}
-                          Not Available
+                         Available
                       {% endif %}
                   </td>
               </tr>
