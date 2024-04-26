@@ -127,10 +127,10 @@
           <tbody>
               {% for employee in data %}
               <tr>
-                  <td>{{ employee }}</td>
-                  <td>{{ employee }}</td>
-                  <td>{{ employee }}</td>
-                  <td>{{ employee }}</td>
+                  <td>{{ employee.0 }}</td>
+                  <td>{{ employee.1 }}</td>
+                  <td></td>
+                  <td>{{ employee.2 }}</td>
                   <td>
                       {% if employee.availability_status %}
                           Available

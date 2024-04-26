@@ -106,45 +106,20 @@ def retrieve_emp_data():
 def retreive_data_employee():
     with connection.cursor() as cursor:
         cursor.execute("""
-            SELECT e_name,designation,e_phone_no,e_email,gender,country,salary from employees;
+            SELECT e_email from employees;
         """)
         data = cursor.fetchall()
     return data
 
-def insert_data_employee(name,des,phone,mail,gen,coun,sal):
+def insert_data_employee(name,designation,phone,email,gender,country,salary):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary) VALUES (%s,%s,%s,%s,%s,%s,%d);" ,[name,des,phone,mail,gen,coun,sal])
-def retreive_data_employee():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            -- select e.e_name,e.designation ,p.p_name from employees as e,projects p, assigned a
-            -- where e.e_id=a.emp_id and p.p_id=a.project_id
-            -- group by e.e_name,e.designation,p.p_name;
-        """)
-
-def retrieve_emp_data():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select e.e_name,e.designation,e.e_phone_no from employees e ;
-        """)
-        data = cursor.fetchall()
-    return data
-
-def retreive_data_employee():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT e_name,designation,e_phone_no,e_email,gender,country,salary from employees;
-        """)
-        data = cursor.fetchall()
-    return data
-
-def insert_data_employee(name,des,phone,mail,gen,coun,sal):
-    with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary) VALUES (%s,%s,%s,%s,%s,%s,%d);" ,[name,des,phone,mail,gen,coun,sal])
-def retreive_data_employee():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            -- select e.e_name,e.designation ,p.p_name from employees as e,projects p, assigned a
-            -- where e.e_id=a.emp_id and p.p_id=a.project_id
-            -- group by e.e_name,e.designation,p.p_name;
-        """)
+        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary) VALUES (%s,%s,%s,%s,%s,%s,%s);" ,[name,designation,phone,email,gender,country,salary])
+        
+        
+# def retreive_data_employee():
+#     with connection.cursor() as cursor:
+#         cursor.execute("""
+#             -- select e.e_name,e.designation ,p.p_name from employees as e,projects p, assigned a
+#             -- where e.e_id=a.emp_id and p.p_id=a.project_id
+#             -- group by e.e_name,e.designation,p.p_name;
+#         """)

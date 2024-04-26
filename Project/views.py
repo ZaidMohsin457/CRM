@@ -33,42 +33,37 @@ def signup(request):
         return HttpResponseRedirect('login')
     else:
         return render(request,'sign-up-page.html')
+    
+
+def add_new_employee(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        designation = request.POST.get('designation')
+        phone = request.POST.get('contact')
+        email = request.POST.get('email')
+        gender = request.POST.get('gender')
+        salary = int((request.POST.get('salary')),10)
+        coun = request.POST.get('country')
+        data=models.retreive_data_employee()
+        length = len(data)
+        for i in range(length):
+        
+            if email == data[i][0]:
+                return render(request,'add-a-new-employee.html')
+        models.insert_data_employee(name,designation,phone,email,gender,coun,salary)
+        return HttpResponseRedirect('employee')
+    else:
+        return render(request,'add-a-new-employee.html')
+    
+def employee(request):
+    data=models.retrieve_emp_data()
+    return render(request,'employees.html',{'data':data})
+
 def dashboard(request):
     # models.create_table()
     # models.insert_data()
     # graphs.bar_char()
     return render(request,'dashboard.html')
-def employee(request):
-    data1=models.retrieve_emp_data()
-    return render(request,'employees.html',{'data':data1})
-
-
-
-def add_new_employee(request):
-    if request.method == "POST":
-        name = request.POST.get('name')
-        des = request.POST.get('desi')
-        phone = request.POST.get('con')
-        mail = request.POST.get('email')
-        gen = request.POST.get('gend')
-        sal = int(request.POST.get('sala'))
-        print (type(sal))
-        coun = request.POST.get('countr')
-        data2=models.retreive_data_employee()
-        length = len(data2)
-        for i in range(length):
-        
-            if mail == data2[i][3]:
-                return render(request,'add-a-new-employee.html')
-        models.insert_data_emloyee(name,des,phone,mail,gen,sal,coun)
-        # print(fullname,email,password)
-        return HttpResponseRedirect('employee')
-    else:
-        return render(request,'add-a-new-employee.html')
-    
-   
-
-
 
 def employee_added(request):
     return render(request,'employee-added.html')
