@@ -28,6 +28,9 @@
     />
   </head>
   <body>
+    {% if message %}
+    <div class="notification">{{ message }}</div>
+    {% endif %}
     <form class="projects-add-a-new-project" action="" method="POST">
       {% csrf_token %}
       <main class="project-details1">
