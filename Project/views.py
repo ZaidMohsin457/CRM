@@ -104,11 +104,15 @@ def add_new_meeting(request):
 def dashboard(request):
     no_of_employee = models.retreive_no_of_employee(user_id)
     no_of_employee_hired_this_month = models.emphired_thismonth(user_id)
-    # no_of_employee=10
-    # models.create_table()
-    # models.insert_data()
+    year=timezone.now().year
+    data=models.projects_yearly(user_id,year)
+    graphs.projects_graph(data)
+    data1=models.project_monthly(user_id)
+    data2=models.project_progress_name(user_id)
+    # print(data2)
+    graphs.bar_char(data2)
     # graphs.bar_char()
-    return render(request,'dashboard.html',{'total_employees':no_of_employee[0],'this_month':no_of_employee_hired_this_month[0]})
+    return render(request,'dashboard.html',{'total_employees':no_of_employee[0],'this_month':no_of_employee_hired_this_month[0],'deals':data1[0]})
 
 def employee_details(request):
     return render(request,'view-employee-profile.html')

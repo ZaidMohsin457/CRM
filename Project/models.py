@@ -193,6 +193,53 @@ def project_progress(user_id):
         data = cursor.fetchall()
     return data  
 
+def project_progress_name(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT 
+            projects.p_name AS project_name,
+            CASE 
+                WHEN COUNT(tasks.task_id) = 0 THEN 0
+                ELSE (COUNT(CASE WHEN tasks.t_status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
+            END AS progress_percentage
+            FROM 
+                projects
+            LEFT JOIN 
+                tasks ON projects.p_id = tasks.project_id
+                WHERE projects.user_id=%s
+            GROUP BY 
+                projects.p_id;
+        """,[user_id])
+        data = cursor.fetchall()
+    return data  
+
+def projects_yearly(user_id,year):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT EXTRACT(MONTH FROM starting_date) AS month,
+            COUNT(*) AS project_count
+            FROM projects
+            where user_id=%s and EXTRACT(YEAR FROM starting_date)=%s
+            GROUP BY EXTRACT(MONTH FROM starting_date)
+            ORDER BY EXTRACT(MONTH FROM starting_date);
+        """,[user_id,year])
+        data = cursor.fetchall()
+    return data
+
+def project_monthly(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+                       select
+                        COUNT(*) AS project_count
+                        FROM projects
+                        where user_id=%s and EXTRACT(MONTH FROM starting_date)=EXTRACT(MONTH FROM current_date)
+                        GROUP BY EXTRACT(MONTH FROM starting_date)
+                        ORDER BY EXTRACT(MONTH FROM starting_date);
+        """,[user_id])
+        data = cursor.fetchone()
+    return data
+
+
 def retreive_data_client():
     with connection.cursor() as cursor:
         cursor.execute("""
