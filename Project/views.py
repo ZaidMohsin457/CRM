@@ -49,7 +49,6 @@ def add_new_employee(request):
     message=None
     if request.method == "POST":
         name = request.POST.get('name')
-        date=timezone.now().date()
         designation = request.POST.get('designation')
         phone = request.POST.get('contact')
         email = request.POST.get('email')
@@ -62,7 +61,7 @@ def add_new_employee(request):
             if email == data[i][0]:
                 message="Employee Already Present .. Try adding another email"
                 return render(request,'add-a-new-employee.html',{'message':message})
-        models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id,date)
+        models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id)
         return HttpResponseRedirect('employee-added')
     else:
         return render(request,'add-a-new-employee.html')
@@ -92,7 +91,7 @@ def add_new_meeting(request):
         data=models.retreive_meeting_data(user_id)
         length = len(data)
         for i in range(length):
-            print(data[i][1],type(str(data[i][1])),date,type(date))
+            # print(data[i][1],type(str(data[i][1])),date,type(date),date==str(data[i][1]))
             if time == str(data[i][0]) and date == str(data[i][1]):
                 message="Time slot not available ..Try Another Time Slot."
                 return render(request,'add-a-new-meeting.html',{'message':message})
@@ -139,24 +138,24 @@ def add_new_contact(request):
     else:
         return render(request,'add-a-new-contact.html')
 def project(request):
-    return render(request,'projects.html')
+    data=models.retreive_projects(user_id)
+    present=timezone.now().date()
+    diff=data[0][3]-present
+    return render(request,'projects.html',{'data':data,'diff':diff.days})
 def add_new_project(request):
      if request.method == "POST":
-        project = request.POST.get('project')
-        # assi= request.POST.get('assi')
-        due = request.POST.get('dud')
-        start = request.POST.get('std')
-        status = request.POST.get('sts')
-        # data=models.retreive_meeting_data()
-        # length = len(data)
-        # for i in range(length):
-        #     if time == data[i][0]:
-        #         return render(request,'add-a-new-meeting.html')
-        models.insert_data_projects(project,start,due,status,user_id)
+        project = request.POST.get('name')
+        assigned= request.POST.get('employee')
+        due = request.POST.get('duedate')
+        client = request.POST.get('client')
+        tasks = request.POST.get('tasks')
+        models.insert_data_projects(project,client,due,tasks,assigned,user_id)
    
         return HttpResponseRedirect('project-added')
      else:
         return render(request,'add-a-new-project.html')
+    
+    
 def project_details(request):
     return render(request,'projects-view-details.html')
 def leads_pipeline(request):

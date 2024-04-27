@@ -40,20 +40,20 @@
               class="enter-name-of"
               placeholder="Enter name of project"
               type="text"
-              name="project"
+              name="name"
             />
           </div>
-          <h2 class="client-name10">Client Id:</h2>
+          <h2 class="client-name10">Client Name:</h2>
           <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
-              placeholder="Enter id of client"
+              placeholder="Name of Client"
               type="text"
-              name="name"
+              name="client"
 
             />
           </div>
-          <h2 class="client-name10">Starting Date:</h2>
+          {% comment %} <h2 class="client-name10">Starting Date:</h2>
           <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
@@ -62,33 +62,32 @@
               name="std"
 
             />
-          </div>
+          </div> {% endcomment %}
           <h2 class="client-name10">Due Date:</h2>
           <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
-              placeholder="Y-M-D"
+              placeholder="YYYY-MM-DD"
               type="text"
-              name="dud"
+              name="duedate"
 
             />
           </div>
-          <h2 class="client-name10">Status:</h2>
+          {% comment %} <h2 class="client-name10">Status:</h2>
           <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
               placeholder="Pending"
               type="text"
-              name="sts"
-
-            />
+              name="status"
+            /> {% endcomment %}
           </div><h2 class="client-name10">Assigned To:</h2>
           <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
-              placeholder="client_id"
+              placeholder="Enter name of employee"
               type="text"
-              name="assi"
+              name="employee"
 
             />
           </div>
@@ -98,6 +97,7 @@
               class="enter-tasks-to"
               placeholder="Enter Task(s) to be completed by employees"
               type="text"
+              name="tasks"
             />
           </div>
         </section>

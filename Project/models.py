@@ -44,7 +44,7 @@ def create_table():
                 
                 create table if not exists tasks
                 (
-                    task_id int,
+                    task_id serial,
                     project_id int,
                     task_name varchar(255),
                     foreign key(project_id) references projects(p_id),
@@ -90,7 +90,7 @@ def create_table():
 def insert_data_user(name,email,password):
     with connection.cursor() as cursor:
         cursor.execute(" INSERT INTO users (u_name,u_email,password) VALUES (%s,%s,%s);" ,[name,email,password])  
-
+        
 def retreive_data_user():
     with connection.cursor() as cursor:
         cursor.execute("""
@@ -98,6 +98,8 @@ def retreive_data_user():
         """)
         data = cursor.fetchall()
     return data
+
+
 
 def retrieve_emp_data(user_id):
     with connection.cursor() as cursor:
@@ -120,9 +122,9 @@ def retreive_data_employee():
         data = cursor.fetchall()
     return data
 
-def insert_data_employee(name,designation,phone,email,gender,country,salary,user_id,date):
+def insert_data_employee(name,designation,phone,email,gender,country,salary,user_id):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary,user_id,date_of_hiring) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);" ,[name,designation,phone,email,gender,country,salary,user_id,date])
+        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary,user_id,date_of_hiring) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,current_date);" ,[name,designation,phone,email,gender,country,salary,user_id])
         
 def retreive_no_of_employee(user_id):
     with connection.cursor() as cursor:
@@ -132,14 +134,37 @@ def retreive_no_of_employee(user_id):
         data = cursor.fetchone()
     return data  
 
-def retreive_projects():
+def emphired_thismonth(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""select count(e_id)from employees 
+                        where  user_id =%s and current_date - date_of_hiring between 0 and 30;""",[user_id])
+        data=cursor.fetchone()
+        return data
+
+
+
+def retreive_projects(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-            select p_name,c_name,due_date from projects;
-        """)
+            select p.p_name,c.c_name,e.e_name, p.due_date from projects p, clients c ,employees e,assigned a where p.user_id=%s and p.client_id=c.c_id and c.user_id=p.user_id and a.project_id=p.p_id and a.emp_id=e.e_id;
+        """,[user_id])
         data = cursor.fetchall()
     return data
 
+def insert_data_projects(name,client,due,tasks,assigned,user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT c_id FROM clients WHERE c_name=%s AND user_id=%s;",[client,user_id])
+        cli_id = cursor.fetchone()
+        cursor.execute("SELECT e_id FROM employees WHERE e_name=%s AND user_id=%s;",[assigned,user_id])
+        emp_id = cursor.fetchone()
+        cursor.execute(" INSERT INTO projects (p_name,starting_date,due_date,status,user_id,client_id) VALUES (%s,current_date,%s,'pending',%s,%s);"
+                       ,[name,due,user_id,cli_id])
+        cursor.execute("SELECT p_id FROM projects WHERE p_name=%s AND user_id=%s;",[name,user_id])
+        proj = cursor.fetchone()
+        cursor.execute(" INSERT INTO assigned(project_id,emp_id) VALUES (%s,%s);",[proj,emp_id])
+        cursor.execute(" INSERT INTO tasks (project_id,task_name) VALUES (%s,%s);",[proj,tasks]) 
+       
+       
 
 def retreive_data_client():
     with connection.cursor() as cursor:
@@ -149,20 +174,11 @@ def retreive_data_client():
         data = cursor.fetchall()
     return data
 
-
 def insert_data_client(name,phone,email,company,status,stage,new,user_id,country):
     with connection.cursor() as cursor:
         cursor.execute(" INSERT INTO clients (c_name,c_phone_no,c_email,company_name,status,stage,new_or_old,user_id,country) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
                        ,[name,phone,email,company,status,stage,new,user_id,country])
         
-        
-        
-def retreive_meeting_data(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""Select m_time,meeting_date from meetings where user_id=%s;""",[user_id])  
-        data = cursor.fetchall() 
-    return data    
-
 def retreive_contacts_details(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
@@ -170,21 +186,18 @@ def retreive_contacts_details(user_id):
         """,[user_id])
         data = cursor.fetchall()
     return data
+        
+   
+        
+def retreive_meeting_data(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""Select m_time,meeting_date from meetings where user_id=%s;""",[user_id])  
+        data = cursor.fetchall() 
+    return data    
+
 def insert_data_meeting(title,date,time,withm,link,user_id):
     with connection.cursor() as cursor:
         cursor.execute(" INSERT INTO meetings (title,meeting_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
                        ,[title,date,time,withm,link,user_id])
         
-def insert_data_projects(proj,std,dud,sts,user_id):
-    with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO projects (p_name,starting_date,due_date,status,user_id) VALUES (%s,%s,%s,%s,%s);"
-                       ,[proj,std,dud,sts,user_id])
-        # cursor.execute(" INSERT INTO assigned () VALUES (%s,%s,%s,%s,%s,%s);"
-        #                ,[proj,cli_id,std,dud,sts,user_id])
-        
-def emphired_thismonth(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""select count(e_id)from employees 
-                        where  user_id =%s and current_date - date_of_hiring between 0 and 30;""",[user_id])
-        data=cursor.fetchone()
-        return data
+       

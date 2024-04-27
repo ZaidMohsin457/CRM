@@ -179,94 +179,30 @@
           </div>
         </div>
       </section>
-      <div class="instance-container">
-        <div class="project-name-frame">
-          <div class="project-name2">CRM Website</div>
-        </div>
-        <div class="client-name-frame">
-          <div class="client-name2">John M.</div>
-        </div>
-        <div class="assigned-to-frame">
-          <div class="assigned-to2">Marshall W.</div>
-        </div>
-        <div class="progress-bar-wrapper-parent">
-          <div class="progress-bar-wrapper">
-            <div class="progress-shapes"></div>
-            <div class="progress-shapes1"></div>
-          </div>
-          <div class="progress-percentage">30%</div>
-        </div>
-        <div class="due-date-frame">
-          <div class="due-date2">20-04-2024</div>
-        </div>
-        <div class="remaining-time-frame">
-          <div class="remaining-time2">18 days</div>
-        </div>
-        <div class="more-actions-projects2">
-          <img
-            class="icon-ionicons-sharp-elli12"
-            loading="lazy"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </div>
-      <section class="expanded-table">
-        <div class="instance-parent1">
-          <button class="project-name-wrapper1">
-            <div class="project-name3">CRM Website</div>
-          </button>
-          <button class="client-name-wrapper1">
-            <div class="client-name3">John M.</div>
-          </button>
-          <button class="assigned-to-wrapper1">
-            <div class="assigned-to3">Marshall W.</div>
-          </button>
-          <div class="due-dates-parent">
-            <div class="due-dates">
-              <div class="due-date-shape"></div>
-              <div class="due-date-shape1"></div>
-            </div>
-            <div class="spacer">30%</div>
-          </div>
-          <div class="due-date-wrapper1">
-            <div class="due-date3">20-04-2024</div>
-          </div>
-          <button class="remaining-time-wrapper1">
-            <div class="remaining-time3">18 days</div>
-          </button>
-          <div class="more-actions-projects3">
-            <img
-              class="icon-ionicons-sharp-elli13"
-              loading="lazy"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-        </div>
+        {%for projects in data%}
         <div class="expanded-rows">
           <div class="instance-parent2">
             <button class="project-name-wrapper2">
-              <div class="project-name4">CRM Website</div>
+              <div class="project-name4">{{projects.0}}</div>
             </button>
             <button class="client-name-wrapper2">
-              <div class="client-name4">John M.</div>
+              <div class="client-name4">{{projects.1}}</div>
             </button>
             <button class="assigned-to-wrapper2">
-              <div class="assigned-to4">Marshall W.</div>
+              <div class="assigned-to4">{{projects.2}}</div>
             </button>
-            <div class="due-dates-group">
+            {% comment %} <div class="due-dates-group">
               <div class="due-dates1">
                 <div class="due-date-shape2"></div>
                 <div class="due-date-shape3"></div>
               </div>
-              <div class="spacer1">30%</div>
-            </div>
+              <div class="spacer1"></div>
+            </div> {% endcomment %}
             <div class="due-date-wrapper2">
-              <div class="due-date4">20-04-2024</div>
+              <div class="due-date4">{{projects.3}}</div>
             </div>
             <button class="remaining-time-wrapper2">
-              <div class="remaining-time4">18 days</div>
+              <div class="remaining-time4">{{diff}}</div>
             </button>
             <div class="more-actions-projects4">
               <img
@@ -278,173 +214,7 @@
             </div>
           </div>
         </div>
-        <div class="expanded-rows1">
-          <div class="instance-parent3">
-            <button class="project-name-wrapper3">
-              <div class="project-name5">CRM Website</div>
-            </button>
-            <button class="client-name-wrapper3">
-              <div class="client-name5">John M.</div>
-            </button>
-            <button class="assigned-to-wrapper3">
-              <div class="assigned-to5">Marshall W.</div>
-            </button>
-            <div class="frame-parent6">
-              <div class="rectangle-container">
-                <div class="frame-child5"></div>
-                <div class="frame-child6"></div>
-              </div>
-              <div class="div25">30%</div>
-            </div>
-            <div class="due-date-wrapper3">
-              <div class="due-date5">20-04-2024</div>
-            </div>
-            <button class="remaining-time-wrapper3">
-              <div class="remaining-time5">18 days</div>
-            </button>
-            <div class="more-actions-projects5">
-              <img
-                class="icon-ionicons-sharp-elli15"
-                loading="lazy"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="instance-parent4">
-          <button class="project-name-wrapper4">
-            <div class="project-name6">CRM Website</div>
-          </button>
-          <button class="client-name-wrapper4">
-            <div class="client-name6">John M.</div>
-          </button>
-          <button class="assigned-to-wrapper4">
-            <div class="assigned-to6">Marshall W.</div>
-          </button>
-          <div class="frame-parent7">
-            <div class="rectangle-parent1">
-              <div class="frame-child7"></div>
-              <div class="frame-child8"></div>
-            </div>
-            <div class="div26">30%</div>
-          </div>
-          <div class="due-date-wrapper4">
-            <div class="due-date6">20-04-2024</div>
-          </div>
-          <button class="remaining-time-wrapper4">
-            <div class="remaining-time6">18 days</div>
-          </button>
-          <div class="more-actions-projects6">
-            <img
-              class="icon-ionicons-sharp-elli16"
-              loading="lazy"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-        </div>
-        <div class="instance-parent5">
-          <button class="project-name-wrapper5">
-            <div class="project-name7">CRM Website</div>
-          </button>
-          <button class="client-name-wrapper5">
-            <div class="client-name7">John M.</div>
-          </button>
-          <button class="assigned-to-wrapper5">
-            <div class="assigned-to7">Marshall W.</div>
-          </button>
-          <div class="frame-parent8">
-            <div class="rectangle-parent2">
-              <div class="frame-child9"></div>
-              <div class="frame-child10"></div>
-            </div>
-            <div class="div27">30%</div>
-          </div>
-          <div class="due-date-wrapper5">
-            <div class="due-date7">20-04-2024</div>
-          </div>
-          <button class="remaining-time-wrapper5">
-            <div class="remaining-time7">18 days</div>
-          </button>
-          <div class="more-actions-projects7">
-            <img
-              class="icon-ionicons-sharp-elli17"
-              loading="lazy"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-        </div>
-        <div class="expanded-rows2">
-          <div class="instance-parent6">
-            <button class="project-name-wrapper6">
-              <div class="project-name8">CRM Website</div>
-            </button>
-            <button class="client-name-wrapper6">
-              <div class="client-name8">John M.</div>
-            </button>
-            <button class="assigned-to-wrapper6">
-              <div class="assigned-to8">Marshall W.</div>
-            </button>
-            <div class="frame-parent9">
-              <div class="rectangle-parent3">
-                <div class="frame-child11"></div>
-                <div class="frame-child12"></div>
-              </div>
-              <div class="div28">30%</div>
-            </div>
-            <div class="due-date-wrapper6">
-              <div class="due-date8">20-04-2024</div>
-            </div>
-            <button class="remaining-time-wrapper6">
-              <div class="remaining-time8">18 days</div>
-            </button>
-            <div class="more-actions-projects8">
-              <img
-                class="icon-ionicons-sharp-elli18"
-                loading="lazy"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="instance-parent7">
-          <button class="project-name-wrapper7">
-            <div class="project-name9">CRM Website</div>
-          </button>
-          <button class="client-name-wrapper7">
-            <div class="client-name9">John M.</div>
-          </button>
-          <button class="assigned-to-wrapper7">
-            <div class="assigned-to9">Marshall W.</div>
-          </button>
-          <div class="frame-parent10">
-            <div class="rectangle-parent4">
-              <div class="frame-child13"></div>
-              <div class="frame-child14"></div>
-            </div>
-            <div class="div29">30%</div>
-          </div>
-          <div class="due-date-wrapper7">
-            <div class="due-date9">20-04-2024</div>
-          </div>
-          <button class="remaining-time-wrapper7">
-            <div class="remaining-time9">18 days</div>
-          </button>
-          <div class="more-actions-projects9">
-            <img
-              class="icon-ionicons-sharp-elli19"
-              loading="lazy"
-              alt=""
-              src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-            />
-          </div>
-        </div>
-      </section>
+        {%endfor%}
     </form>
-
-   
   </body>
 </html>
