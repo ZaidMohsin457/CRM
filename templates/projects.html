@@ -165,14 +165,9 @@
               <div class="due-dates1">
                 <div class="due-date4">{{progress.1}}</div>
                 {% comment %} <div class="due-date-shape2"></div>
-                <div class="due-date-shape3"></div> {% endcomment %}
+                <div class="due-date-shape3"></div> 
               </div>
-<<<<<<< HEAD
-              <div class="spacer1"></div>
-            </div> 
-=======
             </div>
->>>>>>> bf5ad493d2bbfd493bee006171a351891b0537a4
             <div class="due-date-wrapper2">
               <div class="due-date4">{{projects.3}}</div>
             </div>
@@ -196,18 +191,19 @@
                   <th>--Project Name--</th>
                   <th>--Client Name--</th>
                   <th>--Assigned To--</th>
-                  {% comment %} <th>--Progress--</th> {% endcomment %}
+                  <th>--Progress--</th>
                   <th>--Due Date--</th>
                   <th>--Remaining Time--</th>
               </tr>
           </thead>
           <tbody>
-              {% for employee in data %}
+              {% for data,diff,progress in data %}
               <tr>
-                  <td>{{ employee.0 }}</td>
-                  <td>{{ employee.1 }}</td>
-                  <td>{{ employee.2 }} </td>
-                  <td>{{ employee.3 }}</td>
+                  <td>{{ data.0 }}</td>
+                  <td>{{ data.1 }}</td>
+                  <td>{{ data.2 }} </td>
+                  <td>{{ progress.1 }} </td>
+                  <td>{{ data.3 }}</td>
                   <td>{{ diff }}</td>
 
               </tr>
