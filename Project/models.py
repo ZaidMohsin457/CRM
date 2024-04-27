@@ -34,7 +34,6 @@ def create_table():
                     p_id serial primary key,
                     p_name varchar(255),
                     due_date date,
-                    status varchar(100),
                     starting_date date,
                     user_id int,
                     client_id int,
@@ -47,6 +46,7 @@ def create_table():
                     task_id serial,
                     project_id int,
                     task_name varchar(255),
+                    t_status varchar(100) default 'pending',
                     foreign key(project_id) references projects(p_id),
                     primary key(project_id,task_id) 
                 );
@@ -166,20 +166,94 @@ def retreive_projects(user_id):
         data = cursor.fetchall()
     return data
 
+def retreive_data_projects(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT p_name from projects where user_id=%s;
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
+
 def insert_data_projects(name,client,due,tasks,assigned,user_id):
     with connection.cursor() as cursor:
         cursor.execute("SELECT c_id FROM clients WHERE c_name=%s AND user_id=%s;",[client,user_id])
         cli_id = cursor.fetchone()
         cursor.execute("SELECT e_id FROM employees WHERE e_name=%s AND user_id=%s;",[assigned,user_id])
         emp_id = cursor.fetchone()
-        cursor.execute(" INSERT INTO projects (p_name,starting_date,due_date,status,user_id,client_id) VALUES (%s,current_date,%s,'pending',%s,%s);"
+        cursor.execute(" INSERT INTO projects (p_name,starting_date,due_date,user_id,client_id) VALUES (%s,current_date,%s,%s,%s);"
                        ,[name,due,user_id,cli_id])
         cursor.execute("SELECT p_id FROM projects WHERE p_name=%s AND user_id=%s;",[name,user_id])
         proj = cursor.fetchone()
         cursor.execute(" INSERT INTO assigned(project_id,emp_id) VALUES (%s,%s);",[proj,emp_id])
-        cursor.execute(" INSERT INTO tasks (project_id,task_name) VALUES (%s,%s);",[proj,tasks]) 
+        for i in tasks:
+            cursor.execute(" INSERT INTO tasks (project_id,task_name) VALUES (%s,%s);",[proj,i]) 
        
-       
+def project_progress(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT 
+            projects.p_id AS project_id,
+            CASE 
+                WHEN COUNT(tasks.task_id) = 0 THEN 0
+                ELSE (COUNT(CASE WHEN tasks.t_status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
+            END AS progress_percentage
+            FROM 
+                projects
+            LEFT JOIN 
+                tasks ON projects.p_id = tasks.project_id
+                WHERE projects.user_id=%s
+            GROUP BY 
+                projects.p_id;
+        """,[user_id])
+        data = cursor.fetchall()
+    return data  
+
+def project_progress_name(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT 
+            projects.p_name AS project_name,
+            CASE 
+                WHEN COUNT(tasks.task_id) = 0 THEN 0
+                ELSE (COUNT(CASE WHEN tasks.t_status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
+            END AS progress_percentage
+            FROM 
+                projects
+            LEFT JOIN 
+                tasks ON projects.p_id = tasks.project_id
+                WHERE projects.user_id=%s
+            GROUP BY 
+                projects.p_id;
+        """,[user_id])
+        data = cursor.fetchall()
+    return data  
+
+def projects_yearly(user_id,year):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT EXTRACT(MONTH FROM starting_date) AS month,
+            COUNT(*) AS project_count
+            FROM projects
+            where user_id=%s and EXTRACT(YEAR FROM starting_date)=%s
+            GROUP BY EXTRACT(MONTH FROM starting_date)
+            ORDER BY EXTRACT(MONTH FROM starting_date);
+        """,[user_id,year])
+        data = cursor.fetchall()
+    return data
+
+def project_monthly(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+                       select
+                        COUNT(*) AS project_count
+                        FROM projects
+                        where user_id=%s and EXTRACT(MONTH FROM starting_date)=EXTRACT(MONTH FROM current_date)
+                        GROUP BY EXTRACT(MONTH FROM starting_date)
+                        ORDER BY EXTRACT(MONTH FROM starting_date);
+        """,[user_id])
+        data = cursor.fetchone()
+    return data
+
 
 def retreive_data_client():
     with connection.cursor() as cursor:
@@ -210,9 +284,20 @@ def retreive_meeting_data(user_id):
         data = cursor.fetchall() 
     return data    
 
+def retrieve_meetings(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select m.title, m.meeting_date, m.m_time, c.c_name, m.zoom_link from meetings m, clients c where m.user_id=%s and m.client_id=c.c_id
+            order  by m.meeting_date asc, m.m_time asc
+            limit 3;
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
 def insert_data_meeting(title,date,time,withm,link,user_id):
     with connection.cursor() as cursor:
+        cursor.execute("SELECT c_id FROM clients WHERE c_name=%s AND user_id=%s;",[withm,user_id])
+        cli_id = cursor.fetchone()
         cursor.execute(" INSERT INTO meetings (title,meeting_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
-                       ,[title,date,time,withm,link,user_id])
+                       ,[title,date,time,cli_id,link,user_id])
         
        

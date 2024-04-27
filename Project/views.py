@@ -104,22 +104,37 @@ def add_new_meeting(request):
 def dashboard(request):
     no_of_employee = models.retreive_no_of_employee(user_id)
     no_of_employee_hired_this_month = models.emphired_thismonth(user_id)
-    no_of_projects_this_month=models.retrieve_no_of_projects_this_month(user_id)
-    deals_made_this_month=models.delasmade_this_month(user_id)
-    # no_of_employee=10
-    # models.create_table()
-    # models.insert_data()
+    year=timezone.now().year
+    data=models.projects_yearly(user_id,year)
+    graphs.projects_graph(data)
+    data1=models.project_monthly(user_id)
+    data2=models.project_progress_name(user_id)
+    # print(data2)
+    graphs.bar_char(data2)
     # graphs.bar_char()
-    return render(request,'dashboard.html',{'total_employees':no_of_employee[0],
-                                            'this_month':no_of_employee_hired_this_month[0],
-                                            'proj':no_of_projects_this_month[0],
-                                            'deals':deals_made_this_month[0]})
+    no_of_projects_this_month=models.retrieve_no_of_projects_this_month(user_id)
+    return render(request,'dashboard.html',{'total_employees':no_of_employee[0],'proj':no_of_projects_this_month[0],'this_month':no_of_employee_hired_this_month[0],'deals':data1[0]})
+    # deals_made_this_month=models.delasmade_this_month(user_id)
+    # # no_of_employee=10
+    # # models.create_table()
+    # # models.insert_data()
+    # # graphs.bar_char()
+    # return render(request,'dashboard.html',{'total_employees':no_of_employee[0],
+    #                                         'this_month':no_of_employee_hired_this_month[0],
+                                            
+    #                                         'deals':deals_made_this_month[0]})
 
 def employee_details(request):
     return render(request,'view-employee-profile.html')
 def meeting_shcheduler(request):
     data=models.retreive_contacts_details(user_id)
-    return render(request,'meeting-scheduler.html',{'data':data})
+    meetings=models.retrieve_meetings(user_id)
+    if meetings[0][1] == timezone.now().date():
+        now=meetings[0]
+        meetings=meetings[1:]
+    else:
+        now=None
+    return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
  
 def add_new_contact(request):
     message=None
@@ -145,19 +160,30 @@ def add_new_contact(request):
 def project(request):
     data=models.retreive_projects(user_id)
     present=timezone.now().date()
-    diff=data[0][3]-present
-    return render(request,'projects.html',{'data':data,'diff':diff.days})
+    diff=[]
+    progress=models.project_progress(user_id)
+    for i in range(len(data)):
+        rem=data[i][3]-present
+        diff.append(rem.days)
+    combined=zip(data,diff,progress)
+    return render(request,'projects.html',{'data':combined})
 def add_new_project(request):
-     if request.method == "POST":
+    message=None
+    if request.method == "POST":   
         project = request.POST.get('name')
         assigned= request.POST.get('employee')
         due = request.POST.get('duedate')
         client = request.POST.get('client')
-        tasks = request.POST.get('tasks')
+        tasks = request.POST.get('tasks').split(',')
+        data=models.retreive_data_projects(user_id)
+        length = len(data)
+        for i in range(length):
+            if project == data[i][0]:
+                message="Project Already Present .. Try Again"
+                return render(request,'add-a-new-project.html',{'message':message})
         models.insert_data_projects(project,client,due,tasks,assigned,user_id)
-   
         return HttpResponseRedirect('project-added')
-     else:
+    else:
         return render(request,'add-a-new-project.html')
     
     

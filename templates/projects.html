@@ -31,38 +31,6 @@
   </head>
   <body>
     <form class="projects">
-      {% comment %} <section class="instance-parent">
-        <div class="project-name-wrapper">
-          <div class="project-name">CRM Website</div>
-        </div>
-        <div class="client-name-wrapper">
-          <div class="client-name">John M.</div>
-        </div>
-        <div class="assigned-to-wrapper">
-          <div class="assigned-to">Marshall W.</div>
-        </div>
-        <div class="filter-button-parent">
-          <div class="filter-button">
-            <div class="filter-shape"></div>
-            <div class="filter-shape1"></div>
-          </div>
-          <div class="more-filter-options">30%</div>
-        </div>
-        <div class="due-date-wrapper">
-          <div class="due-date">20-04-2024</div>
-        </div>
-        <div class="remaining-time-wrapper">
-          <div class="remaining-time">18 days</div>
-        </div>
-        <div class="more-actions-projects">
-          <img
-            class="icon-ionicons-sharp-elli10"
-            loading="lazy"
-            alt=""
-            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-          />
-        </div>
-      </section> {% endcomment %}
       <section class="content-wrapper">
         <div class="main-content">
           <h1 class="project-management">Project Management</h1>
@@ -181,12 +149,12 @@
           </div>
         </div>
       </section>
-        {%for projects in data%}
-        <div class="expanded-rows">
-          <div class="instance-parent2">
-            <button class="project-name-wrapper2">
-              <div class="project-name4">{{projects.0}}</div>
-            </button>
+      {%for projects,diff,progress in data%}
+      <div class="expanded-rows">
+        <div class="instance-parent2">
+          <button class="project-name-wrapper2">
+            <div class="project-name4">{{projects.0}}</div>
+          </button>
             <button class="client-name-wrapper2">
               <div class="client-name4">{{projects.1}}</div>
             </button>
@@ -195,11 +163,16 @@
             </button>
             <div class="due-dates-group">
               <div class="due-dates1">
-                <div class="due-date-shape2"></div>
-                <div class="due-date-shape3"></div>
+                <div class="due-date4">{{progress.1}}</div>
+                {% comment %} <div class="due-date-shape2"></div>
+                <div class="due-date-shape3"></div> {% endcomment %}
               </div>
+<<<<<<< HEAD
               <div class="spacer1"></div>
             </div> 
+=======
+            </div>
+>>>>>>> bf5ad493d2bbfd493bee006171a351891b0537a4
             <div class="due-date-wrapper2">
               <div class="due-date4">{{projects.3}}</div>
             </div>

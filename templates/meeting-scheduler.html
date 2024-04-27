@@ -228,20 +228,20 @@
                 <h1 class="upcoming-meetings">Upcoming Meetings</h1>
               </div>
               <div class="meeting-schedule-details">
-                <div class="next-meeting-in">Next Meeting in:</div>
+                <div class="next-meeting-in">Next Meeting:</div>
               </div>
               <div class="meeting-placeholder">
                 <div class="meeting-placeholder-child"></div>
-                <div class="div-scbea">4:04:50:08</div>
+                <div class="div-scbea"> {{now.2}} </div>
               </div>
               <div class="meeting-schedule-details1">
-                <div class="with-marshall">With: Marshall</div>
+                <div class="with-marshall"> {{now.0}} </div>
               </div>
               <div class="meeting-schedule-details2">
                 <div class="joining-link-httpszoomlink-container">
                   <span class="joining-link-httpszoomlink-container1">
                     <span class="joining-link">Joining Link: </span>
-                    <span class="httpszoomlinkjoin">https//zoomlink.join</span>
+                    <span class="httpszoomlinkjoin"> {{now.4}} </span>
                   </span>
                 </div>
               </div>
@@ -249,40 +249,25 @@
                 <div class="other-meetings">Other Meetings:</div>
               </div>
               <div class="meeting-schedule-details4">
+                {%for meet in meetings%}
                 <div class="button-scbea">
                   <button class="meeting-title">
                     <div class="meeting-title-crm">
-                      Meeting Title: CRM Design
+                      Meeting Title: {{meet.0}}
                     </div>
                   </button>
                   <div class="meeting-title1">
-                    <div class="on-friday-5th">ON: Friday, 5th April,2024</div>
+                    <div class="on-friday-5th">ON: {{meet.1}}</div>
                   </div>
                   <button class="meeting-title2">
-                    <div class="with-john-doe">With: John Doe</div>
+                    <div class="with-john-doe">With: {{meet.3}} </div>
                   </button>
                   <button class="meeting-title3">
-                    <div class="at-800-pm">AT: 8:00 pm</div>
+                    <div class="at-800-pm">AT: {{meet.2}} </div>
                   </button>
                 </div>
+                {%endfor%}
               </div>
-              <div class="meeting-schedule-details5">
-                <div class="meeting-title-parent">
-                  <button class="meeting-title4">
-                    <div class="meeting-title-crm1">
-                      Meeting Title: CRM Design
-                    </div>
-                  </button>
-                  <div class="meeting-title5">
-                    <div class="on-friday-5th1">ON: Friday, 5th April,2024</div>
-                  </div>
-                  <button class="meeting-title6">
-                    <div class="with-john-doe1">With: John Doe</div>
-                  </button>
-                  <button class="meeting-title7">
-                    <div class="at-800-pm1">AT: 8:00 pm</div>
-                  </button>
-                </div>
               </div>
             </div>
           </div>
