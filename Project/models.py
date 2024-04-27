@@ -148,6 +148,14 @@ def emphired_thismonth(user_id):
         data=cursor.fetchone()
         return data
 
+def delasmade_this_month(user_id):
+     with connection.cursor() as cursor:
+        cursor.execute("""with res as(select count(*) as con from projects p , clients c where p.client_id=c.c_id and p.user_id=%s and
+                       current_date - p.starting_date between 0 and 30 group by c.c_id having c.stage='Customer') 
+                       select sum(con) from res;""",[user_id])
+        data=cursor.fetchone()
+        return data
+
 
 
 def retreive_projects(user_id):
