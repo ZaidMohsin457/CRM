@@ -133,13 +133,6 @@ def retreive_no_of_employee(user_id):
         """,[user_id])
         data = cursor.fetchone()
     return data  
-def retrieve_no_of_projects_this_month(user_id):
-     with connection.cursor() as cursor:
-        cursor.execute("""with mid as (select count(p.p_id) from projects p , tasks t where  p.p_id=t.project_id  and user_id=%s and
-                       Current_date - p.starting_date between 0 and 30  group by p.p_id,t.status having status='Completed')
-                       select count(*) from mid;""",[user_id])
-        data=cursor.fetchone()
-        return data
     
 def emphired_thismonth(user_id):
     with connection.cursor() as cursor:
@@ -148,16 +141,15 @@ def emphired_thismonth(user_id):
         data=cursor.fetchone()
         return data
 
-def delasmade_this_month(user_id):
+
+def retrieve_no_of_projects_this_month(user_id):
      with connection.cursor() as cursor:
-        cursor.execute("""with res as(select count(*) as con from projects p , clients c where p.client_id=c.c_id and p.user_id=%s and
-                       current_date - p.starting_date between 0 and 30 group by c.c_id having c.stage='Customer') 
-                       select sum(con) from res;""",[user_id])
+        cursor.execute("""with mid as (select count(p.p_id) from projects p , tasks t where  p.p_id=t.project_id  and user_id=%s and
+                       Current_date - p.starting_date between 0 and 30  group by p.p_id,t.t_status having t.t_status='completed')
+                       select count(*) from mid;""",[user_id])
         data=cursor.fetchone()
         return data
-
-
-
+    
 def retreive_projects(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
