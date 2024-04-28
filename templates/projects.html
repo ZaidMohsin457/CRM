@@ -146,26 +146,98 @@
           </div>
         </div>
 
+        {% comment %} <div class="project-table">
+          <div class="instance-group">
+            <div class="project-name-container">
+              <div class="project-name1">Project Name</div>
+            </div>
+            <div class="client-name-container">
+              <div class="client-name1">Client Name</div>
+            </div>
+            <div class="assigned-to-container">
+              <div class="assigned-to1">Assigned to</div>
+            </div>
+            <div class="rectangle-group">
+              <div class="instance-child"></div>
+              <div class="div24">30%</div>
+              <div class="instance-item"></div>
+            </div>
+            <div class="due-date-container">
+              <div class="due-date1">Due Date</div>
+            </div>
+            <div class="remaining-time-container">
+              <div class="remaining-time1">Remaining Time</div>
+            </div>
+            <div class="more-actions-projects1">
+              <img
+                class="icon-ionicons-sharp-elli11"
+                loading="lazy"
+                alt=""
+                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress">Progress</div>
+          </div>
+        </div>
+      </section>
+      {%for projects,diff,progress in data%}
+      <div class="expanded-rows">
+        <div class="instance-parent2">
+          <button class="project-name-wrapper2">
+            <div class="project-name4">{{projects.0}}</div>
+          </button>
+            <button class="client-name-wrapper2">
+              <div class="client-name4">{{projects.1}}</div>
+            </button>
+            <button class="assigned-to-wrapper2">
+              <div class="assigned-to4">{{projects.2}}</div>
+            </button>
+            <div class="due-dates-group">
+              <div class="due-dates1">
+                <div class="due-date4">{{progress.1}}</div>
+                {% comment %} <div class="due-date-shape2"></div>
+                <div class="due-date-shape3"></div> 
+              </div>
+            </div>
+            <div class="due-date-wrapper2">
+              <div class="due-date4">{{projects.3}}</div>
+            </div>
+            <button class="remaining-time-wrapper2">
+              <div class="remaining-time4">{{diff}}</div>
+            </button>
+            <div class="more-actions-projects4">
+              <img
+                class="icon-ionicons-sharp-elli14"
+                loading="lazy"
+                alt=""
+                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+              />
+            </div>
+          </div>
+        </div>
+        {%endfor%} {% endcomment %}
         <table class="employee-table">
-  <thead>
-      <tr>
-          <th>--Project Name--</th>
-          <th>--Client Name--</th>
-          <th>--Assigned To--</th>
-          <th>--Progress--</th>
-          <th>--Due Date--</th>
-          <th>--Remaining Time--</th>
-      </tr>
-  </thead>
-  <tbody>
-      {% for data,diff,progress in data %}
-      <tr>
-          <td>{{ data.0 }}</td>
-          <td>{{ data.1 }}</td>
-          <td>{{ data.2 }} </td>
-          <td>{{ progress.1 }} </td>
-          <td>{{ data.3 }}</td>
-          <td>{{ diff }}</td>
+          <thead>
+              <tr>
+                  <th>--Project Name--</th>
+                  <th>--Client Name--</th>
+                  <th>--Assigned To--</th>
+                  <th>--Progress--</th>
+                  <th>--Due Date--</th>
+                  <th>--Remaining Time--</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for data,diff,progress in data %}
+              <tr>
+                  <td>{{ data.0 }}</td>
+                  <td>{{ data.1 }}</td>
+                  <td>{{ data.2 }} </td>
+                  <td>{{ progress.1 }} </td>
+                  <td>{{ data.3 }}</td>
+                  <td>{{ diff }}</td>
 
       </tr>
       {% endfor %}
