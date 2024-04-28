@@ -1,3 +1,33 @@
+{% comment %} <table class="employee-table">
+  <thead>
+      <tr>
+          <th>--Project Name--</th>
+          <th>--Client Name--</th>
+          <th>--Assigned To--</th>
+          <th>--Progress--</th>
+          <th>--Due Date--</th>
+          <th>--Remaining Time--</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for data,diff,progress in data %}
+      <tr>
+          <td>{{ data.0 }}</td>
+          <td>{{ data.1 }}</td>
+          <td>{{ data.2 }} </td>
+          <td>{{ progress.1 }} </td>
+          <td>{{ data.3 }}</td>
+          <td>{{ diff }}</td>
+
+      </tr>
+      {% endfor %}
+  </tbody>
+</table> {% endcomment %}
+
+
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,7 +35,7 @@
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
     <link rel="stylesheet" href="static/CSS/global.css" />
-    <link rel="stylesheet" href="static/CSS/projects.css" />
+    <link rel="stylesheet" href="static/CSS/employees.css" />
     <link rel="stylesheet" href="static/CSS/dashboard.css" />
     <link rel="stylesheet" href="static/CSS/table.css" />
     <link
@@ -30,82 +60,85 @@
     />
   </head>
   <body>
-    <form class="projects">
-      <section class="content-wrapper">
-        <div class="main-content">
-          <h1 class="project-management">Project Management</h1>
-          <div class="sidebar2">
-            <div class="logo-area">
-              <img
-                class="logo-icon2"
-                loading="lazy"
-                alt=""
-                src="static/public/logo1.svg"
-              />
-            </div>
+    <div class="dashboard">
+      <div class="sidebar-wrapper">
+        <div class="sidebar1">
+          <div class="sidebar-content">
             <img
-              class="icon-tabler-icons-user-cir2"
+              class="logo-icon1"
               loading="lazy"
               alt=""
-              src="static/public/icon--tablericons--usercircle.svg"
+              src="static/public/logo1.svg"
             />
+          </div>
+          <img
+            class="icon-tabler-icons-user-cir3"
+            loading="lazy"
+            alt=""
+            src="static/public/icon--tablericons--usercircle.svg"
+          />
 
-           <nav class="main-links">
-          <div class="projects-icon1">
-            <div class="navigation-links">
-              <button class="icon9" onclick="event.preventDefault();window.location.href='/projects';">🏗️</button>
+          <nav class="main-links">
+            <div class="projects-icon1">
+              <div class="navigation-links">
+                <button class="icon9" onclick="window.location.href='/projects'">🏗️</button>
+              </div>
             </div>
-          </div>
-          <div class="employees-icon1">
-            <div class="frame6">
-              <button class="icon10" onclick="event.preventDefault();window.location.href='/employee';">👥</button>
+            <div class="employees-icon1">
+              <div class="frame6">
+                <button class="icon10" onclick="window.location.href='/employee'">👥</button>
+              </div>
             </div>
-          </div>
-          <div class="contacts1">
-            <div class="frame7">
-              <button class="icon11" onclick="event.preventDefault();window.location.href='/meeting-scheduler';">📅</button>
+            <div class="contacts1">
+              <div class="frame7">
+                <button class="icon11" onclick="window.location.href='/meeting-scheduler'">📅</button>
+              </div>
             </div>
-          </div>
-          <div class="leads-pipeline1">
-            <div class="frame8">
-              <button class="icon12" onclick="event.preventDefault();window.location.href='/leads-pipeline';">📊</button>
+            <div class="leads-pipeline1">
+              <div class="frame8">
+                <button class="icon12" onclick="window.location.href='/leads-pipeline'">📊</button>
+              </div>
             </div>
-          </div>
-          <div class="home1">
-            <div class="frame9">
-              <button class="icon13" onclick="event.preventDefault();window.location.href='/home';">🏠</button>
+            <div class="home1">
+              <div class="frame9">
+                <button class="icon13" onclick="window.location.href='/home'">🏠</button>
+              </div>
             </div>
-          </div>
-        </nav>
-            </div>
-          </div>
+          </nav>
+
+
         </div>
-        <div class="project-actions">
-          <div class="project-adder">
-            <button class="add-project-button" id="addProjectButton" onclick="event.preventDefault();window.location.href='/add-new-project';">
+      </div>
+      <main class="data-visualization-parent">
+        <div class="data-visualization">
+          <h1 class="employees-chart">Project Management</h1>
+        </div>
+        <div class="data-manipulation">
+          <div class="action-panel">
+            <button class="add-employee-button" onclick="window.location.href='/add-new-employee'">
               <img
-                class="icon-ionicons-outline-ad2"
+                class="icon-ionicons-outline-ad3"
                 alt=""
                 src="static/public/icon--ionicons--outline--addoutline1.svg"
               />
-              <div class="add-a-new1">Add a new project</div>
+
+              <div class="add-a-new3">Add a new project</div>
             </button>
-            
-            <div class="field1">
+            <div class="field2">
               <img
-                class="icon-jam-icons-outline-l2"
+                class="icon-jam-icons-outline-l4"
                 alt=""
                 src="static/public/icon--jamicons--outline--logos--search.svg"
               />
 
               <input
-                class="search-field"
-                placeholder="Search for any project bt name, employee, client"
+                class="search-input1"
+                placeholder="Search for any project"
                 type="text"
               />
 
               <img
-                class="icon-jam-icons-outline-l3"
+                class="icon-jam-icons-outline-l5"
                 alt=""
                 src="static/public/icon--jamicons--outline--logos--chevrondown.svg"
               />
@@ -113,107 +146,34 @@
           </div>
         </div>
 
-        {% comment %} <div class="project-table">
-          <div class="instance-group">
-            <div class="project-name-container">
-              <div class="project-name1">Project Name</div>
-            </div>
-            <div class="client-name-container">
-              <div class="client-name1">Client Name</div>
-            </div>
-            <div class="assigned-to-container">
-              <div class="assigned-to1">Assigned to</div>
-            </div>
-            <div class="rectangle-group">
-              <div class="instance-child"></div>
-              <div class="div24">30%</div>
-              <div class="instance-item"></div>
-            </div>
-            <div class="due-date-container">
-              <div class="due-date1">Due Date</div>
-            </div>
-            <div class="remaining-time-container">
-              <div class="remaining-time1">Remaining Time</div>
-            </div>
-            <div class="more-actions-projects1">
-              <img
-                class="icon-ionicons-sharp-elli11"
-                loading="lazy"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-          </div>
-          <div class="progress-bar">
-            <div class="progress">Progress</div>
-          </div>
-        </div>
-      </section>
-      {%for projects,diff,progress in data%}
-      <div class="expanded-rows">
-        <div class="instance-parent2">
-          <button class="project-name-wrapper2">
-            <div class="project-name4">{{projects.0}}</div>
-          </button>
-            <button class="client-name-wrapper2">
-              <div class="client-name4">{{projects.1}}</div>
-            </button>
-            <button class="assigned-to-wrapper2">
-              <div class="assigned-to4">{{projects.2}}</div>
-            </button>
-            <div class="due-dates-group">
-              <div class="due-dates1">
-                <div class="due-date4">{{progress.1}}</div>
-                {% comment %} <div class="due-date-shape2"></div>
-                <div class="due-date-shape3"></div> {% endcomment %}
-              </div>
-<<<<<<< HEAD
-              <div class="spacer1"></div>
-            </div> 
-=======
-            </div>
->>>>>>> bf5ad493d2bbfd493bee006171a351891b0537a4
-            <div class="due-date-wrapper2">
-              <div class="due-date4">{{projects.3}}</div>
-            </div>
-            <button class="remaining-time-wrapper2">
-              <div class="remaining-time4">{{diff}}</div>
-            </button>
-            <div class="more-actions-projects4">
-              <img
-                class="icon-ionicons-sharp-elli14"
-                loading="lazy"
-                alt=""
-                src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-              />
-            </div>
-          </div>
-        </div>
-        {%endfor%} {% endcomment %}
         <table class="employee-table">
-          <thead>
-              <tr>
-                  <th>--Project Name--</th>
-                  <th>--Client Name--</th>
-                  <th>--Assigned To--</th>
-                  {% comment %} <th>--Progress--</th> {% endcomment %}
-                  <th>--Due Date--</th>
-                  <th>--Remaining Time--</th>
-              </tr>
-          </thead>
-          <tbody>
-              {% for employee in data %}
-              <tr>
-                  <td>{{ employee.0 }}</td>
-                  <td>{{ employee.1 }}</td>
-                  <td>{{ employee.2 }} </td>
-                  <td>{{ employee.3 }}</td>
-                  <td>{{ diff }}</td>
+  <thead>
+      <tr>
+          <th>--Project Name--</th>
+          <th>--Client Name--</th>
+          <th>--Assigned To--</th>
+          <th>--Progress--</th>
+          <th>--Due Date--</th>
+          <th>--Remaining Time--</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for data,diff,progress in data %}
+      <tr>
+          <td>{{ data.0 }}</td>
+          <td>{{ data.1 }}</td>
+          <td>{{ data.2 }} </td>
+          <td>{{ progress.1 }} </td>
+          <td>{{ data.3 }}</td>
+          <td>{{ diff }}</td>
 
-              </tr>
-              {% endfor %}
-          </tbody>
-      </table>
-    </form>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table> 
+      
+        </div>
+      </main>
+    </div>
   </body>
 </html>
