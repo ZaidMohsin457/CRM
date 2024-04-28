@@ -187,7 +187,7 @@
   line-height: 110%;
   font-weight: 800;
   font-family: var(--font-roboto);
-  color:  #2f5bc6;
+  color: var(--brand-brand-washedpurple);
   text-align: left;
   display: flex;
   align-items: center;
@@ -547,7 +547,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color:  antiquewhite;
   text-align: left;
   display: inline-block;
   min-width: 98px;
@@ -566,7 +566,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: antiquewhite;
   text-align: left;
   display: inline-block;
   min-width: 88px;
@@ -585,7 +585,7 @@
   line-height: 110%;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: var antiquewhite;
   text-align: left;
   display: inline-block;
   min-width: 86px;
@@ -634,6 +634,7 @@
 .rectangle-group {
   height: 48px;
   flex: 1;
+  color: antiquewhite;
   position: relative;
   border-bottom: 1px solid var(--color-gray-1200);
   box-sizing: border-box;
@@ -645,7 +646,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color:  antiquewhite;
   text-align: left;
   display: inline-block;
   min-width: 65px;
@@ -664,7 +665,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color:  antiquewhite;
   text-align: left;
   display: inline-block;
   min-width: 117px;
@@ -713,7 +714,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: antiquewhite;
   text-align: left;
   display: inline-block;
   min-width: 65px;
@@ -1137,7 +1138,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: gold;
   text-align: left;
   display: inline-block;
   min-width: 97px;
@@ -1159,7 +1160,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: aquamarine;
   text-align: left;
   display: inline-block;
   min-width: 59px;
@@ -1181,7 +1182,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: bisque;
   text-align: left;
   display: inline-block;
   min-width: 84px;
@@ -1252,7 +1253,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: gray;
   text-align: left;
   display: inline-block;
   min-width: 84px;
@@ -1271,7 +1272,7 @@
   line-height: 18px;
   font-weight: 500;
   font-family: var(--font-roboto);
-  color: var(--color-black);
+  color: greenyellow;
   text-align: left;
   display: inline-block;
   min-width: 56px;
@@ -1302,6 +1303,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color:aliceblue;
   justify-content: center;
   padding: var(--padding-5xs);
 }
@@ -2315,7 +2317,8 @@
   margin: 0;
   width: 100%;
   position: relative;
-  background-color: black;
+  background-color: var(--brand-brand-dark);
+  color:aliceblue;
   overflow: hidden;
   align-items: flex-start;
   padding: var(--padding-mid) var(--padding-10xs) 202px 88px;
