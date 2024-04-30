@@ -114,20 +114,12 @@ def dashboard(request):
     # graphs.bar_char()
     no_of_projects_this_month=models.retrieve_no_of_projects_this_month(user_id)
     return render(request,'dashboard.html',{'total_employees':no_of_employee[0],'proj':no_of_projects_this_month[0],'this_month':no_of_employee_hired_this_month[0],'deals':data1[0]})
-    # deals_made_this_month=models.delasmade_this_month(user_id)
-    # # no_of_employee=10
-    # # models.create_table()
-    # # models.insert_data()
-    # # graphs.bar_char()
-    # return render(request,'dashboard.html',{'total_employees':no_of_employee[0],
-    #                                         'this_month':no_of_employee_hired_this_month[0],
-                                            
-    #                                         'deals':deals_made_this_month[0]})
 
 def employee_details(request):
     return render(request,'view-employee-profile.html')
 def meeting_shcheduler(request):
     data=models.retreive_contacts_details(user_id)
+    models.delete_prev_meeting(user_id)
     meetings=models.retrieve_meetings(user_id)
     if meetings[0][1] == timezone.now().date():
         now=meetings[0]
@@ -151,7 +143,7 @@ def add_new_contact(request):
         length = len(data)
         for i in range(length):
             if email == data[i][0]:
-                message="Contact Alreday Present .. Try Again"
+                message="Contact Already Present .. Try Again"
                 return render(request,'add-a-new-contact.html',{'message':message})
         models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
         return HttpResponseRedirect('contact-added')

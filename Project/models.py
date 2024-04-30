@@ -133,13 +133,6 @@ def retreive_no_of_employee(user_id):
         """,[user_id])
         data = cursor.fetchone()
     return data  
-def retrieve_no_of_projects_this_month(user_id):
-     with connection.cursor() as cursor:
-        cursor.execute("""with mid as (select count(p.p_id) from projects p , tasks t where  p.p_id=t.project_id  and user_id=%s and
-                       Current_date - p.starting_date between 0 and 30  group by p.p_id,t.status having status='Completed')
-                       select count(*) from mid;""",[user_id])
-        data=cursor.fetchone()
-        return data
     
 def emphired_thismonth(user_id):
     with connection.cursor() as cursor:
@@ -148,16 +141,15 @@ def emphired_thismonth(user_id):
         data=cursor.fetchone()
         return data
 
-def delasmade_this_month(user_id):
+
+def retrieve_no_of_projects_this_month(user_id):
      with connection.cursor() as cursor:
-        cursor.execute("""with res as(select count(*) as con from projects p , clients c where p.client_id=c.c_id and p.user_id=%s and
-                       current_date - p.starting_date between 0 and 30 group by c.c_id having c.stage='Customer') 
-                       select sum(con) from res;""",[user_id])
+        cursor.execute("""with mid as (select count(p.p_id) from projects p , tasks t where  p.p_id=t.project_id  and user_id=%s and
+                       Current_date - p.starting_date between 0 and 30  group by p.p_id,t.t_status having t.t_status='completed')
+                       select count(*) from mid;""",[user_id])
         data=cursor.fetchone()
         return data
-
-
-
+    
 def retreive_projects(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
@@ -195,7 +187,7 @@ def project_progress(user_id):
             projects.p_id AS project_id,
             CASE 
                 WHEN COUNT(tasks.task_id) = 0 THEN 0
-                ELSE (COUNT(CASE WHEN tasks.status = 'Completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
+                ELSE (COUNT(CASE WHEN tasks.t_status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
             END AS progress_percentage
             FROM 
                 projects
@@ -215,7 +207,7 @@ def project_progress_name(user_id):
             projects.p_name AS project_name,
             CASE 
                 WHEN COUNT(tasks.task_id) = 0 THEN 0
-                ELSE (COUNT(CASE WHEN tasks.status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
+                ELSE (COUNT(CASE WHEN tasks.t_status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
             END AS progress_percentage
             FROM 
                 projects
@@ -287,8 +279,8 @@ def retreive_meeting_data(user_id):
 def retrieve_meetings(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-            select m.title, m.meetin_date, m.m_time, c.c_name, m.zoom_link from meetings m, clients c where m.user_id=%s and m.client_id=c.c_id
-            order  by m.meetin_date asc, m.m_time asc
+            select m.title, m.meeting_date, m.m_time, c.c_name, m.zoom_link from meetings m, clients c where m.user_id=%s and m.client_id=c.c_id
+            order  by m.meeting_date asc, m.m_time asc
             limit 3;
         """,[user_id])
         data = cursor.fetchall()
@@ -297,7 +289,12 @@ def insert_data_meeting(title,date,time,withm,link,user_id):
     with connection.cursor() as cursor:
         cursor.execute("SELECT c_id FROM clients WHERE c_name=%s AND user_id=%s;",[withm,user_id])
         cli_id = cursor.fetchone()
-        cursor.execute(" INSERT INTO meetings (title,meetin_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
+        cursor.execute(" INSERT INTO meetings (title,meeting_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
                        ,[title,date,time,cli_id,link,user_id])
         
+def delete_prev_meeting(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            DELETE FROM meetings WHERE user_id=%s and meeting_date < current_date;
+        """,[user_id])
        
