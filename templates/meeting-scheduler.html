@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/CSS/global.css" />
     <link rel="stylesheet" href="static/CSS/meeting-scheduler.css" />
     <link rel="stylesheet" href="static/CSS/dashboard.css" />
+    <link rel="stylesheet" href="static/CSS/tables.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
@@ -112,105 +113,37 @@
                 />
               </div>
             </div>
-            <div class="contacts-chart">
-              <div class="logo">
-                <div class="contacts-title"></div>
-                {%for contact in data%}
-                <div class="contacts-columns">
-                  <img
-                    class="contact-information-icon"
-                    loading="lazy"
-                    alt=""
-                    src="static/public/vector.svg"
-                  />
-                </div>
-                {%endfor%}
-                
-              </div>
-              <div class="company-name">
-                <div class="contacts-title1">
-                  <img
-                    class="building-icon"
-                    alt=""
-                    src="static/public/building@2x.png"
-                  />
+            <table class="employee-table">
+              <thead>
+                  <tr>
+                      <th>--Name--</th>
+                      <th>--Designation--</th>
+                      <th>--Projects Assigned--</th>
+                      <th>--Contact Info--</th>
+                      <th>--Availability Status--</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for employee in data %}
+                  <tr>
+                      <td>{{ employee.0 }}</td>
+                      <td>{{ employee.1 }}</td>
+                      <td>{{ employee.3 }} </td>
+                      <td>{{ employee.2 }}</td>
+                      <td>
+                          {% if employee.3 %}
+                             Not Available
+                          {% else %}
+                             Available
+                          {% endif %}
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
 
-                  <div class="company">Company</div>
-                </div>
-                {%for client in data%}
-                <div class="contacts-columns10">
-                  <div class="google">{{client.3}}</div>
-                </div>
-                {%endfor%}
-               
-              </div>
-              <div class="contact-table-header">
-                <div class="contacts-title2">
-                  <img
-                    class="public-relation-icon"
-                    alt=""
-                    src="static/public/publicrelation@2x.png"
-                  />
-
-                  <div class="client">Client</div>
-                </div>
-                {%for client in data%}
-                <div class="contacts-columns20">
-                  <div class="john-doe">{{client.0}}</div>
-                </div>
-                {%endfor%}
-               
-              </div>
-              <div class="music">
-                <div class="contacts-title3">
-                  <img
-                    class="email-1-icon"
-                    alt=""
-                    src="static/public/email-1@2x.png"
-                  />
-
-                  <div class="email">Email</div>
-                </div>
-                {%for client in data%}
-                <div class="contacts-columns30">
-                  <div class="johndoegmailcom">{{client.1}}</div>
-                </div>
-                {%endfor%}
-                
-              </div>
-              <div class="b">
-                <div class="contacts-title4">
-                  <img
-                    class="telephone-icon"
-                    alt=""
-                    src="static/public/telephone@2x.png"
-                  />
-
-                  <div class="phone-no">Phone no.</div>
-                </div>
-                {%for client in data%}
-                <div class="contacts-columns40">
-                  <div class="div">{{client.2}}</div>
-                </div>
-                {%endfor%}
-                
-              </div>
-              <div class="contact-table-header1">
-                <div class="contacts-title5"></div>
-                {%for client in data%}
-                <div class="contacts-columns50">
-                  <img
-                    class="icon-ionicons-sharp-elli"
-                    loading="lazy"
-                    alt=""
-                    src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                  />
-                </div>
-                  {%endfor%}
-               
-              </div>
-            </div>
-          </div>
+          
+          </div> 
           <div class="meeting-management">
             <div class="schedule-meeting-button-wrapper">
               <button class="schedule-meeting-button" onclick="event.preventDefault();window.location.href='/add-new-meeting';">

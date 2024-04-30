@@ -1990,13 +1990,13 @@
   max-width: 100%;
   text-align: left;
   font-size: var(--font-size-37xl);
-  color: var(--color-gray-300);
+  color: var(--brand-brand-washedpurple);
   font-family: var(--font-roboto);
 }
 .meeting-scheduler {
   width: 100%;
   position: relative;
-  background-color: var(--brand-brand-dark);
+  background-color:var(--brand-brand-dark);
   overflow: hidden;
   flex-direction: row;
   padding: var(--padding-mid) var(--padding-8xs) var(--padding-2xl);
