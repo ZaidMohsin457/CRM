@@ -113,7 +113,7 @@ def dashboard(request):
     graphs.bar_char(data2)
     # graphs.bar_char()
     no_of_projects_this_month=models.retrieve_no_of_projects_this_month(user_id)
-    return render(request,'dashboard.html',{'total_employees':no_of_employee[0],'proj':no_of_projects_this_month[0],'this_month':no_of_employee_hired_this_month[0],'deals':data1[0]})
+    return render(request,'dashboard.html',{'total_employees':no_of_employee,'proj':no_of_projects_this_month,'this_month':no_of_employee_hired_this_month,'deals':data1})
 
 def employee_details(request):
     return render(request,'view-employee-profile.html')
@@ -121,11 +121,12 @@ def meeting_shcheduler(request):
     data=models.retreive_contacts_details(user_id)
     models.delete_prev_meeting(user_id)
     meetings=models.retrieve_meetings(user_id)
-    if meetings[0][1] == timezone.now().date():
-        now=meetings[0]
-        meetings=meetings[1:]
-    else:
-        now=None
+    now=None
+    # if meetings[0][1] == timezone.now().date():
+    #     now=meetings[0]
+    #     meetings=meetings[1:]
+    # else:
+    #     now=None
     return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
  
 def add_new_contact(request):
