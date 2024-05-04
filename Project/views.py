@@ -192,6 +192,10 @@ def add_new_project(request):
         tasks = request.POST.get('tasks').split(',')
         data=models.retreive_data_projects(user_id)
         length = len(data)
+        data1=models.retreive_cname(user_id)
+        if client not in data1:
+            message="Client Not Present .. Add Client First"
+            return render(request,'add-a-new-project.html',{'message':message})
         if length==0:
             models.insert_data_projects(project,client,due,tasks,assigned,user_id)
             return HttpResponseRedirect('project-added')

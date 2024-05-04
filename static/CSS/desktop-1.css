@@ -387,7 +387,7 @@ footer {
 .hero-image-item {
   border: 0;
   background-color: transparent;
-  height: 391px;
+  height: auto;
   width: auto;
   outline: 0;
   flex: 1;
