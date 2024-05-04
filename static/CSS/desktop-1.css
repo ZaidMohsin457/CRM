@@ -1,3 +1,20 @@
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #080b3a;
+}
+
+.footer-logo img {
+  max-width: 100px; /* Adjust the size as needed */
+}
+
+.footer-statement p {
+  margin-top: 20px; /* Space between logo and statement */
+  font-size: 14px;
+  color: #f4efef;
+}
+
+
 .logo2 {
   height: 13.9px;
   width: 14px;
@@ -359,13 +376,13 @@
 .hero-image-item {
   border: 0;
   background-color: transparent;
-  height: 291px;
+  height: 391px;
   width: auto;
   outline: 0;
   flex: 1;
   position: relative;
   max-width: 100%;
-  overflow: hidden;
+  overflow:auto;
   object-fit: cover;
   z-index: 1;
 }
@@ -2132,3 +2149,4 @@
     gap: var(--gap-mini);
   }
 }
+

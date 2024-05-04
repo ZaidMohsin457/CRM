@@ -4,7 +4,7 @@ from Project import graphs
 from django.utils import timezone
 
 # Create your views here.
-user_id=1
+user_id=0
 def modify(id):
     global user_id
     user_id=id
@@ -107,7 +107,8 @@ def dashboard(request):
     year=timezone.now().year
     data=models.projects_yearly(user_id,year)
     graphs.projects_graph(data)
-    data1=models.project_monthly(user_id)
+    # data1=models.project_monthly(user_id)
+    data1="12"
     data2=models.project_progress_name(user_id)
     # print(data2)
     graphs.bar_char(data2)
