@@ -17,7 +17,9 @@ def login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         data=models.retreive_data_user()
-        # print(email,password)
+        if len(data)==0:
+            message="No User Registered .. Please Sign Up First"
+            return render(request,'login-page.html',{'message':message})
         if email == data[0][0] and password == data[0][1]:
             modify(data[0][2])
             return HttpResponseRedirect("home")
@@ -26,6 +28,7 @@ def login(request):
             return render(request,'login-page.html',{'message':message})
     else:
         return render(request,'login-page.html')
+    
 def signup(request):
     message=None
     if request.method == "POST":
@@ -34,6 +37,9 @@ def signup(request):
         password = request.POST.get('password')
         data=models.retreive_data_user()
         length = len(data)
+        if length==0:
+            models.insert_data_user(fullname,email,password)
+            return HttpResponseRedirect('login')
         for i in range(length):
             if email == data[i][0]:
                 message="Email already registered.. Try another Email"
@@ -44,7 +50,6 @@ def signup(request):
     else:
         return render(request,'sign-up-page.html')
     
-
 def add_new_employee(request):
     message=None
     if request.method == "POST":
@@ -57,6 +62,9 @@ def add_new_employee(request):
         coun = request.POST.get('country')
         data=models.retreive_data_employee()
         length = len(data)
+        if length==0:
+            models.insert_data_employee(name,designation,phone,email,gender,coun,salary,user_id)
+            return HttpResponseRedirect('employee-added')
         for i in range(length):
             if email == data[i][0]:
                 message="Employee Already Present .. Try adding another email"
@@ -72,10 +80,13 @@ def employee(request):
 
 def employee_added(request):
     return render(request,'employee-added.html')
+
 def project_added(request):
     return render(request,'project-added.html')
+
 def meeting_added(request):
     return render(request,'meeting-added.html')
+
 def contact_added(request):
     return render(request,'contact-added.html')
 
@@ -90,8 +101,10 @@ def add_new_meeting(request):
         link = request.POST.get('link')
         data=models.retreive_meeting_data(user_id)
         length = len(data)
+        if length==0:
+            models.insert_data_meeting(title,date,time,wit,link,user_id)
+            return HttpResponseRedirect('meeting-added')
         for i in range(length):
-            # print(data[i][1],type(str(data[i][1])),date,type(date),date==str(data[i][1]))
             if time == str(data[i][0]) and date == str(data[i][1]):
                 message="Time slot not available ..Try Another Time Slot."
                 return render(request,'add-a-new-meeting.html',{'message':message})
@@ -110,18 +123,20 @@ def dashboard(request):
     # data1=models.project_monthly(user_id)
     data1="12"
     data2=models.project_progress_name(user_id)
-    # print(data2)
     graphs.bar_char(data2)
-    # graphs.bar_char()
     no_of_projects_this_month=models.retrieve_no_of_projects_this_month(user_id)
-    return render(request,'dashboard.html',{'total_employees':no_of_employee[0],'proj':no_of_projects_this_month[0],'this_month':no_of_employee_hired_this_month[0],'deals':data1[0]})
+    return render(request,'dashboard.html',{'total_employees':no_of_employee,'proj':no_of_projects_this_month,'this_month':no_of_employee_hired_this_month,'deals':data1})
 
 def employee_details(request):
     return render(request,'view-employee-profile.html')
+
 def meeting_shcheduler(request):
     data=models.retreive_contacts_details(user_id)
     models.delete_prev_meeting(user_id)
     meetings=models.retrieve_meetings(user_id)
+    now=None
+    if len(meetings)==0:
+        return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
     if meetings[0][1] == timezone.now().date():
         now=meetings[0]
         meetings=meetings[1:]
@@ -142,6 +157,9 @@ def add_new_contact(request):
         newold = request.POST.get('new')
         data=models.retreive_data_client()
         length = len(data)
+        if length==0:
+            models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
+            return HttpResponseRedirect('contact-added')
         for i in range(length):
             if email == data[i][0]:
                 message="Contact Already Present .. Try Again"
@@ -150,16 +168,20 @@ def add_new_contact(request):
         return HttpResponseRedirect('contact-added')
     else:
         return render(request,'add-a-new-contact.html')
+    
 def project(request):
     data=models.retreive_projects(user_id)
     present=timezone.now().date()
     diff=[]
     progress=models.project_progress(user_id)
+    if len(data)==0:
+        return render(request,'projects.html',{'data':data})
     for i in range(len(data)):
         rem=data[i][3]-present
         diff.append(rem.days)
     combined=zip(data,diff,progress)
     return render(request,'projects.html',{'data':combined})
+
 def add_new_project(request):
     message=None
     if request.method == "POST":   
@@ -170,6 +192,9 @@ def add_new_project(request):
         tasks = request.POST.get('tasks').split(',')
         data=models.retreive_data_projects(user_id)
         length = len(data)
+        if length==0:
+            models.insert_data_projects(project,client,due,tasks,assigned,user_id)
+            return HttpResponseRedirect('project-added')
         for i in range(length):
             if project == data[i][0]:
                 message="Project Already Present .. Try Again"
@@ -179,9 +204,9 @@ def add_new_project(request):
     else:
         return render(request,'add-a-new-project.html')
     
-    
 def project_details(request):
     return render(request,'projects-view-details.html')
+
 def leads_pipeline(request):
     return render(request,'leads-pipeline.html')
 

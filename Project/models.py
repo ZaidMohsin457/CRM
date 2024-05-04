@@ -46,7 +46,7 @@ def create_table():
                     task_id serial,
                     project_id int,
                     task_name varchar(255),
-                    t_status varchar(100) default 'pending',
+                    status varchar(100) default 'pending',
                     foreign key(project_id) references projects(p_id),
                     primary key(project_id,task_id) 
                 );
