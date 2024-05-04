@@ -38,26 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount',
+    'django.contrib.sites'
 ]
-
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        'SCOPE': ['profile', 'email'],  # Request access to profile and email
-        'AUTH_PARAMS': {
-            'access_type': 'online',  # Request access for an online session
-        },
-        'APP': {
-            'client_id': '473858933648-b75ciohau2k3k5k4obrre3iain3c6ah6.apps.googleusercontent.com',  # Your Google Client ID here
-            'secret': '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',  # Your Google Client Secret here
-        }
-    }
-}
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -150,10 +132,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
-LOGIN_REDIRECT_URL = '/home'
-LOGOUT_REDIRECT_URL = '/login'
