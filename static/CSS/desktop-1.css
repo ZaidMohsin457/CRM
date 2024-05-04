@@ -1,3 +1,14 @@
+.chatbot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust height as needed */
+}
+
+.chatbot iframe {
+  width: 80%; /* Adjust width as needed */
+}
+
 footer {
   text-align: center;
   padding: 20px 0;
