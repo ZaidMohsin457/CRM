@@ -19,8 +19,12 @@
 footer {
   text-align: center;
   padding: 20px 0;
-  background-color: #080b3a;
+  background-color: var(--brand-brand-dark);
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  width: 100%;
 }
+
 
 .footer-logo img {
   max-width: 100px; /* Adjust the size as needed */

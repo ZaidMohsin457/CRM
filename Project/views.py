@@ -4,7 +4,7 @@ from Project import graphs
 from django.utils import timezone
 
 # Create your views here.
-user_id=0
+user_id=1
 def modify(id):
     global user_id
     user_id=id
@@ -124,7 +124,7 @@ def dashboard(request):
     data1="12"
     data2=models.project_progress_name(user_id)
     graphs.bar_char(data2)
-    no_of_projects_this_month=models.retrieve_no_of_projects_this_month(user_id)
+    no_of_projects_this_month=models.project_monthly(user_id)
     return render(request,'dashboard.html',{'total_employees':no_of_employee,'proj':no_of_projects_this_month,'this_month':no_of_employee_hired_this_month,'deals':data1})
 
 def employee_details(request):
