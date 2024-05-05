@@ -327,11 +327,9 @@
   box-sizing: border-box;
 }
 .subtract-icon1 {
-  height: 146px;
-  width: 146px;
+  height: 75px;
+  width: auto;
   position: relative;
-  display: none;
-  min-height: 146px;
 }
 .subtract {
   position: relative;
@@ -376,7 +374,7 @@
   height: 34.5px;
 }
 .chart-container {
-  height: 146px;
+  height: 100px;
   flex: 1;
   position: relative;
   color: var(--color-black);
@@ -732,7 +730,7 @@
   position: absolute;
   left: 33px;
   top: 0;
-  transform: scale(1.096);
+  transform: scale(1.4);
 }
 .wrapper-graph {
   width: 687px;
