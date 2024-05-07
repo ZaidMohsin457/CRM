@@ -1533,7 +1533,6 @@
 .add-contact-button-parent,
 .contacts-chart {
   display: flex;
-  align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
 }

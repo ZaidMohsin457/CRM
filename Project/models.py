@@ -141,6 +141,9 @@ def emphired_thismonth(user_id):
         data=cursor.fetchone()
         return data
     
+    
+    
+    
 def retreive_projects(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
@@ -238,6 +241,8 @@ def project_monthly(user_id):
     return data
 
 
+
+
 def retreive_data_client():
     with connection.cursor() as cursor:
         cursor.execute("""
@@ -254,11 +259,18 @@ def insert_data_client(name,phone,email,company,status,stage,new,user_id,country
 def retreive_contacts_details(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-            select c_name,c_email,c_phone_no,company_name from clients where user_id=%s;
+            select c_name,c_email,c_phone_no,company_name from clients where user_id=%s and status='active' and new_or_old='old';
         """,[user_id])
         data = cursor.fetchall()
     return data
-        
+def retreive_cname(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select c_name from clients where user_id=%s;
+        """,[user_id])
+        data = cursor.fetchone()
+    return data
+   
    
         
 def retreive_meeting_data(user_id):

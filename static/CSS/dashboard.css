@@ -724,19 +724,27 @@
   font-family: inherit;
 }
 .graph-icon {
-  width: 100%;
+  width: 94%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  position: absolute;
+  left: -20px;
+  top: 0;
+  transform: scale(1);
+}
+.graph-icon1 {
+  width: 94%;
+  height: 100%;
+  object-fit: cover;
   position: absolute;
   left: 33px;
   top: 0;
-  transform: scale(1.4);
+  transform: scale(1);
 }
 .wrapper-graph {
-  width: 687px;
-  height: 193px;
+  width: 853px;
+  height: 340px;
   position: relative;
-  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
