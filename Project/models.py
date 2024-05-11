@@ -23,7 +23,6 @@ def create_table():
                     company_name varchar(255),
                     status varchar(255),
                     stage varchar(255),
-                    new_or_old varchar(255),
                     country varchar(50),
                     user_id int,
                     foreign key(user_id) references users(u_id)
@@ -243,7 +242,7 @@ def project_monthly(user_id):
 
 
 
-def retreive_data_client():
+def retreive_email_client():
     with connection.cursor() as cursor:
         cursor.execute("""
             SELECT c_email from clients;
@@ -251,18 +250,19 @@ def retreive_data_client():
         data = cursor.fetchall()
     return data
 
-def insert_data_client(name,phone,email,company,status,stage,new,user_id,country):
+def insert_data_client(name,phone,email,company,status,stage,user_id,country):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO clients (c_name,c_phone_no,c_email,company_name,status,stage,new_or_old,user_id,country) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
-                       ,[name,phone,email,company,status,stage,new,user_id,country])
+        cursor.execute(" INSERT INTO clients (c_name,c_phone_no,c_email,company_name,status,stage,user_id,country) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);"
+                       ,[name,phone,email,company,status,stage,user_id,country])
         
 def retreive_contacts_details(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-            select c_name,c_email,c_phone_no,company_name from clients where user_id=%s and status='active' and new_or_old='old';
+            select c_name,c_email,c_phone_no,company_name from clients where user_id=%s and status='active';
         """,[user_id])
         data = cursor.fetchall()
     return data
+
 def retreive_cname(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
@@ -270,8 +270,51 @@ def retreive_cname(user_id):
         """,[user_id])
         data = cursor.fetchone()
     return data
+
+def retreive_prospects(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='prospect';
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
    
-   
+def retreive_leads(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='Qualified lead';
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
+
+def retreive_calldone(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='call done';
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
+
+def retreive_cwon(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='client won';
+        """,[user_id])
+        data = cursor.fetchall()
+    return data
+    
+def update_client_status(status,client_name,user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            UPDATE clients SET stage=%s WHERE c_name=%s and user_id=%s;
+        """,[status,client_name,user_id])    
+        
+def update_client_stage(status,client_name,user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            UPDATE clients SET status='active', stage=%s WHERE c_name=%s and user_id=%s;
+        """,[status,client_name,user_id])
+        
         
 def retreive_meeting_data(user_id):
     with connection.cursor() as cursor:

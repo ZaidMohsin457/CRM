@@ -59,12 +59,12 @@
           </div>
           <div class="leads-pipeline1">
             <div class="frame3">
-              <button class="icon3"onclick="window.location.href='/leads-pipeline'" >📊</button>
+              <button class="icon2"onclick="window.location.href='/leads-pipeline'" >📊</button>
             </div>
           </div>
           <div class="home">
             <div class="frame4">
-              <button class="icon4" onclick="window.location.href='/home'">🏠</butoon>
+              <button class="icon2" onclick="window.location.href='/home'">🏠</butoon>
             </div>
           </div>
         </nav>
@@ -84,6 +84,7 @@
               <div class="column-header">
                 <div class="column-name">Prospects</div>
               </div>
+              {%for prosp in prospects%}
               <div class="card">
                 <div class="frame-group">
                   <div class="rectangle-wrapper">
@@ -93,7 +94,7 @@
                     <div class="title-description">
                       <div class="title-priority-parent">
                         <div class="title-priority">
-                          <div class="john-m">John M.</div>
+                          <div class="john-m"> {{prosp.0}} </div>
                         </div>
                         <img
                           class="icon-ionicons-sharp-elli"
@@ -102,8 +103,8 @@
                           src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
                         />
                       </div>
-                      <div class="johnmgmailcom">johnm@gmail.com</div>
-                      <div class="crm-website">CRM Website</div>
+                      <div class="johnmgmailcom"> {{prosp.1}} </div>
+                      <div class="crm-website"> {{prosp.2}} </div>
                     </div>
                     <div class="notes">
                       <div class="notes1">Notes:</div>
@@ -113,12 +114,19 @@
                           currently now in this stage.
                         </p>
                       </div>
-                      <div class="component-7">
-                        <div class="lp-card-button">
-                          <div class="move-to">Move to</div>
-                          <div class="iconexbrokendown-2"></div>
-                        </div>
-                      </div>
+                      
+                      <form method="POST">
+                        {% csrf_token %}
+                        <select name="cstatus">
+                                {% comment %} <option value="prospect">Prospect</option> {% endcomment %}
+                                <option value="Qualified lead,{{prosp.0}}">Qualified Lead</option>
+                                <option value="call done,{{prosp.0}}">Call Done</option>
+                                <option value="client won,{{prosp.0}}">Client Won</option>
+                                <option value="Confirmed,{{prosp.0}}">Confirmed</option>
+                        </select>
+                        <button type="submit">Submit</button>
+                    </form>
+                    
                     </div>
                   </div>
                 </div>
@@ -127,58 +135,14 @@
                   <div class="notes-child"></div>
                 </div>
               </div>
-              <div class="card1">
-                <div class="frame-container">
-                  <div class="rectangle-container">
-                    <div class="frame-item"></div>
-                  </div>
-                  <div class="title-description-group">
-                    <div class="title-description1">
-                      <div class="title-priority-group">
-                        <div class="title-priority1">
-                          <div class="john-m1">John M.</div>
-                        </div>
-                        <img
-                          class="icon-ionicons-sharp-elli1"
-                          loading="lazy"
-                          alt=""
-                          src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
-                        />
-                      </div>
-                      <div class="johnmgmailcom1">johnm@gmail.com</div>
-                      <div class="crm-website1">CRM Website</div>
-                    </div>
-                    <div class="notes4">
-                      <div class="notes5">Notes:</div>
-                      <div class="this-is-mr-container1">
-                        <p class="this-is-mr1">
-                          This is Mr John M.’s project of CRM Website and he is
-                          currently now in this stage.
-                        </p>
-                      </div>
-                      <div class="component-71">
-                        <div class="lp-card-button1">
-                          <div class="move-to1">Move to</div>
-                          <img
-                            class="iconexbrokendown-21"
-                            alt=""
-                            src="static/public/iconexbrokendown-2-1@2x.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="notes6"></div>
-                <div class="notes7">
-                  <div class="notes-item"></div>
-                </div>
-              </div>
+              {%endfor%}
+              
             </div>
             <div class="column1">
               <div class="column-header1">
                 <div class="column-name1">Qualified lead</div>
               </div>
+              {%for lead in leads%}
               <div class="card2">
                 <div class="frame-div">
                   <div class="rectangle-frame">
@@ -188,7 +152,7 @@
                     <div class="title-description2">
                       <div class="title-priority-container">
                         <div class="title-priority2">
-                          <div class="john-m2">John M.</div>
+                          <div class="john-m2"> {{lead.0}} </div>
                         </div>
                         <img
                           class="icon-ionicons-sharp-elli2"
@@ -197,8 +161,8 @@
                           src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
                         />
                       </div>
-                      <div class="johnmgmailcom2">johnm@gmail.com</div>
-                      <div class="crm-website2">CRM Website</div>
+                      <div class="johnmgmailcom2"> {{lead.1}} </div>
+                      <div class="crm-website2"> {{lead.2}} </div>
                     </div>
                     <div class="notes8">
                       <div class="notes9">Notes:</div>
@@ -208,16 +172,18 @@
                           currently now in this stage.
                         </p>
                       </div>
-                      <div class="component-72">
-                        <div class="lp-card-button2">
-                          <div class="move-to2">Move to</div>
-                          <img
-                            class="iconexbrokendown-22"
-                            alt=""
-                            src="static/public/iconexbrokendown-2-1@2x.png"
-                          />
-                        </div>
-                      </div>
+                      
+                      <form method="post">
+                        {% csrf_token %}
+                        <select name="cstatus">
+                          <option value="call done,{{lead.0}}">Call Done</option>
+                          <option value="client won,{{lead.0}}">Client Won</option>
+                          <option value="Confirmed,{{lead.0}}">Confirmed</option>
+                          <option value="prospect,{{lead.0}}">Prospect</option>
+                                {% comment %} <option value="qlead">Qualified Lead</option> {% endcomment %}
+                        </select>
+                        <button type="submit">Submit</button>
+                    </form>
                     </div>
                   </div>
                 </div>
@@ -226,11 +192,13 @@
                   <div class="notes-inner"></div>
                 </div>
               </div>
+              {%endfor%}
             </div>
             <div class="column2">
               <div class="column-header2">
                 <div class="column-name2">Sales call done</div>
               </div>
+              {%for call in call_done%}
               <div class="card-wrapper">
                 <div class="card3">
                   <div class="frame-parent1">
@@ -241,7 +209,7 @@
                       <div class="title-description3">
                         <div class="title-priority-parent1">
                           <div class="title-priority3">
-                            <div class="john-m3">John M.</div>
+                            <div class="john-m3"> {{call.0}} </div>
                           </div>
                           <img
                             class="icon-ionicons-sharp-elli3"
@@ -250,8 +218,8 @@
                             src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
                           />
                         </div>
-                        <div class="johnmgmailcom3">johnm@gmail.com</div>
-                        <div class="crm-website3">CRM Website</div>
+                        <div class="johnmgmailcom3"> {{call.1}} </div>
+                        <div class="crm-website3"> {{call.2}} </div>
                       </div>
                       <div class="notes12">
                         <div class="notes13">Notes:</div>
@@ -261,16 +229,18 @@
                             is currently now in this stage.
                           </p>
                         </div>
-                        <div class="component-73">
-                          <div class="lp-card-button3">
-                            <div class="move-to3">Move to</div>
-                            <img
-                              class="iconexbrokendown-23"
-                              alt=""
-                              src="static/public/iconexbrokendown-2-1@2x.png"
-                            />
-                          </div>
-                        </div>
+                        
+                        <form method="post">
+                          {% csrf_token %}
+                          <select name="cstatus">
+                            <option value="client won,{{call.0}}">Client Won</option>
+                            <option value="Confirmed,{{call.0}}">Confirmed</option>
+                            <option value="Qualified lead,{{call.0}}">Qualified Lead</option>
+                            <option value="prospect,{{call.0}}">Prospect</option>
+                                  {% comment %} <option value="cdone">Call Done</option> {% endcomment %}
+                          </select>
+                          <button type="submit">Submit</button>
+                      </form>
                       </div>
                     </div>
                   </div>
@@ -280,11 +250,13 @@
                   </div>
                 </div>
               </div>
+              {%endfor%}
             </div>
             <div class="column3">
               <div class="column-header3">
                 <div class="column-name3">client won</div>
               </div>
+              {%for client in cwon%}
               <div class="card-container">
                 <div class="card4">
                   <div class="frame-parent2">
@@ -295,7 +267,7 @@
                       <div class="title-description4">
                         <div class="title-priority-parent2">
                           <div class="title-priority4">
-                            <div class="john-m4">John M.</div>
+                            <div class="john-m4"> {{client.0}} </div>
                           </div>
                           <img
                             class="icon-ionicons-sharp-elli4"
@@ -304,8 +276,8 @@
                             src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
                           />
                         </div>
-                        <div class="johnmgmailcom4">johnm@gmail.com</div>
-                        <div class="crm-website4">CRM Website</div>
+                        <div class="johnmgmailcom4"> {{client.1}} </div>
+                        <div class="crm-website4"> {{client.2}} </div>
                       </div>
                       <div class="notes16">
                         <div class="notes17">Notes:</div>
@@ -315,16 +287,18 @@
                             is currently now in this stage.
                           </p>
                         </div>
-                        <div class="component-74">
-                          <div class="lp-card-button4">
-                            <div class="move-to4">Move to</div>
-                            <img
-                              class="iconexbrokendown-24"
-                              alt=""
-                              src="static/public/iconexbrokendown-2-1@2x.png"
-                            />
-                          </div>
-                        </div>
+                       
+                        <form method="post">
+                          {% csrf_token %}
+                          <select name="cstatus">
+                            <option value="Confirmed,{{client.0}}">Confirmed</option>
+                            <option value="call done,{{client.0}}">Call Done</option>
+                            <option value="Qualified lead,{{client.0}}">Qualified Lead</option>
+                            <option value="prospect,{{client.0}}">Prospect</option>
+                                  {% comment %} <option value="cwon">Client Won</option> {% endcomment %}
+                          </select>
+                          <button type="submit">Submit</button>
+                      </form>
                       </div>
                     </div>
                   </div>
@@ -334,6 +308,7 @@
                   </div>
                 </div>
               </div>
+              {%endfor%}
             </div>
           </div>
         </section>

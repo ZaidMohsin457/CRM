@@ -115,27 +115,17 @@ def contact_added(request):
 
 
 def validate_time_format(input_time):
-    # Define regex pattern for HH:MM format
     pattern = r'^([01]\d|2[0-3]):([0-5]\d)$'
-
-    # Use regex to match input time against pattern
     if re.match(pattern, input_time):
         return True
     else:
         return False
-
-import re
-
 def validate_date_format(input_date):
-    # Define regex pattern for YYYY-MM-DD format
     pattern = r'^\d{4}-\d{2}-\d{2}$'
-
-    # Use regex to match input date against pattern
     if re.match(pattern, input_date):
         return True
     else:
         return False
-
 def add_new_meeting(request):#done
     message=None
     if request.method == "POST":
@@ -211,17 +201,17 @@ def add_new_contact(request):#done
         country = request.POST.get('country')
         stage = request.POST.get('stg')
         status = request.POST.get('sts')
-        newold = request.POST.get('new')
-        data=models.retreive_data_client()
+        # newold = request.POST.get('new')
+        data=models.retreive_email_client()
         length = len(data)
         if length==0:
-            models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
+            models.insert_data_client(fullname,contact,email,company,status,stage,user_id,country)
             return HttpResponseRedirect('contact-added')
         for i in range(length):
             if email == data[i][0]:
                 message="Contact Already Present .. Try Again"
                 return render(request,'add-a-new-contact.html',{'message':message})
-        models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
+        models.insert_data_client(fullname,contact,email,company,status,stage,user_id,country)
         return HttpResponseRedirect('contact-added')
     else:
         return render(request,'add-a-new-contact.html')
@@ -269,7 +259,19 @@ def project_details(request):
     return render(request,'projects-view-details.html')
 
 def leads_pipeline(request):
-    return render(request,'leads-pipeline.html')
+    if request.method =="POST":
+        option=request.POST.get('cstatus').split(',')
+        if option[0]!="Confirmed":
+            models.update_client_status(option[0],option[1],user_id)
+        else:
+            models.update_client_stage(option[0],option[1],user_id)
+        return HttpResponseRedirect('leads-pipeline')
+    else:
+        prospects=models.retreive_prospects(user_id)
+        leads=models.retreive_leads(user_id)
+        cwon=models.retreive_cwon(user_id)
+        call_done=models.retreive_calldone(user_id)
+        return render(request,'leads-pipeline.html',{'prospects':prospects,'leads':leads,'cwon':cwon,'call_done':call_done})
 
 
     
