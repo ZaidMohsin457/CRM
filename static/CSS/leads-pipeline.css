@@ -685,6 +685,7 @@
   padding: var(--spacing-md) var(--spacing-2xl) var(--padding-3xs);
   white-space: nowrap;
 }
+.column-header:hover,
 .column-header1:hover,
 .column-header2:hover,
 .column-header3:hover {
@@ -1375,7 +1376,7 @@
 .leads-pipeline {
   width: 100%;
   position: relative;
-  background-color: var(--color-black);
+  background-color: var(--brand-brand-dark);
   overflow: hidden;
   flex-direction: row;
   padding: 17px var(--padding-6xs);
