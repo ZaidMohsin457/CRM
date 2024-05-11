@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponseRedirect
 from Project import models
 from Project import graphs
 from django.utils import timezone
-
+import re
 # Create your views here.
 user_id=1
 def modify(id):
@@ -11,7 +11,7 @@ def modify(id):
 def index(request):
     models.create_table()
     return render(request,'desktop-1.html')
-def login(request):
+def login(request):#done
     message=None
     if request.method == "POST":
         email = request.POST.get('email')
@@ -29,12 +29,18 @@ def login(request):
     else:
         return render(request,'login-page.html')
     
-def signup(request):
+def signup(request):#done
     message=None
     if request.method == "POST":
         fullname = request.POST.get('name')
         email = request.POST.get('email')
+        if email.find('@')==-1 or email.find('.')==-1:
+            message="Invalid Email .. Please Enter a valid Email"
+            return render(request,'sign-up-page.html',{'message':message})
         password = request.POST.get('password')
+        if len(password)==0:
+            message="Password cannot be empty .. Please Enter a password"
+            return render(request,'sign-up-page.html',{'message':message})
         data=models.retreive_data_user()
         length = len(data)
         if length==0:
@@ -50,15 +56,21 @@ def signup(request):
     else:
         return render(request,'sign-up-page.html')
     
-def add_new_employee(request):
+def add_new_employee(request):#done
     message=None
     if request.method == "POST":
         name = request.POST.get('name')
         designation = request.POST.get('designation')
         phone = request.POST.get('contact')
         email = request.POST.get('email')
+        if email.find('@')==-1 or email.find('.')==-1: 
+            message="Invalid Email .. Please Enter a valid Email"
+            return render(request,'add-a-new-employee.html',{'message':message})
         gender = request.POST.get('gender')
         salary = int((request.POST.get('salary')),10)
+        if salary<=0:
+            message="Salary cannot be negative and zero .. Please Enter a valid salary"
+            return render(request,'add-a-new-employee.html',{'message':message})
         coun = request.POST.get('country')
         data=models.retreive_data_employee()
         length = len(data)
@@ -74,9 +86,20 @@ def add_new_employee(request):
     else:
         return render(request,'add-a-new-employee.html')
     
-def employee(request):
+def employee(request):#done
     data=models.retrieve_emp_data(user_id)
-    return render(request,'employees.html',{'data':data})
+    merged_data = {}
+    for item in data:
+        name, designation, phone, project = item
+        if name not in merged_data:
+            merged_data[name] = {'designation': designation, 'phone': phone, 'projects': []}
+        if project:
+            merged_data[name]['projects'].append(project)
+    final_result = [
+        (name, details['designation'], details['phone'], ', '.join(details['projects']))
+        for name, details in merged_data.items()
+    ]
+    return render(request,'employees.html',{'data':final_result})
 
 def employee_added(request):
     return render(request,'employee-added.html')
@@ -90,12 +113,34 @@ def meeting_added(request):
 def contact_added(request):
     return render(request,'contact-added.html')
 
-def add_new_meeting(request):
+
+def validate_time_format(input_time):
+    pattern = r'^([01]\d|2[0-3]):([0-5]\d)$'
+    if re.match(pattern, input_time):
+        return True
+    else:
+        return False
+def validate_date_format(input_date):
+    pattern = r'^\d{4}-\d{2}-\d{2}$'
+    if re.match(pattern, input_date):
+        return True
+    else:
+        return False
+def add_new_meeting(request):#done
     message=None
     if request.method == "POST":
         title = request.POST.get('title')
         date = request.POST.get('date')
+        if date < str(timezone.now().date()):
+            message="Invalid Date .. Please Enter a Future Date"
+            return render(request,'add-a-new-meeting.html',{'message':message})
+        if not validate_date_format(date):
+            message="Invalid Date Format .. Please Enter Date in YYYY-MM-DD format"
+            return render(request,'add-a-new-meeting.html',{'message':message})
         time = request.POST.get('time')
+        if not validate_time_format(time):
+            message="Invalid Time Format .. Please Enter Time in HH:MM format"
+            return render(request,'add-a-new-meeting.html',{'message':message})
         time = time + ":00"
         wit = request.POST.get('with')
         link = request.POST.get('link')
@@ -120,8 +165,7 @@ def dashboard(request):
     year=timezone.now().year
     data=models.projects_yearly(user_id,year)
     graphs.projects_graph(data)
-    # data1=models.project_monthly(user_id)
-    data1="12"
+    data1=models.project_monthly(user_id)
     data2=models.project_progress_name(user_id)
     graphs.bar_char(data2)
     no_of_projects_this_month=models.project_monthly(user_id)
@@ -130,7 +174,7 @@ def dashboard(request):
 def employee_details(request):
     return render(request,'view-employee-profile.html')
 
-def meeting_shcheduler(request):
+def meeting_shcheduler(request):#done
     data=models.retreive_contacts_details(user_id)
     models.delete_prev_meeting(user_id)
     meetings=models.retrieve_meetings(user_id)
@@ -144,27 +188,30 @@ def meeting_shcheduler(request):
         now=None
     return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
  
-def add_new_contact(request):
+def add_new_contact(request):#done
     message=None
     if request.method == "POST":
         fullname = request.POST.get('client-name')
         email = request.POST.get('email')
+        if email.find('@')==-1 or email.find('.')==-1:
+            message="Invalid Email .. Please Enter a valid Email"
+            return render(request,'add-a-new-contact.html',{'message':message})
         company = request.POST.get('comp-name')
         contact = request.POST.get('contact')
         country = request.POST.get('country')
         stage = request.POST.get('stg')
         status = request.POST.get('sts')
-        newold = request.POST.get('new')
-        data=models.retreive_data_client()
+        # newold = request.POST.get('new')
+        data=models.retreive_email_client()
         length = len(data)
         if length==0:
-            models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
+            models.insert_data_client(fullname,contact,email,company,status,stage,user_id,country)
             return HttpResponseRedirect('contact-added')
         for i in range(length):
             if email == data[i][0]:
                 message="Contact Already Present .. Try Again"
                 return render(request,'add-a-new-contact.html',{'message':message})
-        models.insert_data_client(fullname,contact,email,company,status,stage,newold,user_id,country)
+        models.insert_data_client(fullname,contact,email,company,status,stage,user_id,country)
         return HttpResponseRedirect('contact-added')
     else:
         return render(request,'add-a-new-contact.html')
@@ -212,7 +259,19 @@ def project_details(request):
     return render(request,'projects-view-details.html')
 
 def leads_pipeline(request):
-    return render(request,'leads-pipeline.html')
+    if request.method =="POST":
+        option=request.POST.get('cstatus').split(',')
+        if option[0]!="Confirmed":
+            models.update_client_status(option[0],option[1],user_id)
+        else:
+            models.update_client_stage(option[0],option[1],user_id)
+        return HttpResponseRedirect('leads-pipeline')
+    else:
+        prospects=models.retreive_prospects(user_id)
+        leads=models.retreive_leads(user_id)
+        cwon=models.retreive_cwon(user_id)
+        call_done=models.retreive_calldone(user_id)
+        return render(request,'leads-pipeline.html',{'prospects':prospects,'leads':leads,'cwon':cwon,'call_done':call_done})
 
 
     

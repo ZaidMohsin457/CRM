@@ -6,11 +6,13 @@
 
     <link rel="stylesheet" href="static/CSS/global.css" />
     <link rel="stylesheet" href="static/CSS/leads-pipeline.css" />
-    <link rel="stylesheet" href="static/CSS/dashboard.css" />
-    
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,600;0,800;1,100;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;500&display=swap"
     />
     <link
       rel="stylesheet"
@@ -18,1119 +20,295 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
     />
   </head>
   <body>
-    <div class="leads-pipeline4">
-      <div class="sidebar4">
-        <div class="main-view">
+    <div class="leads-pipeline">
+      <div class="sidebar">
+        <div class="f-r-a-m-e-t-o-p-l-e-v-e-l">
           <img
-            class="logo-icon4"
+            class="logo-icon"
             loading="lazy"
             alt=""
             src="static/public/logo.svg"
           />
         </div>
         <img
-          class="icon-tabler-icons-user-cir4"
+          class="icon-tabler-icons-user-cir"
           loading="lazy"
           alt=""
           src="static/public/icon--tablericons--usercircle.svg"
         />
 
-        <nav class="main-links">
-          <div class="projects-icon1">
-            <div class="navigation-links">
-              <button class="icon9" onclick="window.location.href='/projects'">🏗️</button>
+        <nav class="projects-icon-parent">
+          <div class="projects-icon">
+            <div class="frame">
+              <button class="icon" onclick="window.location.href='/projects'">🏗️</button>
             </div>
           </div>
-          <div class="employees-icon1">
-            <div class="frame6">
-              <button class="icon10" onclick="window.location.href='/employee'">👥</button>
+          <div class="employees-icon">
+            <div class="frame1">
+              <button class="icon1" onclick="window.location.href='/employee'">👥</button>
             </div>
           </div>
-          <div class="contacts1">
-            <div class="frame7">
-              <button class="icon11" onclick="window.location.href='/meeting-scheduler'">📅</button>
+          <div class="contacts">
+            <div class="frame2">
+              <button class="icon2" onclick="window.location.href='/meeting-scheduler'">📅</button>
             </div>
           </div>
           <div class="leads-pipeline1">
-            <div class="frame8">
-              <button class="icon12" onclick="window.location.href='/leads-pipeline'">📊</button>
+            <div class="frame3">
+              <button class="icon2"onclick="window.location.href='/leads-pipeline'" >📊</button>
             </div>
           </div>
-          <div class="home1">
-            <div class="frame9">
-              <button class="icon13" onclick="window.location.href='/home'">🏠</button>
+          <div class="home">
+            <div class="frame4">
+              <button class="icon2" onclick="window.location.href='/home'">🏠</butoon>
             </div>
           </div>
         </nav>
       </div>
-      <main class="page-content">
-        <h1 class="leads-pipeline6">Leads Pipeline</h1>
-        <section class="card-container">
-          <div class="column">
-            <button class="column-header">
-              <div class="column-name">Prospects</div>
+      <main class="leads-pipeline-inner">
+        <section class="frame-parent">
+          <div class="leads-pipeline-wrapper">
+            <h1 class="leads-pipeline2">Leads Pipeline</h1>
+          </div>
+          <div class="frame-wrapper">
+            <button class="add-a-new-client-wrapper" onclick="window.location.href='/add-new-contact'">
+              <div class="add-a-new">Add a new Client +</div>
             </button>
-            <div class="card">
-              <div class="notes"></div>
-              <div class="card-details">
-                <div class="tags">
-                  <div class="tag">
-                    <div class="label">Tag</div>
+          </div>
+          <div class="column-parent">
+            <div class="column">
+              <div class="column-header">
+                <div class="column-name">Prospects</div>
+              </div>
+              {%for prosp in prospects%}
+              <div class="card">
+                <div class="frame-group">
+                  <div class="rectangle-wrapper">
+                    <div class="frame-child"></div>
                   </div>
-                  <div class="tag1">
-                    <b class="label1">Tag</b>
-                  </div>
-                  <div class="tag2">
-                    <b class="label2">Tag</b>
-                  </div>
-                  <div class="tag3">
-                    <b class="label3">Tag</b>
-                  </div>
-                  <div class="tag4">
-                    <b class="label4">Tag</b>
-                  </div>
-                </div>
-                <div class="card-information">
-                  <div class="project-status"></div>
-                  <div class="project-details2">
+                  <div class="title-description-parent">
                     <div class="title-description">
-                      <div class="title-priority">
-                        <div class="untitled">Untitled</div>
+                      <div class="title-priority-parent">
+                        <div class="title-priority">
+                          <div class="john-m"> {{prosp.0}} </div>
+                        </div>
                         <img
-                          class="priority-icon"
+                          class="icon-ionicons-sharp-elli"
+                          loading="lazy"
                           alt=""
-                          src="static/public/priority.svg"
+                          src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
                         />
                       </div>
-                      <div class="description">Description</div>
+                      <div class="johnmgmailcom"> {{prosp.1}} </div>
+                      <div class="crm-website"> {{prosp.2}} </div>
                     </div>
-                  </div>
-                </div>
-                <div class="project-files">
-                  <div class="files">
-                    <div class="file">
-                      <img
-                        class="fileicon"
-                        loading="lazy"
-                        alt=""
-                        src="static/public/fileicon@2x.png"
-                      />
-
-                      <div class="file-name">Folder</div>
-                    </div>
-                    <div class="file1">
-                      <img
-                        class="fileicon1"
-                        alt=""
-                        src="static/public/fileicon-1@2x.png"
-                      />
-
-                      <div class="file-name1">File</div>
-                    </div>
-                    <div class="file2">
-                      <img
-                        class="fileicon2"
-                        alt=""
-                        src="static/public/fileicon-2@2x.png"
-                      />
-
-                      <div class="file-name2">Ticket</div>
-                    </div>
-                  </div>
-                  <div class="links">
-                    <div class="url">
-                      <img
-                        class="tabler-icon-link"
-                        loading="lazy"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label">URL label</div>
-                    </div>
-                    <div class="url1">
-                      <img
-                        class="tabler-icon-link1"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label1">URL label</div>
-                    </div>
-                  </div>
-                  <div class="notes1">
-                    <div class="notes2">Notes:</div>
-                    <div class="type-here">
-                      <p class="type-here1">Type here...</p>
-                      <p class="blank-line">&nbsp;</p>
-                    </div>
-                  </div>
-                  <div class="notes3">
-                    <div class="note-divider"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="team-member-due-date">
-                <div class="teammember">
-                  <div class="team-member-avatar"></div>
-                  <div class="to-be-assigned">To be assigned</div>
-                </div>
-                <div class="date">
-                  <img
-                    class="tabler-icon-calendar-event"
-                    loading="lazy"
-                    alt=""
-                    src="static/public/tablericoncalendarevent.svg"
-                  />
-
-                  <div class="dd-mm">DD MM</div>
-                </div>
-              </div>
-            </div>
-            <div class="card1">
-              <div class="notes4"></div>
-              <div class="tags-parent">
-                <div class="tags1">
-                  <div class="tag5">
-                    <div class="label5">Tag</div>
-                  </div>
-                  <div class="tag6">
-                    <b class="label6">Tag</b>
-                  </div>
-                  <div class="tag7">
-                    <b class="label7">Tag</b>
-                  </div>
-                  <div class="tag8">
-                    <b class="label8">Tag</b>
-                  </div>
-                  <div class="tag9">
-                    <b class="label9">Tag</b>
-                  </div>
-                </div>
-                <div class="rectangle-parent5">
-                  <div class="frame-child15"></div>
-                  <div class="title-description-wrapper">
-                    <div class="title-description1">
-                      <div class="title-priority1">
-                        <div class="untitled1">Untitled</div>
-                        <img
-                          class="priority-icon1"
-                          alt=""
-                          src="static/public/priority.svg"
-                        />
+                    <div class="notes">
+                      <div class="notes1">Notes:</div>
+                      <div class="this-is-mr-container">
+                        <p class="this-is-mr">
+                          This is Mr John M.’s project of CRM Website and he is
+                          currently now in this stage.
+                        </p>
                       </div>
-                      <div class="description1">Description</div>
+                      
+                      <form method="POST">
+                        {% csrf_token %}
+                        <select name="cstatus">
+                                {% comment %} <option value="prospect">Prospect</option> {% endcomment %}
+                                <option value="Qualified lead,{{prosp.0}}">Qualified Lead</option>
+                                <option value="call done,{{prosp.0}}">Call Done</option>
+                                <option value="client won,{{prosp.0}}">Client Won</option>
+                                <option value="Confirmed,{{prosp.0}}">Confirmed</option>
+                        </select>
+                        <button type="submit">Submit</button>
+                    </form>
+                    
                     </div>
                   </div>
                 </div>
-                <div class="files-parent">
-                  <div class="files1">
-                    <div class="file3">
-                      <img
-                        class="fileicon3"
-                        alt=""
-                        src="static/public/fileicon@2x.png"
-                      />
-
-                      <div class="file-name3">Folder</div>
-                    </div>
-                    <div class="file4">
-                      <img
-                        class="fileicon4"
-                        alt=""
-                        src="static/public/fileicon-1@2x.png"
-                      />
-
-                      <div class="file-name4">File</div>
-                    </div>
-                    <div class="file5">
-                      <img
-                        class="fileicon5"
-                        alt=""
-                        src="static/public/fileicon-2@2x.png"
-                      />
-
-                      <div class="file-name5">Ticket</div>
-                    </div>
-                  </div>
-                  <div class="links1">
-                    <div class="url2">
-                      <img
-                        class="tabler-icon-link2"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label2">URL label</div>
-                    </div>
-                    <div class="url3">
-                      <img
-                        class="tabler-icon-link3"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label3">URL label</div>
-                    </div>
-                  </div>
-                  <div class="notes5">
-                    <div class="notes6">Notes:</div>
-                    <div class="type-here2">
-                      <p class="type-here3">Type here...</p>
-                      <p class="blank-line1">&nbsp;</p>
-                    </div>
-                  </div>
-                  <div class="notes7">
-                    <div class="notes-child"></div>
-                  </div>
+                <div class="notes2"></div>
+                <div class="notes3">
+                  <div class="notes-child"></div>
                 </div>
               </div>
-              <div class="team-member-due-date1">
-                <div class="teammember1">
-                  <div class="teammember-child"></div>
-                  <div class="to-be-assigned1">To be assigned</div>
-                </div>
-                <div class="date1">
-                  <img
-                    class="tabler-icon-calendar-event1"
-                    alt=""
-                    src="static/public/tablericoncalendarevent.svg"
-                  />
-
-                  <div class="dd-mm1">DD MM</div>
-                </div>
-              </div>
+              {%endfor%}
+              
             </div>
-            <div class="card2">
-              <div class="notes8"></div>
-              <div class="tags-group">
-                <div class="tags2">
-                  <div class="tag10">
-                    <div class="label10">Tag</div>
+            <div class="column1">
+              <div class="column-header1">
+                <div class="column-name1">Qualified lead</div>
+              </div>
+              {%for lead in leads%}
+              <div class="card2">
+                <div class="frame-div">
+                  <div class="rectangle-frame">
+                    <div class="frame-inner"></div>
                   </div>
-                  <div class="tag11">
-                    <b class="label11">Tag</b>
-                  </div>
-                  <div class="tag12">
-                    <b class="label12">Tag</b>
-                  </div>
-                  <div class="tag13">
-                    <b class="label13">Tag</b>
-                  </div>
-                  <div class="tag14">
-                    <b class="label14">Tag</b>
-                  </div>
-                </div>
-                <div class="rectangle-parent6">
-                  <div class="frame-child16"></div>
                   <div class="title-description-container">
                     <div class="title-description2">
-                      <div class="title-priority2">
-                        <div class="untitled2">Untitled</div>
+                      <div class="title-priority-container">
+                        <div class="title-priority2">
+                          <div class="john-m2"> {{lead.0}} </div>
+                        </div>
                         <img
-                          class="priority-icon2"
+                          class="icon-ionicons-sharp-elli2"
+                          loading="lazy"
                           alt=""
-                          src="static/public/priority.svg"
+                          src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
                         />
                       </div>
-                      <div class="description2">Description</div>
+                      <div class="johnmgmailcom2"> {{lead.1}} </div>
+                      <div class="crm-website2"> {{lead.2}} </div>
+                    </div>
+                    <div class="notes8">
+                      <div class="notes9">Notes:</div>
+                      <div class="this-is-mr-container2">
+                        <p class="this-is-mr2">
+                          This is Mr John M.’s project of CRM Website and he is
+                          currently now in this stage.
+                        </p>
+                      </div>
+                      
+                      <form method="post">
+                        {% csrf_token %}
+                        <select name="cstatus">
+                          <option value="call done,{{lead.0}}">Call Done</option>
+                          <option value="client won,{{lead.0}}">Client Won</option>
+                          <option value="Confirmed,{{lead.0}}">Confirmed</option>
+                          <option value="prospect,{{lead.0}}">Prospect</option>
+                                {% comment %} <option value="qlead">Qualified Lead</option> {% endcomment %}
+                        </select>
+                        <button type="submit">Submit</button>
+                    </form>
                     </div>
                   </div>
                 </div>
-                <div class="files-group">
-                  <div class="files2">
-                    <div class="file6">
-                      <img
-                        class="fileicon6"
-                        alt=""
-                        src="static/public/fileicon@2x.png"
-                      />
-
-                      <div class="file-name6">Folder</div>
-                    </div>
-                    <div class="file7">
-                      <img
-                        class="fileicon7"
-                        alt=""
-                        src="static/public/fileicon-1@2x.png"
-                      />
-
-                      <div class="file-name7">File</div>
-                    </div>
-                    <div class="file8">
-                      <img
-                        class="fileicon8"
-                        alt=""
-                        src="static/public/fileicon-2@2x.png"
-                      />
-
-                      <div class="file-name8">Ticket</div>
-                    </div>
-                  </div>
-                  <div class="links2">
-                    <div class="url4">
-                      <img
-                        class="tabler-icon-link4"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label4">URL label</div>
-                    </div>
-                    <div class="url5">
-                      <img
-                        class="tabler-icon-link5"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label5">URL label</div>
-                    </div>
-                  </div>
-                  <div class="notes9">
-                    <div class="notes10">Notes:</div>
-                    <div class="type-here4">
-                      <p class="type-here5">Type here...</p>
-                      <p class="blank-line2">&nbsp;</p>
-                    </div>
-                  </div>
-                  <div class="notes11">
-                    <div class="notes-item"></div>
-                  </div>
+                <div class="notes10"></div>
+                <div class="notes11">
+                  <div class="notes-inner"></div>
                 </div>
               </div>
-              <div class="team-member-due-date2">
-                <div class="teammember2">
-                  <div class="teammember-item"></div>
-                  <div class="to-be-assigned2">To be assigned</div>
-                </div>
-                <div class="date2">
-                  <img
-                    class="tabler-icon-calendar-event2"
-                    alt=""
-                    src="static/public/tablericoncalendarevent.svg"
-                  />
-
-                  <div class="dd-mm2">DD MM</div>
-                </div>
-              </div>
+              {%endfor%}
             </div>
-            <div class="card3">
-              <div class="notes12"></div>
-              <div class="tags-container">
-                <div class="tags3">
-                  <div class="tag15">
-                    <div class="label15">Tag</div>
-                  </div>
-                  <div class="tag16">
-                    <b class="label16">Tag</b>
-                  </div>
-                  <div class="tag17">
-                    <b class="label17">Tag</b>
-                  </div>
-                  <div class="tag18">
-                    <b class="label18">Tag</b>
-                  </div>
-                  <div class="tag19">
-                    <b class="label19">Tag</b>
-                  </div>
-                </div>
-                <div class="rectangle-parent7">
-                  <div class="frame-child17"></div>
-                  <div class="title-description-frame">
-                    <div class="title-description3">
-                      <div class="title-priority3">
-                        <div class="untitled3">Untitled</div>
-                        <img
-                          class="priority-icon3"
-                          alt=""
-                          src="static/public/priority.svg"
-                        />
+            <div class="column2">
+              <div class="column-header2">
+                <div class="column-name2">Sales call done</div>
+              </div>
+              {%for call in call_done%}
+              <div class="card-wrapper">
+                <div class="card3">
+                  <div class="frame-parent1">
+                    <div class="rectangle-wrapper1">
+                      <div class="rectangle-div"></div>
+                    </div>
+                    <div class="title-description-parent1">
+                      <div class="title-description3">
+                        <div class="title-priority-parent1">
+                          <div class="title-priority3">
+                            <div class="john-m3"> {{call.0}} </div>
+                          </div>
+                          <img
+                            class="icon-ionicons-sharp-elli3"
+                            loading="lazy"
+                            alt=""
+                            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                          />
+                        </div>
+                        <div class="johnmgmailcom3"> {{call.1}} </div>
+                        <div class="crm-website3"> {{call.2}} </div>
                       </div>
-                      <div class="description3">Description</div>
+                      <div class="notes12">
+                        <div class="notes13">Notes:</div>
+                        <div class="this-is-mr-container3">
+                          <p class="this-is-mr3">
+                            This is Mr John M.’s project of CRM Website and he
+                            is currently now in this stage.
+                          </p>
+                        </div>
+                        
+                        <form method="post">
+                          {% csrf_token %}
+                          <select name="cstatus">
+                            <option value="client won,{{call.0}}">Client Won</option>
+                            <option value="Confirmed,{{call.0}}">Confirmed</option>
+                            <option value="Qualified lead,{{call.0}}">Qualified Lead</option>
+                            <option value="prospect,{{call.0}}">Prospect</option>
+                                  {% comment %} <option value="cdone">Call Done</option> {% endcomment %}
+                          </select>
+                          <button type="submit">Submit</button>
+                      </form>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="files-container">
-                  <div class="files3">
-                    <div class="file9">
-                      <img
-                        class="fileicon9"
-                        alt=""
-                        src="static/public/fileicon@2x.png"
-                      />
-
-                      <div class="file-name9">Folder</div>
-                    </div>
-                    <div class="file10">
-                      <img
-                        class="fileicon10"
-                        alt=""
-                        src="static/public/fileicon-1@2x.png"
-                      />
-
-                      <div class="file-name10">File</div>
-                    </div>
-                    <div class="file11">
-                      <img
-                        class="fileicon11"
-                        alt=""
-                        src="static/public/fileicon-2@2x.png"
-                      />
-
-                      <div class="file-name11">Ticket</div>
-                    </div>
-                  </div>
-                  <div class="links3">
-                    <div class="url6">
-                      <img
-                        class="tabler-icon-link6"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label6">URL label</div>
-                    </div>
-                    <div class="url7">
-                      <img
-                        class="tabler-icon-link7"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label7">URL label</div>
-                    </div>
-                  </div>
-                  <div class="notes13">
-                    <div class="notes14">Notes:</div>
-                    <div class="type-here6">
-                      <p class="type-here7">Type here...</p>
-                      <p class="blank-line3">&nbsp;</p>
-                    </div>
-                  </div>
+                  <div class="notes14"></div>
                   <div class="notes15">
-                    <div class="notes-inner"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="team-member-due-date3">
-                <div class="teammember3">
-                  <div class="teammember-inner"></div>
-                  <div class="to-be-assigned3">To be assigned</div>
-                </div>
-                <div class="date3">
-                  <img
-                    class="tabler-icon-calendar-event3"
-                    alt=""
-                    src="static/public/tablericoncalendarevent.svg"
-                  />
-
-                  <div class="dd-mm3">DD MM</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column1">
-            <button class="column-header1">
-              <div class="column-name1">Qualified lead</div>
-            </button>
-            <div class="card4">
-              <div class="notes16"></div>
-              <div class="card-details1">
-                <div class="tags4">
-                  <div class="tag20">
-                    <div class="label20">Tag</div>
-                  </div>
-                  <div class="tag21">
-                    <b class="label21">Tag</b>
-                  </div>
-                  <div class="tag22">
-                    <b class="label22">Tag</b>
-                  </div>
-                  <div class="tag23">
-                    <b class="label23">Tag</b>
-                  </div>
-                  <div class="tag24">
-                    <b class="label24">Tag</b>
-                  </div>
-                </div>
-                <div class="card-information1">
-                  <div class="project-status1"></div>
-                  <div class="project-details3">
-                    <div class="title-description4">
-                      <div class="title-priority4">
-                        <div class="untitled4">Untitled</div>
-                        <img
-                          class="priority-icon4"
-                          alt=""
-                          src="static/public/priority.svg"
-                        />
-                      </div>
-                      <div class="description4">Description</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="project-files1">
-                  <div class="files4">
-                    <div class="file12">
-                      <img
-                        class="fileicon12"
-                        alt=""
-                        src="static/public/fileicon@2x.png"
-                      />
-
-                      <div class="file-name12">Folder</div>
-                    </div>
-                    <div class="file13">
-                      <img
-                        class="fileicon13"
-                        alt=""
-                        src="static/public/fileicon-1@2x.png"
-                      />
-
-                      <div class="file-name13">File</div>
-                    </div>
-                    <div class="file14">
-                      <img
-                        class="fileicon14"
-                        alt=""
-                        src="static/public/fileicon-2@2x.png"
-                      />
-
-                      <div class="file-name14">Ticket</div>
-                    </div>
-                  </div>
-                  <div class="links4">
-                    <div class="url8">
-                      <img
-                        class="tabler-icon-link8"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label8">URL label</div>
-                    </div>
-                    <div class="url9">
-                      <img
-                        class="tabler-icon-link9"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label9">URL label</div>
-                    </div>
-                  </div>
-                  <div class="notes17">
-                    <div class="notes18">Notes:</div>
-                    <div class="type-here8">
-                      <p class="type-here9">Type here...</p>
-                      <p class="blank-line4">&nbsp;</p>
-                    </div>
-                  </div>
-                  <div class="notes19">
                     <div class="line-div"></div>
                   </div>
                 </div>
               </div>
-              <div class="team-member-due-date4">
-                <div class="teammember4">
-                  <div class="avatar-image"></div>
-                  <div class="to-be-assigned4">To be assigned</div>
-                </div>
-                <div class="date4">
-                  <img
-                    class="tabler-icon-calendar-event4"
-                    alt=""
-                    src="static/public/tablericoncalendarevent.svg"
-                  />
-
-                  <div class="dd-mm4">DD MM</div>
-                </div>
-              </div>
+              {%endfor%}
             </div>
-            <div class="card5">
-              <div class="notes20"></div>
-              <div class="tags-parent1">
-                <div class="tags5">
-                  <div class="tag25">
-                    <div class="label25">Tag</div>
-                  </div>
-                  <div class="tag26">
-                    <b class="label26">Tag</b>
-                  </div>
-                  <div class="tag27">
-                    <b class="label27">Tag</b>
-                  </div>
-                  <div class="tag28">
-                    <b class="label28">Tag</b>
-                  </div>
-                  <div class="tag29">
-                    <b class="label29">Tag</b>
-                  </div>
-                </div>
-                <div class="rectangle-parent8">
-                  <div class="frame-child18"></div>
-                  <div class="title-description-wrapper1">
-                    <div class="title-description5">
-                      <div class="title-priority5">
-                        <div class="untitled5">Untitled</div>
-                        <img
-                          class="priority-icon5"
-                          alt=""
-                          src="static/public/priority.svg"
-                        />
+            <div class="column3">
+              <div class="column-header3">
+                <div class="column-name3">client won</div>
+              </div>
+              {%for client in cwon%}
+              <div class="card-container">
+                <div class="card4">
+                  <div class="frame-parent2">
+                    <div class="rectangle-wrapper2">
+                      <div class="frame-child1"></div>
+                    </div>
+                    <div class="title-description-parent2">
+                      <div class="title-description4">
+                        <div class="title-priority-parent2">
+                          <div class="title-priority4">
+                            <div class="john-m4"> {{client.0}} </div>
+                          </div>
+                          <img
+                            class="icon-ionicons-sharp-elli4"
+                            loading="lazy"
+                            alt=""
+                            src="static/public/icon--ionicons--sharp--ellipsisverticalsharp.svg"
+                          />
+                        </div>
+                        <div class="johnmgmailcom4"> {{client.1}} </div>
+                        <div class="crm-website4"> {{client.2}} </div>
                       </div>
-                      <div class="description5">Description</div>
+                      <div class="notes16">
+                        <div class="notes17">Notes:</div>
+                        <div class="this-is-mr-container4">
+                          <p class="this-is-mr4">
+                            This is Mr John M.’s project of CRM Website and he
+                            is currently now in this stage.
+                          </p>
+                        </div>
+                       
+                        <form method="post">
+                          {% csrf_token %}
+                          <select name="cstatus">
+                            <option value="Confirmed,{{client.0}}">Confirmed</option>
+                            <option value="call done,{{client.0}}">Call Done</option>
+                            <option value="Qualified lead,{{client.0}}">Qualified Lead</option>
+                            <option value="prospect,{{client.0}}">Prospect</option>
+                                  {% comment %} <option value="cwon">Client Won</option> {% endcomment %}
+                          </select>
+                          <button type="submit">Submit</button>
+                      </form>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="files-parent1">
-                  <div class="files5">
-                    <div class="file15">
-                      <img
-                        class="fileicon15"
-                        alt=""
-                        src="static/public/fileicon@2x.png"
-                      />
-
-                      <div class="file-name15">Folder</div>
-                    </div>
-                    <div class="file16">
-                      <img
-                        class="fileicon16"
-                        alt=""
-                        src="static/public/fileicon-1@2x.png"
-                      />
-
-                      <div class="file-name16">File</div>
-                    </div>
-                    <div class="file17">
-                      <img
-                        class="fileicon17"
-                        alt=""
-                        src="static/public/fileicon-2@2x.png"
-                      />
-
-                      <div class="file-name17">Ticket</div>
-                    </div>
-                  </div>
-                  <div class="links5">
-                    <div class="url10">
-                      <img
-                        class="tabler-icon-link10"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label10">URL label</div>
-                    </div>
-                    <div class="url11">
-                      <img
-                        class="tabler-icon-link11"
-                        alt=""
-                        src="static/public/tablericonlink.svg"
-                      />
-
-                      <div class="url-label11">URL label</div>
-                    </div>
-                  </div>
-                  <div class="notes21">
-                    <div class="notes22">Notes:</div>
-                    <div class="type-here10">
-                      <p class="type-here11">Type here...</p>
-                      <p class="blank-line5">&nbsp;</p>
-                    </div>
-                  </div>
-                  <div class="notes23">
+                  <div class="notes18"></div>
+                  <div class="notes19">
                     <div class="notes-child1"></div>
                   </div>
                 </div>
               </div>
-              <div class="team-member-due-date5">
-                <div class="teammember5">
-                  <div class="teammember-child1"></div>
-                  <div class="to-be-assigned5">To be assigned</div>
-                </div>
-                <div class="date5">
-                  <img
-                    class="tabler-icon-calendar-event5"
-                    alt=""
-                    src="static/public/tablericoncalendarevent.svg"
-                  />
-
-                  <div class="dd-mm5">DD MM</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column2">
-            <button class="column-header2">
-              <div class="column-name2">Sales call done</div>
-            </button>
-            <div class="card-wrapper">
-              <div class="card6">
-                <div class="notes24"></div>
-                <div class="task-card-header">
-                  <div class="tags6">
-                    <div class="tag30">
-                      <div class="label30">Tag</div>
-                    </div>
-                    <div class="tag31">
-                      <b class="label31">Tag</b>
-                    </div>
-                    <div class="tag32">
-                      <b class="label32">Tag</b>
-                    </div>
-                    <div class="tag33">
-                      <b class="label33">Tag</b>
-                    </div>
-                    <div class="tag34">
-                      <b class="label34">Tag</b>
-                    </div>
-                  </div>
-                  <div class="task-card-body">
-                    <div class="task-card-background"></div>
-                    <div class="task-card-content">
-                      <div class="title-description6">
-                        <div class="title-priority6">
-                          <div class="untitled6">Untitled</div>
-                          <img
-                            class="priority-icon6"
-                            alt=""
-                            src="static/public/priority.svg"
-                          />
-                        </div>
-                        <div class="description6">Description</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="task-card-footer">
-                    <div class="files6">
-                      <div class="file18">
-                        <img
-                          class="fileicon18"
-                          alt=""
-                          src="static/public/fileicon@2x.png"
-                        />
-
-                        <div class="file-name18">Folder</div>
-                      </div>
-                      <div class="file19">
-                        <img
-                          class="fileicon19"
-                          alt=""
-                          src="static/public/fileicon-1@2x.png"
-                        />
-
-                        <div class="file-name19">File</div>
-                      </div>
-                      <div class="file20">
-                        <img
-                          class="fileicon20"
-                          alt=""
-                          src="static/public/fileicon-2@2x.png"
-                        />
-
-                        <div class="file-name20">Ticket</div>
-                      </div>
-                    </div>
-                    <div class="links6">
-                      <div class="url12">
-                        <img
-                          class="tabler-icon-link12"
-                          alt=""
-                          src="static/public/tablericonlink.svg"
-                        />
-
-                        <div class="url-label12">URL label</div>
-                      </div>
-                      <div class="url13">
-                        <img
-                          class="tabler-icon-link13"
-                          alt=""
-                          src="static/public/tablericonlink.svg"
-                        />
-
-                        <div class="url-label13">URL label</div>
-                      </div>
-                    </div>
-                    <div class="notes25">
-                      <div class="notes26">Notes:</div>
-                      <div class="type-here12">
-                        <p class="type-here13">Type here...</p>
-                        <p class="blank-line6">&nbsp;</p>
-                      </div>
-                    </div>
-                    <div class="notes27">
-                      <div class="notes-child2"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-member-due-date6">
-                  <div class="teammember6">
-                    <div class="avatar-image1"></div>
-                    <div class="to-be-assigned6">To be assigned</div>
-                  </div>
-                  <div class="date6">
-                    <img
-                      class="tabler-icon-calendar-event6"
-                      alt=""
-                      src="static/public/tablericoncalendarevent.svg"
-                    />
-
-                    <div class="dd-mm6">DD MM</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column3">
-            <button class="column-header3">
-              <div class="column-name3">client won</div>
-            </button>
-            <div class="task-cards1">
-              <div class="card7">
-                <div class="notes28"></div>
-                <div class="task-card-details">
-                  <div class="tags7">
-                    <div class="tag35">
-                      <div class="label35">Tag</div>
-                    </div>
-                    <div class="tag36">
-                      <b class="label36">Tag</b>
-                    </div>
-                    <div class="tag37">
-                      <b class="label37">Tag</b>
-                    </div>
-                    <div class="tag38">
-                      <b class="label38">Tag</b>
-                    </div>
-                    <div class="tag39">
-                      <b class="label39">Tag</b>
-                    </div>
-                  </div>
-                  <div class="task-card-content1">
-                    <div class="task-card-background1"></div>
-                    <div class="task-card-content2">
-                      <div class="title-description7">
-                        <div class="title-priority7">
-                          <div class="untitled7">Untitled</div>
-                          <img
-                            class="priority-icon7"
-                            alt=""
-                            src="static/public/priority.svg"
-                          />
-                        </div>
-                        <div class="description7">Description</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="task-card-footer1">
-                    <div class="files7">
-                      <div class="file21">
-                        <img
-                          class="fileicon21"
-                          alt=""
-                          src="static/public/fileicon@2x.png"
-                        />
-
-                        <div class="file-name21">Folder</div>
-                      </div>
-                      <div class="file22">
-                        <img
-                          class="fileicon22"
-                          alt=""
-                          src="static/public/fileicon-1@2x.png"
-                        />
-
-                        <div class="file-name22">File</div>
-                      </div>
-                      <div class="file23">
-                        <img
-                          class="fileicon23"
-                          alt=""
-                          src="static/public/fileicon-2@2x.png"
-                        />
-
-                        <div class="file-name23">Ticket</div>
-                      </div>
-                    </div>
-                    <div class="links7">
-                      <div class="url14">
-                        <img
-                          class="tabler-icon-link14"
-                          alt=""
-                          src="static/public/tablericonlink.svg"
-                        />
-
-                        <div class="url-label14">URL label</div>
-                      </div>
-                      <div class="url15">
-                        <img
-                          class="tabler-icon-link15"
-                          alt=""
-                          src="static/public/tablericonlink.svg"
-                        />
-
-                        <div class="url-label15">URL label</div>
-                      </div>
-                    </div>
-                    <div class="notes29">
-                      <div class="notes30">Notes:</div>
-                      <div class="type-here14">
-                        <p class="type-here15">Type here...</p>
-                        <p class="blank-line7">&nbsp;</p>
-                      </div>
-                    </div>
-                    <div class="notes31">
-                      <div class="notes-child3"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-member-due-date7">
-                  <div class="teammember7">
-                    <div class="avatar4"></div>
-                    <div class="to-be-assigned7">To be assigned</div>
-                  </div>
-                  <div class="date7">
-                    <img
-                      class="tabler-icon-calendar-event7"
-                      alt=""
-                      src="static/public/tablericoncalendarevent.svg"
-                    />
-
-                    <div class="dd-mm7">DD MM</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="task-cards2">
-              <div class="card8">
-                <div class="notes32"></div>
-                <div class="tags-parent2">
-                  <div class="tags8">
-                    <div class="tag40">
-                      <div class="label40">Tag</div>
-                    </div>
-                    <div class="tag41">
-                      <b class="label41">Tag</b>
-                    </div>
-                    <div class="tag42">
-                      <b class="label42">Tag</b>
-                    </div>
-                    <div class="tag43">
-                      <b class="label43">Tag</b>
-                    </div>
-                    <div class="tag44">
-                      <b class="label44">Tag</b>
-                    </div>
-                  </div>
-                  <div class="rectangle-parent9">
-                    <div class="frame-child19"></div>
-                    <div class="title-description-wrapper2">
-                      <div class="title-description8">
-                        <div class="title-priority8">
-                          <div class="untitled8">Untitled</div>
-                          <img
-                            class="priority-icon8"
-                            alt=""
-                            src="static/public/priority.svg"
-                          />
-                        </div>
-                        <div class="description8">Description</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="files-parent2">
-                    <div class="files8">
-                      <div class="file24">
-                        <img
-                          class="fileicon24"
-                          alt=""
-                          src="static/public/fileicon@2x.png"
-                        />
-
-                        <div class="file-name24">Folder</div>
-                      </div>
-                      <div class="file25">
-                        <img
-                          class="fileicon25"
-                          alt=""
-                          src="static/public/fileicon-1@2x.png"
-                        />
-
-                        <div class="file-name25">File</div>
-                      </div>
-                      <div class="file26">
-                        <img
-                          class="fileicon26"
-                          alt=""
-                          src="static/public/fileicon-2@2x.png"
-                        />
-
-                        <div class="file-name26">Ticket</div>
-                      </div>
-                    </div>
-                    <div class="links8">
-                      <div class="url16">
-                        <img
-                          class="tabler-icon-link16"
-                          alt=""
-                          src="static/public/tablericonlink.svg"
-                        />
-
-                        <div class="url-label16">URL label</div>
-                      </div>
-                      <div class="url17">
-                        <img
-                          class="tabler-icon-link17"
-                          alt=""
-                          src="static/public/tablericonlink.svg"
-                        />
-
-                        <div class="url-label17">URL label</div>
-                      </div>
-                    </div>
-                    <div class="notes33">
-                      <div class="notes34">Notes:</div>
-                      <div class="type-here16">
-                        <p class="type-here17">Type here...</p>
-                        <p class="blank-line8">&nbsp;</p>
-                      </div>
-                    </div>
-                    <div class="notes35">
-                      <div class="notes-child4"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-member-due-date8">
-                  <div class="teammember8">
-                    <div class="teammember-child2"></div>
-                    <div class="to-be-assigned8">To be assigned</div>
-                  </div>
-                  <div class="date8">
-                    <img
-                      class="tabler-icon-calendar-event8"
-                      alt=""
-                      src="static/public/tablericoncalendarevent.svg"
-                    />
-
-                    <div class="dd-mm8">DD MM</div>
-                  </div>
-                </div>
-              </div>
+              {%endfor%}
             </div>
           </div>
         </section>
