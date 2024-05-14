@@ -103,7 +103,7 @@ def retreive_data_user():
 def retrieve_emp_data(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-             SELECT e.e_name, e.designation, e_phone_no, p.p_name 
+            SELECT e.e_name, e.designation, e_phone_no, p.p_name 
             FROM employees e
             LEFT JOIN assigned a ON e.e_id = a.emp_id
             LEFT JOIN projects p ON p.p_id = a.project_id
@@ -135,11 +135,17 @@ def retreive_no_of_employee(user_id):
     
 def emphired_thismonth(user_id):
     with connection.cursor() as cursor:
-        cursor.execute("""select count(e_id)from employees 
+        cursor.execute("""
+                       select count(e_id)from employees 
                         where  user_id =%s and current_date - date_of_hiring between 0 and 30;""",[user_id])
         data=cursor.fetchone()
         return data
     
+def retreive_ename(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("""select e_name from employees where user_id=%s;""",[user_id])
+        data=cursor.fetchall()
+        return data
     
     
     
@@ -169,9 +175,9 @@ def insert_data_projects(name,client,due,tasks,assigned,user_id):
                        ,[name,due,user_id,cli_id])
         cursor.execute("SELECT p_id FROM projects WHERE p_name=%s AND user_id=%s;",[name,user_id])
         proj = cursor.fetchone()
-        cursor.execute(" INSERT INTO assigned(project_id,emp_id) VALUES (%s,%s);",[proj,emp_id])
+        cursor.execute("INSERT INTO assigned(project_id,emp_id) VALUES (%s,%s);",[proj,emp_id])
         for i in tasks:
-            cursor.execute(" INSERT INTO tasks (project_id,task_name) VALUES (%s,%s);",[proj,i]) 
+            cursor.execute("INSERT INTO tasks (project_id,task_name) VALUES (%s,%s);",[proj,i]) 
        
 def project_progress(user_id):
     with connection.cursor() as cursor:
@@ -229,7 +235,7 @@ def projects_yearly(user_id,year):
 def project_monthly(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-                       select
+                        select
                         COUNT(*) AS project_count
                         FROM projects
                         where user_id=%s and EXTRACT(MONTH FROM starting_date)=EXTRACT(MONTH FROM current_date)
@@ -252,7 +258,7 @@ def retreive_email_client():
 
 def insert_data_client(name,phone,email,company,status,stage,user_id,country):
     with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO clients (c_name,c_phone_no,c_email,company_name,status,stage,user_id,country) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);"
+        cursor.execute("INSERT INTO clients (c_name,c_phone_no,c_email,company_name,status,stage,user_id,country) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);"
                        ,[name,phone,email,company,status,stage,user_id,country])
         
 def retreive_contacts_details(user_id):
@@ -268,7 +274,7 @@ def retreive_cname(user_id):
         cursor.execute("""
             select c_name from clients where user_id=%s;
         """,[user_id])
-        data = cursor.fetchone()
+        data = cursor.fetchall()
     return data
 
 def retreive_prospects(user_id):

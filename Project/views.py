@@ -60,6 +60,10 @@ def add_new_employee(request):#done
     message=None
     if request.method == "POST":
         name = request.POST.get('name')
+        enames=models.retreive_ename(user_id)
+        if name in enames:
+            message="Employee Already Present .. Try adding another Employee"
+            return render(request,'add-a-new-employee.html',{'message':message})
         designation = request.POST.get('designation')
         phone = request.POST.get('contact')
         email = request.POST.get('email')
@@ -156,7 +160,8 @@ def add_new_meeting(request):#done
         models.insert_data_meeting(title,date,time,wit,link,user_id)
         return HttpResponseRedirect('meeting-added')
     else:
-        return render(request,'add-a-new-meeting.html')
+        cnames=models.retreive_cname(user_id)
+        return render(request,'add-a-new-meeting.html',{'clients':cnames})
     
     
 def dashboard(request):
@@ -192,6 +197,10 @@ def add_new_contact(request):#done
     message=None
     if request.method == "POST":
         fullname = request.POST.get('client-name')
+        names=models.retreive_cname(user_id)
+        if fullname in names:
+            message="Contact Already Present .. Try Again"
+            return render(request,'add-a-new-contact.html',{'message':message})
         email = request.POST.get('email')
         if email.find('@')==-1 or email.find('.')==-1:
             message="Invalid Email .. Please Enter a valid Email"
@@ -253,7 +262,9 @@ def add_new_project(request):
         models.insert_data_projects(project,client,due,tasks,assigned,user_id)
         return HttpResponseRedirect('project-added')
     else:
-        return render(request,'add-a-new-project.html')
+        cnames=models.retreive_cname(user_id)
+        enames=models.retreive_ename(user_id)
+        return render(request,'add-a-new-project.html',{'clients':cnames,'employees':enames})
     
 def project_details(request):
     return render(request,'projects-view-details.html')
