@@ -48,7 +48,12 @@
             />
           </div>
           <h2 class="client-name10">Client Name:</h2>
-          <div class="add-a-new-project1">
+          <select name="with">
+            {%for c in clients%}
+            <option value="{{c.0}}">{{c.0}}</option>
+            {%endfor%}
+          </select>
+          {% comment %} <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
               placeholder="Name of Client"
@@ -56,7 +61,7 @@
               name="client"
 
             />
-          </div>
+          </div> {% endcomment %}
           {% comment %} <h2 class="client-name10">Starting Date:</h2>
           <div class="add-a-new-project1">
             <input
@@ -86,7 +91,12 @@
               name="status"
             /> {% endcomment %}
           </div><h2 class="client-name10">Assigned To:</h2>
-          <div class="add-a-new-project1">
+          <select name="with">
+            {%for e in employees%}
+            <option value="{{e.0}}">{{e.0}}</option>
+            {%endfor%}
+    </select>
+          {% comment %} <div class="add-a-new-project1">
             <input
               class="enter-name-of1"
               placeholder="Enter name of employee"
@@ -94,7 +104,7 @@
               name="employee"
 
             />
-          </div>
+          </div> {% endcomment %}
           <h2 class="set-tasks">Set Tasks:</h2>
           <div class="add-a-new-project4">
             <input

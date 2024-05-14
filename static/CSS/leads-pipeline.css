@@ -1,3 +1,7 @@
+#hiddenSubmitButton {
+  position: absolute;
+  left: -9999px;
+}
 .logo-icon {
   height: 30px;
   width: 67px;

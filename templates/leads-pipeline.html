@@ -118,16 +118,17 @@
                         </p>
                       </div>
                       
-                      <form method="POST">
+                      <form id="statusForm" method="POST">
                         {% csrf_token %}
-                        <select name="cstatus">
+                        <select name="cstatus" onchange="this.form.submit()">
                                 {% comment %} <option value="prospect">Prospect</option> {% endcomment %}
+                                <option >Select Option:</option>
                                 <option value="Qualified lead,{{prosp.0}}">Qualified Lead</option>
                                 <option value="call done,{{prosp.0}}">Call Done</option>
                                 <option value="client won,{{prosp.0}}">Client Won</option>
                                 <option value="Confirmed,{{prosp.0}}">Confirmed</option>
                         </select>
-                        <button type="submit">Submit</button>
+                        <button type="submit" id="hiddenSubmitButton" style="display: none;"></button>
                     </form>
                     
                     </div>
@@ -176,16 +177,17 @@
                         </p>
                       </div>
                       
-                      <form method="post">
+                      <form id="statusForm" method="post">
                         {% csrf_token %}
-                        <select name="cstatus">
+                        <select name="cstatus" onchange="this.form.submit()">
+                          <option >Select Option:</option>
                           <option value="call done,{{lead.0}}">Call Done</option>
                           <option value="client won,{{lead.0}}">Client Won</option>
                           <option value="Confirmed,{{lead.0}}">Confirmed</option>
                           <option value="prospect,{{lead.0}}">Prospect</option>
-                                {% comment %} <option value="qlead">Qualified Lead</option> {% endcomment %}
+                          {% comment %} <option value="qlead">Qualified Lead</option> {% endcomment %}
                         </select>
-                        <button type="submit">Submit</button>
+                        <button type="submit" id="hiddenSubmitButton" style="display: none;"></button>
                     </form>
                     </div>
                   </div>
@@ -233,16 +235,17 @@
                           </p>
                         </div>
                         
-                        <form method="post">
+                        <form id="statusForm" method="post">
                           {% csrf_token %}
-                          <select name="cstatus">
+                          <select name="cstatus" onchange="this.form.submit()">
+                            <option >Select Option:</option>
                             <option value="client won,{{call.0}}">Client Won</option>
                             <option value="Confirmed,{{call.0}}">Confirmed</option>
                             <option value="Qualified lead,{{call.0}}">Qualified Lead</option>
                             <option value="prospect,{{call.0}}">Prospect</option>
                                   {% comment %} <option value="cdone">Call Done</option> {% endcomment %}
                           </select>
-                          <button type="submit">Submit</button>
+                          <button type="submit" id="hiddenSubmitButton" style="display: none;"></button>
                       </form>
                       </div>
                     </div>
@@ -291,16 +294,17 @@
                           </p>
                         </div>
                        
-                        <form method="post">
+                        <form id="statusForm" method="post">
                           {% csrf_token %}
-                          <select name="cstatus">
+                          <select name="cstatus" onchange="this.form.submit()">
+                            <option >Select Option:</option>
                             <option value="Confirmed,{{client.0}}">Confirmed</option>
                             <option value="call done,{{client.0}}">Call Done</option>
                             <option value="Qualified lead,{{client.0}}">Qualified Lead</option>
                             <option value="prospect,{{client.0}}">Prospect</option>
                                   {% comment %} <option value="cwon">Client Won</option> {% endcomment %}
                           </select>
-                          <button type="submit">Submit</button>
+                          <button type="submit" id="hiddenSubmitButton" style="display: none;"></button>
                       </form>
                       </div>
                     </div>
