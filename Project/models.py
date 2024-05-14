@@ -69,6 +69,7 @@ def create_table():
                     designation varchar(255),
                     e_phone_no varchar(255),
                     e_email varchar(255),
+                    date_of_hiring date,
                     constraint email_format_check check (e_email like '%_@__%.__%'),
                     gender varchar(255),
                     salary int,
@@ -136,7 +137,7 @@ def retreive_no_of_employee(user_id):
 def emphired_thismonth(user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
-                       select count(e_id)from employees 
+                       select count(e_id)from employees
                         where  user_id =%s and current_date - date_of_hiring between 0 and 30;""",[user_id])
         data=cursor.fetchone()
         return data
@@ -309,17 +310,18 @@ def retreive_cwon(user_id):
         data = cursor.fetchall()
     return data
     
-def update_client_status(status,client_name,user_id):
+def update_client_stage(stage,client_name,user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
             UPDATE clients SET stage=%s WHERE c_name=%s and user_id=%s;
-        """,[status,client_name,user_id])    
+        """,[stage,client_name,user_id])    
         
-def update_client_stage(status,client_name,user_id):
+def update_client_status(status,client_name,user_id):
     with connection.cursor() as cursor:
         cursor.execute("""
             UPDATE clients SET status='active', stage=%s WHERE c_name=%s and user_id=%s;
         """,[status,client_name,user_id])
+       
         
         
 def retreive_meeting_data(user_id):

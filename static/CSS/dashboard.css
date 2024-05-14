@@ -724,7 +724,7 @@
   font-family: inherit;
 }
 .graph-icon {
-  width: 75%;
+  width: 80%;
   height: 100%;
   object-fit: cover;
   position: absolute;
@@ -733,7 +733,7 @@
   transform: scale(1);
 }
 .graph-icon1 {
-  width: 75%;
+  width: 80%;
   height: 100%;
   object-fit: cover;
   position: absolute;

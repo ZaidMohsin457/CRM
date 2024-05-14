@@ -3,7 +3,6 @@ from Project import models
 from Project import graphs
 from django.utils import timezone
 import re
-# Create your views here.
 user_id=1
 def modify(id):
     global user_id
@@ -51,11 +50,85 @@ def signup(request):#done
                 message="Email already registered.. Try another Email"
                 return render(request,'sign-up-page.html',{'message':message})
         models.insert_data_user(fullname,email,password)
-        # print(fullname,email,password)
         return HttpResponseRedirect('login')
     else:
         return render(request,'sign-up-page.html')
     
+def dashboard(request):
+    no_of_employee = models.retreive_no_of_employee(user_id)
+    no_of_employee_hired_this_month = models.emphired_thismonth(user_id)
+    year=timezone.now().year
+    data=models.projects_yearly(user_id,year)
+    graphs.projects_graph(data)
+    data1=models.project_monthly(user_id)
+    data2=models.project_progress_name(user_id)
+    graphs.bar_char(data2)
+    no_of_projects_this_month=models.project_monthly(user_id)
+    return render(request,'dashboard.html',{'total_employees':no_of_employee,'proj':no_of_projects_this_month,'this_month':no_of_employee_hired_this_month,'deals':data1})
+
+
+#Projects
+def project(request):
+    data=models.retreive_projects(user_id)
+    present=timezone.now().date()
+    diff=[]
+    progress=models.project_progress(user_id)
+    if len(data)==0:
+        return render(request,'projects.html',{'data':data})
+    for i in range(len(data)):
+        rem=data[i][3]-present
+        diff.append(rem.days)
+    combined=zip(data,diff,progress)
+    return render(request,'projects.html',{'data':combined})
+
+def add_new_project(request):
+    message=None
+    if request.method == "POST":   
+        project = request.POST.get('name')
+        assigned= request.POST.get('employee')
+        due = request.POST.get('duedate')
+        client = request.POST.get('client')
+        tasks = request.POST.get('tasks').split(',')
+        data=models.retreive_data_projects(user_id)
+        length = len(data)
+        data1=models.retreive_cname(user_id)
+        if client not in data1:
+            message="Client Not Present .. Add Client First"
+            return render(request,'add-a-new-project.html',{'message':message})
+        if length==0:
+            models.insert_data_projects(project,client,due,tasks,assigned,user_id)
+            return HttpResponseRedirect('project-added')
+        for i in range(length):
+            if project == data[i][0]:
+                message="Project Already Present .. Try Again"
+                return render(request,'add-a-new-project.html',{'message':message})
+        models.insert_data_projects(project,client,due,tasks,assigned,user_id)
+        return HttpResponseRedirect('project-added')
+    else:
+        cnames=models.retreive_cname(user_id)
+        enames=models.retreive_ename(user_id)
+        return render(request,'add-a-new-project.html',{'clients':cnames,'employees':enames})
+
+def project_added(request):
+    return render(request,'project-added.html')
+
+
+#Employee
+def employee(request):#done
+    data=models.retrieve_emp_data(user_id)
+    merged_data = {}
+    for item in data:
+        name, designation, phone, project = item
+        if name not in merged_data:
+            merged_data[name] = {'designation': designation, 'phone': phone, 'projects': []}
+        if project:
+            merged_data[name]['projects'].append(project)
+    final_result = [
+        (name, details['designation'], details['phone'], ', '.join(details['projects']))
+        for name, details in merged_data.items()
+    ]
+    return render(request,'employees.html',{'data':final_result})
+
 def add_new_employee(request):#done
     message=None
     if request.method == "POST":
@@ -89,34 +162,25 @@ def add_new_employee(request):#done
         return HttpResponseRedirect('employee-added')
     else:
         return render(request,'add-a-new-employee.html')
-    
-def employee(request):#done
-    data=models.retrieve_emp_data(user_id)
-    merged_data = {}
-    for item in data:
-        name, designation, phone, project = item
-        if name not in merged_data:
-            merged_data[name] = {'designation': designation, 'phone': phone, 'projects': []}
-        if project:
-            merged_data[name]['projects'].append(project)
-    final_result = [
-        (name, details['designation'], details['phone'], ', '.join(details['projects']))
-        for name, details in merged_data.items()
-    ]
-    return render(request,'employees.html',{'data':final_result})
 
 def employee_added(request):
     return render(request,'employee-added.html')
 
-def project_added(request):
-    return render(request,'project-added.html')
 
-def meeting_added(request):
-    return render(request,'meeting-added.html')
-
-def contact_added(request):
-    return render(request,'contact-added.html')
-
+#Meetings
+def meeting_shcheduler(request):#done
+    data=models.retreive_contacts_details(user_id)
+    models.delete_prev_meeting(user_id)
+    meetings=models.retrieve_meetings(user_id)
+    now=None
+    if len(meetings)==0:
+        return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
+    if meetings[0][1] == timezone.now().date():
+        now=meetings[0]
+        meetings=meetings[1:]
+    else:
+        now=None
+    return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
 
 def validate_time_format(input_time):
     pattern = r'^([01]\d|2[0-3]):([0-5]\d)$'
@@ -162,37 +226,27 @@ def add_new_meeting(request):#done
     else:
         cnames=models.retreive_cname(user_id)
         return render(request,'add-a-new-meeting.html',{'clients':cnames})
-    
-    
-def dashboard(request):
-    no_of_employee = models.retreive_no_of_employee(user_id)
-    no_of_employee_hired_this_month = models.emphired_thismonth(user_id)
-    year=timezone.now().year
-    data=models.projects_yearly(user_id,year)
-    graphs.projects_graph(data)
-    data1=models.project_monthly(user_id)
-    data2=models.project_progress_name(user_id)
-    graphs.bar_char(data2)
-    no_of_projects_this_month=models.project_monthly(user_id)
-    return render(request,'dashboard.html',{'total_employees':no_of_employee,'proj':no_of_projects_this_month,'this_month':no_of_employee_hired_this_month,'deals':data1})
 
-def employee_details(request):
-    return render(request,'view-employee-profile.html')
+def meeting_added(request):
+    return render(request,'meeting-added.html')
 
-def meeting_shcheduler(request):#done
-    data=models.retreive_contacts_details(user_id)
-    models.delete_prev_meeting(user_id)
-    meetings=models.retrieve_meetings(user_id)
-    now=None
-    if len(meetings)==0:
-        return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
-    if meetings[0][1] == timezone.now().date():
-        now=meetings[0]
-        meetings=meetings[1:]
+
+#Lead-Pipeline
+def leads_pipeline(request):
+    if request.method =="POST":
+        option=request.POST.get('cstatus').split(',')
+        if option[0]!="Confirmed":
+            models.update_client_stage(option[0],option[1],user_id)
+        else:
+            models.update_client_status(option[0],option[1],user_id)
+        return HttpResponseRedirect('leads-pipeline')
     else:
-        now=None
-    return render(request,'meeting-scheduler.html',{'data':data,'now':now,'meetings':meetings})
- 
+        prospects=models.retreive_prospects(user_id)
+        leads=models.retreive_leads(user_id)
+        cwon=models.retreive_cwon(user_id)
+        call_done=models.retreive_calldone(user_id)
+        return render(request,'leads-pipeline.html',{'prospects':prospects,'leads':leads,'cwon':cwon,'call_done':call_done}) 
+
 def add_new_contact(request):#done
     message=None
     if request.method == "POST":
@@ -225,64 +279,5 @@ def add_new_contact(request):#done
     else:
         return render(request,'add-a-new-contact.html')
     
-def project(request):
-    data=models.retreive_projects(user_id)
-    present=timezone.now().date()
-    diff=[]
-    progress=models.project_progress(user_id)
-    if len(data)==0:
-        return render(request,'projects.html',{'data':data})
-    for i in range(len(data)):
-        rem=data[i][3]-present
-        diff.append(rem.days)
-    combined=zip(data,diff,progress)
-    return render(request,'projects.html',{'data':combined})
-
-def add_new_project(request):
-    message=None
-    if request.method == "POST":   
-        project = request.POST.get('name')
-        assigned= request.POST.get('employee')
-        due = request.POST.get('duedate')
-        client = request.POST.get('client')
-        tasks = request.POST.get('tasks').split(',')
-        data=models.retreive_data_projects(user_id)
-        length = len(data)
-        data1=models.retreive_cname(user_id)
-        if client not in data1:
-            message="Client Not Present .. Add Client First"
-            return render(request,'add-a-new-project.html',{'message':message})
-        if length==0:
-            models.insert_data_projects(project,client,due,tasks,assigned,user_id)
-            return HttpResponseRedirect('project-added')
-        for i in range(length):
-            if project == data[i][0]:
-                message="Project Already Present .. Try Again"
-                return render(request,'add-a-new-project.html',{'message':message})
-        models.insert_data_projects(project,client,due,tasks,assigned,user_id)
-        return HttpResponseRedirect('project-added')
-    else:
-        cnames=models.retreive_cname(user_id)
-        enames=models.retreive_ename(user_id)
-        return render(request,'add-a-new-project.html',{'clients':cnames,'employees':enames})
-    
-def project_details(request):
-    return render(request,'projects-view-details.html')
-
-def leads_pipeline(request):
-    if request.method =="POST":
-        option=request.POST.get('cstatus').split(',')
-        if option[0]!="Confirmed":
-            models.update_client_status(option[0],option[1],user_id)
-        else:
-            models.update_client_stage(option[0],option[1],user_id)
-        return HttpResponseRedirect('leads-pipeline')
-    else:
-        prospects=models.retreive_prospects(user_id)
-        leads=models.retreive_leads(user_id)
-        cwon=models.retreive_cwon(user_id)
-        call_done=models.retreive_calldone(user_id)
-        return render(request,'leads-pipeline.html',{'prospects':prospects,'leads':leads,'cwon':cwon,'call_done':call_done})
-
-
-    
+def contact_added(request):
+    return render(request,'contact-added.html')
