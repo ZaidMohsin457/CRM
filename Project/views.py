@@ -92,10 +92,6 @@ def add_new_project(request):
         tasks = request.POST.get('tasks').split(',')
         data=models.retreive_data_projects(user_id)
         length = len(data)
-        data1=models.retreive_cname(user_id)
-        if client not in data1:
-            message="Client Not Present .. Add Client First"
-            return render(request,'add-a-new-project.html',{'message':message})
         if length==0:
             models.insert_data_projects(project,client,due,tasks,assigned,user_id)
             return HttpResponseRedirect('project-added')
@@ -135,10 +131,6 @@ def add_new_employee(request):#done
     message=None
     if request.method == "POST":
         name = request.POST.get('name')
-        enames=models.retreive_ename(user_id)
-        if name in enames:
-            message="Employee Already Present .. Try adding another Employee"
-            return render(request,'add-a-new-employee.html',{'message':message})
         designation = request.POST.get('designation')
         phone = request.POST.get('contact')
         email = request.POST.get('email')
