@@ -296,6 +296,9 @@
   letter-spacing: normal;
   line-height: normal;
 }
+
+
+
 @media screen and (max-width: 900px) {
   .add-a-new2 {
     font-size: var(--typography-desktop-h1-size);

@@ -3,6 +3,34 @@ body {
   line-height: normal;
 }
 
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  width: 170px;
+  appearance: none; /* Remove default arrow icon */
+}
+
+/* Style for the options */
+select option {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Hover effect for options */
+select option:hover {
+  background-color: #f1f1f1;
+}
+
+/* Focus effect for select element */
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 :root {
   /* fonts */
   --font-roboto: Roboto;
