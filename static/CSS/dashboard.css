@@ -327,7 +327,7 @@
   box-sizing: border-box;
 }
 .subtract-icon1 {
-  height: 75px;
+  height: 110px;
   width: auto;
   position: relative;
 }
@@ -342,7 +342,7 @@
   top: 0;
 }
 .chart {
-  left: 13px;
+  left: 35px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;

@@ -67,6 +67,7 @@ def dashboard(request):
     return render(request,'dashboard.html',{'total_employees':no_of_employee,'proj':no_of_projects_this_month,'this_month':no_of_employee_hired_this_month,'deals':data1})
 
 
+
 #Projects
 def project(request):
     data=models.retreive_projects(user_id)
@@ -111,6 +112,7 @@ def add_new_project(request):
 
 def project_added(request):
     return render(request,'project-added.html')
+
 
 
 #Employee
@@ -165,6 +167,7 @@ def add_new_employee(request):#done
 
 def employee_added(request):
     return render(request,'employee-added.html')
+
 
 
 #Meetings
@@ -229,6 +232,7 @@ def add_new_meeting(request):#done
 
 def meeting_added(request):
     return render(request,'meeting-added.html')
+
 
 
 #Lead-Pipeline

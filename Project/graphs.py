@@ -1,4 +1,3 @@
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -12,7 +11,6 @@ def bar_char(data):
     plt.ylabel('Progress')
     plt.title('Progress of Projects')
     plt.xticks(name)
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.savefig('static/public/project_graph1.svg')
     
     
@@ -28,5 +26,4 @@ def projects_graph(data):
     plt.ylabel('Number of Projects')
     plt.title('Projects Made per Month')
     plt.xticks(range(1, 13))
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.savefig('static/public/project_graph.svg')
