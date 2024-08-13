@@ -76,13 +76,14 @@ WSGI_APPLICATION = 'CS232P.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',
-        'USER': 'myuser',
-        'PASSWORD': 'mypass',
-        'HOST': 'localhost',
-        'PORT': '',
-    }}
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'CRMdb',
+        'USER': 'mysuperuser',
+        'PASSWORD': 'mysuperuser',
+        'HOST': 'crmdb.c7ywmkw80i06.eu-north-1.rds.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation

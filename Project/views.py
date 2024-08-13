@@ -3,7 +3,7 @@ from Project import models
 from Project import graphs
 from django.utils import timezone
 import re
-user_id=1
+user_id=0
 def modify(id):
     global user_id
     user_id=id
