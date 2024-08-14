@@ -1,0 +1,11 @@
+django
+djangorestframework
+django_rest_knox
+psycopg2-binary
+gunicorn
+boto3
+django-storages
+django-cors-headers
+numpy
+matplotlib
+re
