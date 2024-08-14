@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    whitenoise.runserver_nostatic,
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    whitenoise.runserver_nostatic,
 ]
 
 ROOT_URLCONF = 'CS232P.urls'
@@ -132,9 +134,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-load_dotenv()
-AWS_ACCESS_KEY_ID = os.environ['ID']
-AWS_SECRET_ACCESS_KEY = os.environ['SECRET_KEY']
+AWS_ACCESS_KEY_ID = 'AKIAZI2LE2K5A4IKTOR4'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'crmprojectbucket'
 AWS_S3_SIGNATURE_NAME = 's3v4',
 AWS_S3_REGION_NAME = 'Europe (Stockholm) eu-north-1'

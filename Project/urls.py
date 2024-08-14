@@ -1,7 +1,8 @@
 from Project import views
 from django.contrib import admin
 from django.urls import path
-
+from django.conf import settings # new
+from  django.conf.urls.static import static #new
 urlpatterns = [
     path("",views.index,name="MainPage"),
     path("login", views.login, name="Login"),
@@ -24,3 +25,6 @@ urlpatterns = [
     path("add-new-contact", views.add_new_contact, name="AddNewContact"),
     path("contact-added", views.contact_added, name="ContactAdded"),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_URL)
