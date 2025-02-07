@@ -16,12 +16,15 @@ def login(request):#done
         email = request.POST.get('email')
         password = request.POST.get('password')
         data=models.retreive_data_user()
+        print(data[0][0])
         if len(data)==0:
             message="No User Registered .. Please Sign Up First"
             return render(request,'login-page.html',{'message':message})
-        if email == data[0][0] and password == data[0][1]:
-            modify(data[0][2])
-            return HttpResponseRedirect("home")
+        for i in data:
+            print(i[0])
+            if email == i[0] and password == i[1]:
+                modify(i[2])
+                return HttpResponseRedirect("home")
         else:
             message="Invalid Email or Password .. Try Again"
             return render(request,'login-page.html',{'message':message})
