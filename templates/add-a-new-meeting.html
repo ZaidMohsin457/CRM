@@ -101,7 +101,7 @@
                 {% csrf_token %} {% endcomment %}
                 <select name="with">
                         {%for c in clients%}
-                        <option value="{{c.0}}">{{c.0}}</option>
+                        <option value="{{c}}">{{c}}</option>
                         {%endfor%}
                 </select>
             {% comment %} </form> {% endcomment %}

@@ -1,354 +1,318 @@
-from django.db import connection
+from django.db import models
+from django.core.validators import RegexValidator
+from django.db.models import Count, Case, When, Value, IntegerField, Q, F, ExpressionWrapper
+from django.db.models.functions import ExtractMonth
+from datetime import date, timedelta
 
-# Create your models here.
-def create_table():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-                create table if not exists users
-                (
-                    u_id serial primary key,
-                    u_name varchar(255),
-                    u_email varchar(255),
-                    constraint email_format_check check (u_email like '%_@__%.__%'),
-                    password varchar(255)
-                );
-                
-                create table if not exists clients
-                (
-                    c_id serial primary key,
-                    c_name varchar(255),
-                    c_phone_no varchar(255),
-                    c_email varchar(255),
-                    constraint email_format_check check (c_email like '%_@__%.__%'),
-                    company_name varchar(255),
-                    status varchar(255),
-                    stage varchar(255),
-                    country varchar(50),
-                    user_id int,
-                    foreign key(user_id) references users(u_id)
-                );
-                
-                create table if not exists projects
-                (
-                    p_id serial primary key,
-                    p_name varchar(255),
-                    due_date date,
-                    starting_date date,
-                    user_id int,
-                    client_id int,
-                    foreign key(user_id) references users(u_id),
-                    foreign key(client_id) references clients(c_id)
-                );
-                
-                create table if not exists tasks
-                (
-                    task_id serial,
-                    project_id int,
-                    task_name varchar(255),
-                    status varchar(100) default 'pending',
-                    foreign key(project_id) references projects(p_id),
-                    primary key(project_id,task_id) 
-                );
-                create table if not exists meetings
-                (
-                    m_id serial primary key,
-                    title varchar(255),
-                    m_time time,
-                    zoom_link varchar(100) not null ,
-                    meetin_date date,
-                    user_id int,
-                    client_id int,
-                    foreign key (user_id) references users(u_id),
-                    foreign key(client_id) references clients(c_id)
-                );
-                
-                create table if not exists employees
-                (
-                    e_id serial primary key,
-                    e_name varchar(255),
-                    designation varchar(255),
-                    e_phone_no varchar(255),
-                    e_email varchar(255),
-                    date_of_hiring date,
-                    constraint email_format_check check (e_email like '%_@__%.__%'),
-                    gender varchar(255),
-                    salary int,
-                    user_id int,
-                    country varchar(10),
-                    foreign key(user_id) references users(u_id)
-                );
-                
-                create table if not exists assigned
-                (
-                    project_id int,
-                    emp_id int,
-                    primary key(project_id,emp_id),
-                    foreign key(project_id) references projects(p_id),
-                    foreign key(emp_id) references employees(e_id)
-                );
-        """)
-def insert_data_user(name,email,password):
-    with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO users (u_name,u_email,password) VALUES (%s,%s,%s);" ,[name,email,password])  
+class User(models.Model):
+    u_id = models.AutoField(primary_key=True)
+    u_name = models.CharField(max_length=255)
+    u_email = models.CharField(
+        max_length=255,
+        validators=[
+            RegexValidator(
+                regex=r'^[^@]+@[^@]+\.[^@]+$',
+                message='Enter a valid email address.'
+            )
+        ]
+    )
+    password = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'users'
+
+class Client(models.Model):
+    c_id = models.AutoField(primary_key=True)
+    c_name = models.CharField(max_length=255)
+    c_phone_no = models.CharField(max_length=255)
+    c_email = models.CharField(
+        max_length=255,
+        validators=[
+            RegexValidator(
+                regex=r'^[^@]+@[^@]+\.[^@]+$',
+                message='Enter a valid email address.'
+            )
+        ]
+    )
+    company_name = models.CharField(max_length=255)
+    status = models.CharField(max_length=255)
+    stage = models.CharField(max_length=255)
+    country = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'clients'
+
+class Project(models.Model):
+    p_id = models.AutoField(primary_key=True)
+    p_name = models.CharField(max_length=255)
+    due_date = models.DateField()
+    starting_date = models.DateField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'projects'
+
+class Task(models.Model):
+    task_id = models.AutoField(primary_key=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    task_name = models.CharField(max_length=255)
+    status = models.CharField(max_length=100, default='pending')
+
+    class Meta:
+        db_table = 'tasks'
+        unique_together = (('project', 'task_id'),)
+
+class Meeting(models.Model):
+    m_id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=255)
+    m_time = models.TimeField()
+    zoom_link = models.CharField(max_length=100)
+    meetin_date = models.DateField()  # Note the typo in field name
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'meetings'
+
+class Employee(models.Model):
+    e_id = models.AutoField(primary_key=True)
+    e_name = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    e_phone_no = models.CharField(max_length=255)
+    e_email = models.CharField(
+        max_length=255,
+        validators=[
+            RegexValidator(
+                regex=r'^[^@]+@[^@]+\.[^@]+$',
+                message='Enter a valid email address.'
+            )
+        ]
+    )
+    date_of_hiring = models.DateField()
+    gender = models.CharField(max_length=255)
+    salary = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    country = models.CharField(max_length=10)
+
+    class Meta:
+        db_table = 'employees'
+
+class Assigned(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    emp = models.ForeignKey(Employee, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'assigned'
+        unique_together = (('project', 'emp'),)
         
+# User-related functions
+def insert_data_user(name, email, password):
+    User.objects.create(u_name=name, u_email=email, password=password)
+
 def retreive_data_user():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT u_email,password,u_id FROM users;
-        """)
-        data = cursor.fetchall()
-    return data
+    return list(User.objects.values_list('u_email', 'password', 'u_id'))
 
-
-
+# Employee-related functions
 def retrieve_emp_data(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT e.e_name, e.designation, e_phone_no, p.p_name 
-            FROM employees e
-            LEFT JOIN assigned a ON e.e_id = a.emp_id
-            LEFT JOIN projects p ON p.p_id = a.project_id
-            where e.user_id=%s
-            GROUP BY e.e_name, e.designation, e_phone_no, p.p_name;
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
+    return list(Employee.objects.filter(user_id=user_id).values_list(
+        'e_name', 'designation', 'e_phone_no', 'assigned__project__p_name'
+    ))
 
 def retreive_data_employee():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT e_email from employees;
-        """)
-        data = cursor.fetchall()
-    return data
+    return list(Employee.objects.values_list('e_email', flat=True))
 
-def insert_data_employee(name,designation,phone,email,gender,country,salary,user_id):
-    with connection.cursor() as cursor:
-        cursor.execute(" INSERT INTO employees (e_name,designation,e_phone_no,e_email,gender,country,salary,user_id,date_of_hiring) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,current_date);" ,[name,designation,phone,email,gender,country,salary,user_id])
-        
+def insert_data_employee(name, designation, phone, email, gender, country, salary, user_id):
+    user = User.objects.get(u_id=user_id)
+    Employee.objects.create(
+        e_name=name,
+        designation=designation,
+        e_phone_no=phone,
+        e_email=email,
+        gender=gender,
+        country=country,
+        salary=salary,
+        user=user,
+        date_of_hiring=date.today()
+    )
+
 def retreive_no_of_employee(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select count(e_id) from employees where user_id=%s;
-        """,[user_id])
-        data = cursor.fetchone()
-    return data  
-    
+    count = Employee.objects.filter(user_id=user_id).count()
+    return (count,)
+
 def emphired_thismonth(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-                       select count(e_id)from employees
-                        where  user_id =%s and current_date - date_of_hiring between 0 and 30;""",[user_id])
-        data=cursor.fetchone()
-        return data
-    
+    thirty_days_ago = date.today() - timedelta(days=30)
+    count = Employee.objects.filter(
+        user_id=user_id,
+        date_of_hiring__gte=thirty_days_ago
+    ).count()
+    return (count,)
+
 def retreive_ename(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""select e_name from employees where user_id=%s;""",[user_id])
-        data=cursor.fetchall()
-        return data
-    
-    
-    
+    return list(Employee.objects.filter(user_id=user_id).values_list('e_name', flat=True))
+
+# Project-related functions
 def retreive_projects(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select p.p_name,c.c_name,e.e_name, p.due_date from projects p, clients c ,employees e,assigned a where p.user_id=%s and p.client_id=c.c_id and c.user_id=p.user_id and a.project_id=p.p_id and a.emp_id=e.e_id;
-        """,[user_id])
-        data = cursor.fetchall()
+    projects = Project.objects.filter(user_id=user_id, client__user_id=user_id)
+    assigned = Assigned.objects.filter(project__in=projects).select_related('project', 'emp', 'project__client')
+    data = []
+    for assign in assigned:
+        data.append((
+            assign.project.p_name,
+            assign.project.client.c_name,
+            assign.emp.e_name,
+            assign.project.due_date
+        ))
     return data
 
 def retreive_data_projects(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT p_name from projects where user_id=%s;
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
+    return list(Project.objects.filter(user_id=user_id).values_list('p_name', flat=True))
 
-def insert_data_projects(name,client,due,tasks,assigned,user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT c_id FROM clients WHERE c_name=%s AND user_id=%s;",[client,user_id])
-        cli_id = cursor.fetchone()
-        cursor.execute("SELECT e_id FROM employees WHERE e_name=%s AND user_id=%s;",[assigned,user_id])
-        emp_id = cursor.fetchone()
-        cursor.execute(" INSERT INTO projects (p_name,starting_date,due_date,user_id,client_id) VALUES (%s,current_date,%s,%s,%s);"
-                       ,[name,due,user_id,cli_id])
-        cursor.execute("SELECT p_id FROM projects WHERE p_name=%s AND user_id=%s;",[name,user_id])
-        proj = cursor.fetchone()
-        cursor.execute("INSERT INTO assigned(project_id,emp_id) VALUES (%s,%s);",[proj,emp_id])
-        for i in tasks:
-            cursor.execute("INSERT INTO tasks (project_id,task_name) VALUES (%s,%s);",[proj,i]) 
-       
+def insert_data_projects(name, client_name, due, tasks, assigned_emp_name, user_id):
+    client = Client.objects.get(c_name=client_name, user_id=user_id)
+    employee = Employee.objects.get(e_name=assigned_emp_name, user_id=user_id)
+    project = Project.objects.create(
+        p_name=name,
+        starting_date=date.today(),
+        due_date=due,
+        user_id=user_id,
+        client=client
+    )
+    Assigned.objects.create(project=project, emp=employee)
+    for task_name in tasks:
+        Task.objects.create(project=project, task_name=task_name)
+
 def project_progress(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT 
-            projects.p_id AS project_id,
-            CASE 
-                WHEN COUNT(tasks.task_id) = 0 THEN 0
-                ELSE (COUNT(CASE WHEN tasks.status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
-            END AS progress_percentage
-            FROM 
-                projects
-            LEFT JOIN 
-                tasks ON projects.p_id = tasks.project_id
-                WHERE projects.user_id=%s
-            GROUP BY 
-                projects.p_id;
-        """,[user_id])
-        data = cursor.fetchall()
-    return data  
+    projects = Project.objects.filter(user_id=user_id).annotate(
+        total_tasks=Count('task'),
+        completed_tasks=Count('task', filter=Q(task__status='completed'))
+    ).annotate(
+        progress_percentage=Case(
+            When(total_tasks=0, then=0),
+            default=ExpressionWrapper(
+                F('completed_tasks') * 100 / F('total_tasks'),
+                output_field=IntegerField()
+            )
+        )
+    ).values_list('p_id', 'progress_percentage')
+    return list(projects)
 
 def project_progress_name(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT 
-            projects.p_name AS project_name,
-            CASE 
-                WHEN COUNT(tasks.task_id) = 0 THEN 0
-                ELSE (COUNT(CASE WHEN tasks.status = 'completed' THEN 1 END) * 100) / COUNT(tasks.task_id)
-            END AS progress_percentage
-            FROM 
-                projects
-            LEFT JOIN 
-                tasks ON projects.p_id = tasks.project_id
-                WHERE projects.user_id=%s
-            GROUP BY 
-                projects.p_id;
-        """,[user_id])
-        data = cursor.fetchall()
-    return data  
+    projects = Project.objects.filter(user_id=user_id).annotate(
+        total_tasks=Count('task'),
+        completed_tasks=Count('task', filter=Q(task__status='completed'))
+    ).annotate(
+        progress_percentage=Case(
+            When(total_tasks=0, then=0),
+            default=ExpressionWrapper(
+                F('completed_tasks') * 100 / F('total_tasks'),
+                output_field=IntegerField()
+            )
+        )
+    ).values_list('p_name', 'progress_percentage')
+    return list(projects)
 
-def projects_yearly(user_id,year):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT EXTRACT(MONTH FROM starting_date) AS month,
-            COUNT(*) AS project_count
-            FROM projects
-            where user_id=%s and EXTRACT(YEAR FROM starting_date)=%s
-            GROUP BY EXTRACT(MONTH FROM starting_date)
-            ORDER BY EXTRACT(MONTH FROM starting_date);
-        """,[user_id,year])
-        data = cursor.fetchall()
+def projects_yearly(user_id, year):
+    queryset = Project.objects.filter(
+        user_id=user_id,
+        starting_date__year=year
+    ).annotate(
+        month=ExtractMonth('starting_date')
+    ).values('month').annotate(
+        project_count=Count('p_id')
+    ).order_by('month')
+    data = [(entry['month'], entry['project_count']) for entry in queryset]
     return data
 
 def project_monthly(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-                        select
-                        COUNT(*) AS project_count
-                        FROM projects
-                        where user_id=%s and EXTRACT(MONTH FROM starting_date)=EXTRACT(MONTH FROM current_date)
-                        GROUP BY EXTRACT(MONTH FROM starting_date)
-                        ORDER BY EXTRACT(MONTH FROM starting_date);
-        """,[user_id])
-        data = cursor.fetchone()
-    return data
+    current_month = date.today().month
+    current_year = date.today().year
+    count = Project.objects.filter(
+        user_id=user_id,
+        starting_date__month=current_month,
+        starting_date__year=current_year
+    ).count()
+    return (count,)
 
-
-
-
+# Client-related functions
 def retreive_email_client():
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT c_email from clients;
-        """)
-        data = cursor.fetchall()
-    return data
+    return list(Client.objects.values_list('c_email', flat=True))
 
-def insert_data_client(name,phone,email,company,status,stage,user_id,country):
-    with connection.cursor() as cursor:
-        cursor.execute("INSERT INTO clients (c_name,c_phone_no,c_email,company_name,status,stage,user_id,country) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);"
-                       ,[name,phone,email,company,status,stage,user_id,country])
-        
+def insert_data_client(name, phone, email, company, status, stage, user_id, country):
+    user = User.objects.get(u_id=user_id)
+    Client.objects.create(
+        c_name=name,
+        c_phone_no=phone,
+        c_email=email,
+        company_name=company,
+        status=status,
+        stage=stage,
+        user=user,
+        country=country
+    )
+
 def retreive_contacts_details(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select c_name,c_email,c_phone_no,company_name from clients where user_id=%s and status='active';
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
+    return list(Client.objects.filter(user_id=user_id, status='active').values_list(
+        'c_name', 'c_email', 'c_phone_no', 'company_name'
+    ))
 
 def retreive_cname(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select c_name from clients where user_id=%s;
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
+    return list(Client.objects.filter(user_id=user_id).values_list('c_name', flat=True))
 
 def retreive_prospects(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='prospect';
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
-   
+    return list(Client.objects.filter(
+        user_id=user_id,
+        status='pending',
+        stage='prospect'
+    ).values_list('c_name', 'c_email', 'company_name'))
+
 def retreive_leads(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='Qualified lead';
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
+    return list(Client.objects.filter(
+        user_id=user_id,
+        status='pending',
+        stage='Qualified lead'
+    ).values_list('c_name', 'c_email', 'company_name'))
 
 def retreive_calldone(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='call done';
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
+    return list(Client.objects.filter(
+        user_id=user_id,
+        status='pending',
+        stage='call done'
+    ).values_list('c_name', 'c_email', 'company_name'))
 
 def retreive_cwon(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select c_name,c_email,company_name from clients where user_id=%s and status='pending' and stage='client won';
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
-    
-def update_client_stage(stage,client_name,user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            UPDATE clients SET stage=%s WHERE c_name=%s and user_id=%s;
-        """,[stage,client_name,user_id])    
-        
-def update_client_status(status,client_name,user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            UPDATE clients SET status='active', stage=%s WHERE c_name=%s and user_id=%s;
-        """,[status,client_name,user_id])
-       
-        
-        
+    return list(Client.objects.filter(
+        user_id=user_id,
+        status='pending',
+        stage='client won'
+    ).values_list('c_name', 'c_email', 'company_name'))
+
+def update_client_stage(stage, client_name, user_id):
+    Client.objects.filter(c_name=client_name, user_id=user_id).update(stage=stage)
+
+def update_client_status(status, client_name, user_id):
+    Client.objects.filter(c_name=client_name, user_id=user_id).update(status='active', stage=status)
+
+# Meeting-related functions
 def retreive_meeting_data(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""Select m_time,meetin_date from meetings where user_id=%s;""",[user_id])  
-        data = cursor.fetchall() 
-    return data    
+    return list(Meeting.objects.filter(user_id=user_id).values_list('m_time', 'meetin_date'))
 
 def retrieve_meetings(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            select m.title, m.meetin_date, m.m_time, c.c_name, m.zoom_link from meetings m, clients c where m.user_id=%s and m.client_id=c.c_id
-            order  by m.meetin_date asc, m.m_time asc
-            limit 3;
-        """,[user_id])
-        data = cursor.fetchall()
-    return data
-def insert_data_meeting(title,date,time,withm,link,user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT c_id FROM clients WHERE c_name=%s AND user_id=%s;",[withm,user_id])
-        cli_id = cursor.fetchone()
-        cursor.execute(" INSERT INTO meetings (title,meetin_date,m_time,client_id,zoom_link,user_id) VALUES (%s,%s,%s,%s,%s,%s);"
-                       ,[title,date,time,cli_id,link,user_id])
-        
+    return list(Meeting.objects.filter(user_id=user_id).select_related('client').order_by(
+        'meetin_date', 'm_time'
+    ).values_list('title', 'meetin_date', 'm_time', 'client__c_name', 'zoom_link')[:3])
+
+def insert_data_meeting(title, mtg_date, time, client_name, link, user_id):
+    client = Client.objects.get(c_name=client_name, user_id=user_id)
+    Meeting.objects.create(
+        title=title,
+        meetin_date=mtg_date,
+        m_time=time,
+        zoom_link=link,
+        user_id=user_id,
+        client=client
+    )
+
 def delete_prev_meeting(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            DELETE FROM meetings WHERE user_id=%s and meetin_date < current_date;
-        """,[user_id])
-       
+    Meeting.objects.filter(user_id=user_id, meetin_date__lt=date.today()).delete()

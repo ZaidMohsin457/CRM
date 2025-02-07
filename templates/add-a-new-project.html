@@ -50,7 +50,7 @@
           <h2 class="client-name10">Client Name:</h2>
           <select name="client">
             {%for c in clients%}
-            <option value="{{c.0}}">{{c.0}}</option>
+            <option value="{{c}}">{{c}}</option>
             {%endfor%}
           </select>
           {% comment %} <div class="add-a-new-project1">
@@ -93,7 +93,7 @@
           </div><h2 class="client-name10">Assigned To:</h2>
           <select name="employee">
             {%for e in employees%}
-            <option value="{{e.0}}">{{e.0}}</option>
+            <option value="{{e}}">{{e}}</option>
             {%endfor%}
     </select>
           {% comment %} <div class="add-a-new-project1">

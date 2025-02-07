@@ -8,7 +8,7 @@ def modify(id):
     global user_id
     user_id=id
 def index(request):
-    models.create_table()
+    # models.create_table()
     return render(request,'desktop-1.html')
 def login(request):#done
     message=None
@@ -103,7 +103,9 @@ def add_new_project(request):
         return HttpResponseRedirect('project-added')
     else:
         cnames=models.retreive_cname(user_id)
+        print(cnames)
         enames=models.retreive_ename(user_id)
+        print(enames)
         return render(request,'add-a-new-project.html',{'clients':cnames,'employees':enames})
 
 def project_added(request):
